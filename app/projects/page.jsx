@@ -13,7 +13,7 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Projects"
         title="Case studies and interactive project previews."
-        copy="Filter by category, preview in the spotlight, or open the full case study."
+        copy="Filter by category, preview in the spotlight, and explore both shipped engineering projects and published technical work."
         actions={[
           { label: "Explore practice", href: "/practice/", variant: "primary" },
           { label: "Open resume", href: "/resume/", variant: "secondary" }

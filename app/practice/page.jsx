@@ -1,5 +1,5 @@
 import { AnimateIn } from "@/components/animate-in";
-import { practiceFoundations, practiceTracks } from "@/lib/site-data";
+import { evidenceDocuments, practiceFoundations, practiceTracks, withBasePath } from "@/lib/site-data";
 
 export const metadata = {
   title: "Practice",
@@ -52,6 +52,33 @@ export default function PracticePage() {
             </div>
           </AnimateIn>
         ))}
+      </section>
+
+      <section className="section-block">
+        <AnimateIn className="surface library-card" delay={0.06}>
+          <p className="eyebrow">Evidence Library</p>
+          <h2>Selected reports, coursework artifacts, and certificates.</h2>
+          <div className="proof-grid evidence-grid">
+            {evidenceDocuments.map((document) => (
+              <article key={document.title} className="library-group evidence-card">
+                <div className="preview-head">
+                  <h3>{document.title}</h3>
+                  <span>{document.year}</span>
+                </div>
+                <p className="micro-label">{document.type}</p>
+                <p className="muted">{document.summary}</p>
+                <a
+                  href={withBasePath(document.href)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-link"
+                >
+                  Open document
+                </a>
+              </article>
+            ))}
+          </div>
+        </AnimateIn>
       </section>
 
       <section className="section-block">

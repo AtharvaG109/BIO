@@ -2,6 +2,7 @@ import { AnimateIn } from "@/components/animate-in";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import {
+  aboutDepthCards,
   capabilityCards,
   hero,
   interests,
@@ -68,6 +69,27 @@ export default function AboutPage() {
               ))}
             </div>
           </AnimateIn>
+        </div>
+      </section>
+
+      <section className="section-block">
+        <AnimateIn delay={0.04}>
+          <SectionHeading
+            eyebrow="Execution Depth"
+            title="How I turn technical range into reliable delivery."
+            copy="The goal is consistent performance under ambiguity, not just isolated technical wins."
+          />
+        </AnimateIn>
+
+        <div className="capability-grid">
+          {aboutDepthCards.map((item, index) => (
+            <AnimateIn key={item.title} className="surface capability-card depth-card" delay={0.08 + index * 0.05}>
+              <p className="micro-label">Operating layer</p>
+              <h3>{item.title}</h3>
+              <p className="muted">{item.body}</p>
+              <p className="depth-signal">{item.signal}</p>
+            </AnimateIn>
+          ))}
         </div>
       </section>
 

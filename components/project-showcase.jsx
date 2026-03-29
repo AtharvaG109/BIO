@@ -98,6 +98,21 @@ export function ProjectShowcase({ projects }) {
           <Link href={`/projects/${selectedProject.slug}/`} className="text-link">
             Open full case study
           </Link>
+          {selectedProject.links?.length ? (
+            <div className="project-card-actions project-links">
+              {selectedProject.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-link"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </motion.article>
       ) : null}
 
@@ -168,6 +183,16 @@ export function ProjectShowcase({ projects }) {
                   <Link href={`/projects/${project.slug}/`} className="text-link">
                     Open case study
                   </Link>
+                  {project.links?.[0] ? (
+                    <a
+                      href={project.links[0].href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-link"
+                    >
+                      {project.links[0].label}
+                    </a>
+                  ) : null}
                 </div>
               </motion.article>
             );

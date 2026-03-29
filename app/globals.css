@@ -1,28 +1,28 @@
 /* ─── Design Tokens ─── */
 :root {
-  --bg: #0a0a0f;
-  --bg-alt: #111118;
-  --surface: rgba(255, 255, 255, 0.035);
-  --surface-strong: rgba(255, 255, 255, 0.06);
-  --surface-soft: rgba(255, 255, 255, 0.02);
-  --line: rgba(255, 255, 255, 0.06);
-  --line-strong: rgba(255, 255, 255, 0.12);
-  --text: #e8e8ed;
+  --bg: #050814;
+  --bg-alt: #0b1227;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-strong: rgba(255, 255, 255, 0.09);
+  --surface-soft: rgba(255, 255, 255, 0.025);
+  --line: rgba(148, 163, 184, 0.16);
+  --line-strong: rgba(148, 163, 184, 0.28);
+  --text: #e2e8f0;
   --text-strong: #ffffff;
-  --muted: rgba(255, 255, 255, 0.48);
-  --accent: #6366f1;
-  --accent-strong: #818cf8;
-  --accent-soft: rgba(99, 102, 241, 0.12);
-  --accent-glow: rgba(99, 102, 241, 0.2);
-  --warm: #f59e0b;
-  --warm-soft: rgba(245, 158, 11, 0.12);
-  --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.35);
+  --muted: rgba(226, 232, 240, 0.64);
+  --accent: #0ea5e9;
+  --accent-strong: #38bdf8;
+  --accent-soft: rgba(14, 165, 233, 0.2);
+  --accent-glow: rgba(20, 184, 166, 0.28);
+  --warm: #f97316;
+  --warm-soft: rgba(249, 115, 22, 0.15);
+  --shadow-sm: 0 16px 36px rgba(2, 6, 23, 0.28);
+  --shadow-md: 0 24px 64px rgba(2, 6, 23, 0.44);
   --radius-xl: 24px;
   --radius-lg: 20px;
   --radius-md: 16px;
   --radius-sm: 12px;
-  --shell: 1280px;
+  --shell: 1380px;
   --font-heading: "Inter", "SF Pro Display", system-ui, sans-serif;
   --font-body: "Inter", "SF Pro Text", system-ui, sans-serif;
   --font-mono: "SF Mono", "Fira Code", "JetBrains Mono", monospace;
@@ -57,9 +57,22 @@ body::before {
   pointer-events: none;
   z-index: -3;
   background:
-    radial-gradient(ellipse 60% 50% at 20% 0%, rgba(99, 102, 241, 0.08), transparent),
-    radial-gradient(ellipse 50% 40% at 80% 10%, rgba(139, 92, 246, 0.06), transparent),
-    radial-gradient(ellipse 40% 30% at 50% 100%, rgba(245, 158, 11, 0.03), transparent);
+    radial-gradient(ellipse 52% 48% at 14% 0%, rgba(14, 165, 233, 0.16), transparent 68%),
+    radial-gradient(ellipse 58% 44% at 84% 8%, rgba(20, 184, 166, 0.13), transparent 72%),
+    radial-gradient(ellipse 46% 34% at 50% 100%, rgba(249, 115, 22, 0.08), transparent 72%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20% -10%;
+  pointer-events: none;
+  z-index: -4;
+  background:
+    conic-gradient(from 120deg at 30% 45%, rgba(14, 165, 233, 0.08), transparent 42%),
+    conic-gradient(from 320deg at 70% 50%, rgba(249, 115, 22, 0.06), transparent 46%);
+  filter: blur(60px);
+  animation: auroraShift 22s linear infinite;
 }
 
 ::selection {
@@ -153,7 +166,7 @@ ul {
 
 /* ─── Layout ─── */
 .page-shell {
-  width: min(calc(100% - clamp(1.5rem, 3vw, 4rem)), var(--shell));
+  width: min(calc(100% - clamp(1rem, 2vw, 2.2rem)), var(--shell));
   margin: 0 auto;
 }
 
@@ -171,11 +184,11 @@ ul {
   width: 28rem;
   height: 28rem;
   border-radius: 999px;
-  filter: blur(120px);
-  opacity: 0.12;
+  filter: blur(136px);
+  opacity: 0.2;
   z-index: -2;
   pointer-events: none;
-  animation: drift 20s ease-in-out infinite alternate;
+  animation: drift 24s ease-in-out infinite alternate;
 }
 
 .page-backdrop-left {
@@ -187,8 +200,8 @@ ul {
 .page-backdrop-right {
   top: 14rem;
   right: -8rem;
-  background: rgba(139, 92, 246, 0.6);
-  animation-duration: 24s;
+  background: rgba(20, 184, 166, 0.62);
+  animation-duration: 28s;
 }
 
 /* ─── Scroll Progress ─── */
@@ -318,13 +331,17 @@ ul {
 }
 
 .nav-disclosure > summary {
-  padding: 0.6rem 0.9rem;
+  padding: 0.68rem 1rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--text);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background:
+    linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.08)),
+    rgba(15, 23, 42, 0.86);
+  color: var(--text-strong);
   cursor: pointer;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
 }
 
 .nav-disclosure[open] .disclosure-nav {
@@ -346,29 +363,47 @@ ul {
 }
 
 .disclosure-nav a {
-  padding: 0.75rem 0.9rem;
+  color: var(--text-strong);
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 0.78rem 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.disclosure-nav a:last-child {
+  margin-bottom: 0;
 }
 
 /* ─── Surface Cards ─── */
 .surface {
   position: relative;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: var(--radius-lg);
-  background: var(--surface);
+  background:
+    linear-gradient(140deg, rgba(15, 23, 42, 0.7), rgba(2, 6, 23, 0.82)),
+    var(--surface);
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow-sm);
-  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  transition: transform 280ms ease, box-shadow 280ms ease, filter 280ms ease;
 }
 
 .surface::before {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(130deg, rgba(56, 189, 248, 0.08), transparent 38%),
+    linear-gradient(310deg, rgba(249, 115, 22, 0.06), transparent 42%);
+  opacity: 0.8;
 }
 
 .surface:hover,
 .surface:focus-within {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(99, 102, 241, 0.15);
+  filter: saturate(1.05);
 }
 
 /* ─── Shared Typography Classes ─── */
@@ -512,8 +547,8 @@ ul {
 .media-frame {
   overflow: hidden;
   border-radius: var(--radius-md);
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.02);
+  border: 0;
+  background: rgba(15, 23, 42, 0.62);
 }
 
 .media-frame-wide {
@@ -575,7 +610,7 @@ ul {
   padding: 0.85rem 1rem;
   border-radius: var(--radius-md);
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(148, 163, 184, 0.26);
   transition: transform 180ms ease, border-color 180ms ease;
 }
 
@@ -609,7 +644,7 @@ ul {
   padding: 1rem;
   border-radius: var(--radius-md);
   background: var(--surface-soft);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 .hero-glance-card h2 {
@@ -782,7 +817,17 @@ ul {
   padding: 0.9rem 1rem;
   border-radius: var(--radius-sm);
   background: var(--surface-soft);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.depth-card {
+  gap: 0.7rem;
+}
+
+.depth-signal {
+  color: var(--accent-strong);
+  font-size: 0.88rem;
+  font-weight: 520;
 }
 
 /* ─── Experience ─── */
@@ -910,6 +955,10 @@ ul {
   flex-wrap: wrap;
   gap: 0.8rem;
   align-items: center;
+}
+
+.project-links {
+  margin-top: 0.25rem;
 }
 
 .text-link-button {
@@ -1106,6 +1155,15 @@ ul {
   gap: 0.8rem;
 }
 
+.evidence-grid {
+  margin-top: 0.4rem;
+}
+
+.evidence-card {
+  display: grid;
+  gap: 0.5rem;
+}
+
 /* ─── Footer ─── */
 .site-footer {
   padding: 1rem 0 2.5rem;
@@ -1116,7 +1174,7 @@ ul {
   justify-content: space-between;
   gap: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 
 .footer-copy {
@@ -1153,15 +1211,40 @@ ul {
     width: min(calc(100% - 1.4rem), var(--shell));
   }
 
+  .header-shell {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+
+  .brand {
+    max-width: calc(100% - 6.6rem);
+  }
+
   .desktop-nav {
     display: none;
   }
 
   .nav-disclosure {
     display: block;
+    margin-left: auto;
   }
 
-  .header-shell,
+  .nav-disclosure > summary {
+    min-height: 2.65rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5.4rem;
+  }
+
+  .disclosure-nav {
+    width: min(18rem, calc(100vw - 1.4rem));
+    right: 0;
+    left: auto;
+  }
+
   .resume-toolbar,
   .footer-shell,
   .contact-band {
@@ -1250,7 +1333,12 @@ ul {
   }
 
   .brand-copy span {
-    white-space: normal;
+    display: none;
+  }
+
+  .disclosure-nav a {
+    font-size: 0.94rem;
+    padding: 0.88rem 0.9rem;
   }
 }
 
@@ -1300,5 +1388,17 @@ ul {
   }
   100% {
     transform: translate3d(-0.8rem, 0.6rem, 0) scale(0.97);
+  }
+}
+
+@keyframes auroraShift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-1.5%, -1.8%, 0) rotate(1.8deg);
+  }
+  100% {
+    transform: translate3d(1.2%, 1%, 0) rotate(-1.4deg);
   }
 }
