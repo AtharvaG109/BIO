@@ -48,8 +48,8 @@ Edit `lib/site-data.js` to update:
 
 The site now uses a private contact request flow instead of publishing a direct phone number.
 
-The contact form opens a structured email draft addressed directly to `atharvam10@icloud.com`.
-This keeps the flow simple on a static site and avoids publishing the phone number publicly.
+The contact form submits in the background to `atharvam10@icloud.com` through FormSubmit.
+This keeps the inbox private and avoids publishing direct phone details on the open web.
 
 ## Analytics
 
@@ -69,7 +69,11 @@ To enable Google Search Console site verification without another code change la
 GOOGLE_SITE_VERIFICATION=your-verification-token
 ```
 
-This adds the verification metadata tag during build so you can verify ownership and submit the sitemap in Search Console.
+The GitHub Pages workflow now forwards this value from either a repository variable or a repository secret during build, so the verification meta tag is included in production. After that, submit the generated sitemap from:
+
+```text
+https://your-site-url/sitemap.xml
+```
 
 ## Free Hosting
 
