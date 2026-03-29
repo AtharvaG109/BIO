@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { contactConfig, siteConfig } from "@/lib/site-data";
 
@@ -9,14 +9,53 @@ export function ContactInterestForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  const [mountedAt, setMountedAt] = useState(0);
+  const [lastSubmittedAt, setLastSubmittedAt] = useState(0);
+
+  useEffect(() => {
+    setMountedAt(Date.now());
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const honeypot = String(formData.get("_honey") ?? "").trim();
+    const now = Date.now();
 
     if (honeypot) {
+      return;
+    }
+
+    if (mountedAt && now - mountedAt < 4000) {
+      setStatus("error");
+      setStatusMessage("Please take a moment to complete the form before submitting.");
+      return;
+    }
+
+    if (lastSubmittedAt && now - lastSubmittedAt < 15000) {
+      setStatus("error");
+      setStatusMessage("Please wait a few seconds before sending another request.");
+      return;
+    }
+
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const company = String(formData.get("company") ?? "").trim();
+    const interest = String(formData.get("interest") ?? "").trim();
+    const timeline = String(formData.get("timeline") ?? "").trim();
+    const role = String(formData.get("role") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    if (name.length < 2 || message.length < 20) {
+      setStatus("error");
+      setStatusMessage("Please provide a real name and a bit more context before submitting.");
+      return;
+    }
+
+    if (name.length > 80 || company.length > 120 || timeline.length > 80 || role.length > 120 || message.length > 2000) {
+      setStatus("error");
+      setStatusMessage("One or more fields are too long. Please shorten the request and try again.");
       return;
     }
 
@@ -24,13 +63,21 @@ export function ContactInterestForm() {
     setStatus("idle");
     setStatusMessage("");
 
+    formData.set("name", name);
+    formData.set("email", email);
+    formData.set("company", company);
+    formData.set("interest", interest);
+    formData.set("timeline", timeline);
+    formData.set("role", role);
+    formData.set("message", message);
     formData.append("_subject", "New portfolio contact request");
     formData.append("_template", "table");
-    formData.append("_captcha", "false");
+    formData.append("_replyto", email);
+    formData.append("_blacklist", "viagra,casino,crypto,backlinks,seo service");
     formData.append("source", "Atharva Gham portfolio");
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
+      const response = await fetch(siteConfig.contactFormEndpoint, {
         method: "POST",
         headers: {
           Accept: "application/json"
@@ -46,11 +93,12 @@ export function ContactInterestForm() {
 
       setStatus("success");
       setStatusMessage("Request sent successfully. I will review it and follow up directly.");
+      setLastSubmittedAt(now);
       formRef.current?.reset();
     } catch {
       setStatus("error");
       setStatusMessage(
-        "The form could not be delivered right now. This usually means the form service still needs activation for the inbox."
+        "The form could not be delivered right now. Please try again shortly."
       );
     } finally {
       setIsSubmitting(false);
@@ -77,7 +125,15 @@ export function ContactInterestForm() {
         <div className="form-grid">
           <label className="form-field">
             <span>Name</span>
-            <input type="text" name="name" className="input-control" placeholder="Your name" required />
+            <input
+              type="text"
+              name="name"
+              className="input-control"
+              placeholder="Your name"
+              autoComplete="name"
+              maxLength="80"
+              required
+            />
           </label>
 
           <label className="form-field">
@@ -87,13 +143,23 @@ export function ContactInterestForm() {
               name="email"
               className="input-control"
               placeholder="name@company.com"
+              autoComplete="email"
+              inputMode="email"
+              maxLength="120"
               required
             />
           </label>
 
           <label className="form-field">
             <span>Company</span>
-            <input type="text" name="company" className="input-control" placeholder="Company or organization" />
+            <input
+              type="text"
+              name="company"
+              className="input-control"
+              placeholder="Company or organization"
+              autoComplete="organization"
+              maxLength="120"
+            />
           </label>
 
           <label className="form-field">
@@ -114,12 +180,19 @@ export function ContactInterestForm() {
               name="timeline"
               className="input-control"
               placeholder="Immediate, this quarter, or exploratory"
+              maxLength="80"
             />
           </label>
 
           <label className="form-field">
             <span>Role or team</span>
-            <input type="text" name="role" className="input-control" placeholder="Title, team, or project scope" />
+            <input
+              type="text"
+              name="role"
+              className="input-control"
+              placeholder="Title, team, or project scope"
+              maxLength="120"
+            />
           </label>
 
           <label className="form-field form-field-full">
@@ -129,6 +202,8 @@ export function ContactInterestForm() {
               className="input-control textarea-control"
               rows="6"
               placeholder="Share the problem space, team scope, and why you think there is a fit."
+              minLength="20"
+              maxLength="2000"
               required
             />
           </label>

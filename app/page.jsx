@@ -85,7 +85,7 @@ export default function HomePage() {
                   href={link.href}
                   className="hero-utility-link"
                   target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 >
                   <span className="micro-label">{link.label}</span>
                   <span>{link.value}</span>

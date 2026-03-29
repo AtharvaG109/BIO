@@ -115,7 +115,7 @@ export function ProjectShowcase({ projects }) {
                   key={link.href}
                   href={link.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-link"
                 >
                   {link.label}
@@ -202,7 +202,7 @@ export function ProjectShowcase({ projects }) {
                     <a
                       href={project.links[0].href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="text-link"
                     >
                       {project.links[0].label}

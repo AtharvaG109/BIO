@@ -26,7 +26,7 @@ export function PageHero({ eyebrow, title, copy, actions = [] }) {
                   href={action.href}
                   className={className}
                   target={action.href.startsWith("http") ? "_blank" : undefined}
-                  rel={action.href.startsWith("http") ? "noreferrer" : undefined}
+                  rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 >
                   {action.label}
                 </a>

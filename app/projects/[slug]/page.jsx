@@ -178,7 +178,7 @@ export default async function ProjectPage({ params }) {
             <h2>References</h2>
             <div className="project-card-actions project-links">
               {project.links.map((link) => (
-                <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="text-link">
+                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="text-link">
                   {link.label}
                 </a>
               ))}

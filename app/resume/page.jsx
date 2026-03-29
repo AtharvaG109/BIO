@@ -16,9 +16,7 @@ export default function ResumePage() {
         <div>
           <p className="eyebrow">Resume</p>
           <h1>{siteConfig.name}</h1>
-          <p className="muted">
-            {siteConfig.location} • {siteConfig.email} • Phone available after initial contact
-          </p>
+          <p className="muted">{siteConfig.location} • Private contact flow • Phone available after initial contact</p>
         </div>
 
         <div className="cta-row">
