@@ -61,6 +61,16 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 If the variable is missing, analytics stays disabled.
 
+## Search Console
+
+To enable Google Search Console site verification without another code change later, set:
+
+```bash
+GOOGLE_SITE_VERIFICATION=your-verification-token
+```
+
+This adds the verification metadata tag during build so you can verify ownership and submit the sitemap in Search Console.
+
 ## Free Hosting
 
 ### Recommended: Vercel

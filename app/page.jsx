@@ -3,7 +3,9 @@ import Link from "next/link";
 import { AnimateIn } from "@/components/animate-in";
 import { ContactPanel } from "@/components/contact-panel";
 import { SectionHeading } from "@/components/section-heading";
+import { StructuredData } from "@/components/structured-data";
 import {
+  buildAbsoluteUrl,
   buildThemes,
   engineeringSignals,
   formatPublishedDate,
@@ -13,16 +15,44 @@ import {
   pathwayCards,
   principles,
   selectedWins,
+  siteConfig,
   stats,
   withBasePath
 } from "@/lib/site-data";
 
 const featuredProject = getFeaturedProject();
 const latestPost = getLatestPost();
+const homepageSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.shortName,
+    alternateName: `${siteConfig.shortName} Portfolio`,
+    url: buildAbsoluteUrl("/")
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    url: buildAbsoluteUrl("/"),
+    image: buildAbsoluteUrl("/social-preview.svg"),
+    jobTitle: "Software Engineer",
+    knowsAbout: [
+      "Backend engineering",
+      "Platform engineering",
+      "Observability",
+      "Security automation",
+      "Reverse engineering",
+      "Application security"
+    ],
+    sameAs: siteConfig.sameAs
+  }
+];
 
 export default function HomePage() {
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main">
+      <StructuredData data={homepageSchema} />
       <section className="hero-shell">
         <AnimateIn className="hero-copy-block" delay={0.04}>
           <div className="hero-topline">

@@ -1,23 +1,47 @@
 import { AnimateIn } from "@/components/animate-in";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
+import { StructuredData } from "@/components/structured-data";
 import {
   aboutDepthCards,
+  buildAbsoluteUrl,
   capabilityCards,
+  createBreadcrumbSchema,
   hero,
   interests,
   principles,
+  siteConfig,
   toolGroups
 } from "@/lib/site-data";
 
 export const metadata = {
   title: "About",
-  description: "Profile, working style, values, and technical interests for Atharva Gham."
+  description: "Profile, working style, values, and technical interests for Atharva Gham.",
+  alternates: {
+    canonical: "/about/"
+  }
 };
+
+const aboutSchema = [
+  createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about/" }
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    url: buildAbsoluteUrl("/about/"),
+    jobTitle: "Software Engineer",
+    description: siteConfig.description,
+    sameAs: siteConfig.sameAs
+  }
+];
 
 export default function AboutPage() {
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main">
+      <StructuredData data={aboutSchema} />
       <PageHero
         eyebrow="About"
         title="Engineering profile, working principles, and technical focus."

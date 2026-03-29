@@ -1,18 +1,37 @@
 import Link from "next/link";
 
 import { AnimateIn } from "@/components/animate-in";
-import { formatPublishedDate, getSortedBlogPosts } from "@/lib/site-data";
+import { StructuredData } from "@/components/structured-data";
+import { buildAbsoluteUrl, createBreadcrumbSchema, formatPublishedDate, getSortedBlogPosts } from "@/lib/site-data";
 
 export const metadata = {
   title: "Writing",
-  description: "Technical writing on systems, AI security, debugging, and engineering operations."
+  description: "Technical writing on systems, AI security, debugging, and engineering operations.",
+  alternates: {
+    canonical: "/blog/"
+  }
 };
+
+const blogIndexSchema = [
+  createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Writing", path: "/blog/" }
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Atharva Gham Writing",
+    url: buildAbsoluteUrl("/blog/"),
+    description: "Technical writing on systems, AI security, debugging, and engineering operations."
+  }
+];
 
 export default function BlogIndexPage() {
   const sortedPosts = getSortedBlogPosts();
 
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main blog-main">
+      <StructuredData data={blogIndexSchema} />
       <AnimateIn className="surface page-hero" delay={0.05}>
         <p className="eyebrow">Writing</p>
         <h1>Field notes on systems, AI security, and failure analysis.</h1>

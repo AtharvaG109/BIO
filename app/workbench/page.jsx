@@ -1,15 +1,41 @@
 import { AnimateIn } from "@/components/animate-in";
-import { practiceFoundations, practiceTracks, studyThemes } from "@/lib/site-data";
+import { StructuredData } from "@/components/structured-data";
+import {
+  buildAbsoluteUrl,
+  createBreadcrumbSchema,
+  practiceFoundations,
+  practiceTracks,
+  studyThemes
+} from "@/lib/site-data";
 
 export const metadata = {
   title: "Workbench",
   description:
-    "Research notes, reverse-engineering study, security workflows, and applied systems practice distilled into portfolio-ready takeaways."
+    "Research notes, reverse-engineering study, security workflows, and applied systems practice distilled into portfolio-ready takeaways.",
+  alternates: {
+    canonical: "/workbench/"
+  }
 };
+
+const workbenchSchema = [
+  createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Workbench", path: "/workbench/" }
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Atharva Gham Workbench",
+    url: buildAbsoluteUrl("/workbench/"),
+    description:
+      "Research notes, reverse-engineering study, security workflows, and applied systems practice distilled into portfolio-ready takeaways."
+  }
+];
 
 export default function WorkbenchPage() {
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main">
+      <StructuredData data={workbenchSchema} />
       <AnimateIn className="surface page-hero" delay={0.05}>
         <p className="eyebrow">Workbench</p>
         <h1>Research, reverse engineering, and applied systems work.</h1>

@@ -12,11 +12,17 @@ const socialPreviewPath = withBasePath("/social-preview.svg");
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   applicationName: siteConfig.shortName,
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+  },
   title: {
     default: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
     template: `%s | ${siteConfig.shortName}`
   },
   description: siteConfig.description,
+  alternates: {
+    canonical: "/"
+  },
   icons: {
     icon: faviconPath
   },

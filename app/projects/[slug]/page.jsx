@@ -2,7 +2,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { AnimateIn } from "@/components/animate-in";
-import { getProjectBySlug, projects, withBasePath } from "@/lib/site-data";
+import { StructuredData } from "@/components/structured-data";
+import {
+  buildAbsoluteUrl,
+  createBreadcrumbSchema,
+  getProjectBySlug,
+  projects,
+  siteConfig,
+  withBasePath
+} from "@/lib/site-data";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -20,7 +28,17 @@ export async function generateMetadata({ params }) {
 
   return {
     title: project.title,
-    description: project.summary
+    description: project.summary,
+    alternates: {
+      canonical: `/projects/${project.slug}/`
+    },
+    openGraph: {
+      title: project.title,
+      description: project.summary,
+      url: buildAbsoluteUrl(`/projects/${project.slug}/`),
+      type: "article",
+      images: [buildAbsoluteUrl(withBasePath(project.media.src))]
+    }
   };
 }
 
@@ -32,8 +50,31 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
+  const projectSchema = [
+    createBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Projects", path: "/projects/" },
+      { name: project.title, path: `/projects/${project.slug}/` }
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: project.title,
+      description: project.summary,
+      author: {
+        "@type": "Person",
+        name: siteConfig.name,
+        sameAs: siteConfig.sameAs
+      },
+      about: project.stack,
+      image: buildAbsoluteUrl(withBasePath(project.media.src)),
+      url: buildAbsoluteUrl(`/projects/${project.slug}/`)
+    }
+  ];
+
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main article-main">
+      <StructuredData data={projectSchema} />
       <AnimateIn className="article-header" delay={0.05}>
         <Link href="/projects/" className="back-link">
           Back to projects
