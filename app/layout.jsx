@@ -7,11 +7,13 @@ import { SiteHeader } from "@/components/site-header";
 import { siteConfig, withBasePath } from "@/lib/site-data";
 
 const faviconPath = withBasePath("/favicon.svg");
+const socialPreviewPath = withBasePath("/social-preview.svg");
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
+  applicationName: siteConfig.shortName,
   title: {
-    default: `${siteConfig.shortName} | Software + Security Engineer`,
+    default: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
     template: `%s | ${siteConfig.shortName}`
   },
   description: siteConfig.description,
@@ -19,12 +21,26 @@ export const metadata = {
     icon: faviconPath
   },
   openGraph: {
-    title: `${siteConfig.shortName} | Software + Security Engineer`,
+    title: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
     description: siteConfig.description,
     url: siteConfig.siteUrl,
     siteName: siteConfig.shortName,
     locale: "en_US",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: socialPreviewPath,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.shortName} portfolio preview`
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
+    description: siteConfig.description,
+    images: [socialPreviewPath]
   }
 };
 

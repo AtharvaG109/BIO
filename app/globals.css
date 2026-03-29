@@ -772,6 +772,22 @@ ul {
   font-size: 0.88rem;
 }
 
+.impact-grid {
+  margin-top: 0.2rem;
+}
+
+.impact-card {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.impact-value {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
 .values-panel {
   display: grid;
   gap: 1rem;
@@ -929,6 +945,37 @@ ul {
   align-items: baseline;
 }
 
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: 0.75rem;
+}
+
+.metric-card {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: var(--radius-sm);
+  background: rgba(8, 15, 28, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.metric-card strong {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--text-strong);
+}
+
+.metric-card span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.project-metric-grid {
+  margin-top: 0.15rem;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -964,6 +1011,15 @@ ul {
   flex-wrap: wrap;
   gap: 0.8rem;
   align-items: center;
+}
+
+.project-card-metric {
+  color: var(--accent-strong);
+  font-size: 0.86rem;
+}
+
+.project-card-metric strong {
+  color: var(--text-strong);
 }
 
 .project-links {

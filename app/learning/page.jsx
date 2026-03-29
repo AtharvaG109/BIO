@@ -1,10 +1,10 @@
-import LabsPage, { metadata as labsMetadata } from "../labs/page";
+import WorkbenchPage, { metadata as workbenchMetadata } from "../workbench/page";
 
 export const metadata = {
-  ...labsMetadata,
-  title: "Labs",
+  ...workbenchMetadata,
+  title: "Workbench",
   alternates: {
-    canonical: "/labs/"
+    canonical: "/workbench/"
   },
   robots: {
     index: false,
@@ -12,4 +12,4 @@ export const metadata = {
   }
 };
 
-export default LabsPage;
+export default WorkbenchPage;

@@ -61,6 +61,20 @@ export default async function ProjectPage({ params }) {
           <p>{project.challenge}</p>
         </AnimateIn>
 
+        {project.metrics?.length ? (
+          <AnimateIn className="article-section" delay={0.1}>
+            <h2>Snapshot</h2>
+            <div className="metric-grid">
+              {project.metrics.map((metric) => (
+                <div key={`${metric.value}-${metric.label}`} className="metric-card">
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+        ) : null}
+
         <AnimateIn className="article-section" delay={0.12}>
           <h2>Approach</h2>
           <ul className="bullet-list article-bullets">
@@ -69,6 +83,17 @@ export default async function ProjectPage({ params }) {
             ))}
           </ul>
         </AnimateIn>
+
+        {project.architecture?.length ? (
+          <AnimateIn className="article-section" delay={0.14}>
+            <h2>Architecture</h2>
+            <ul className="bullet-list article-bullets">
+              {project.architecture.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </AnimateIn>
+        ) : null}
 
         <AnimateIn className="article-section" delay={0.16}>
           <h2>Impact</h2>
@@ -79,6 +104,17 @@ export default async function ProjectPage({ params }) {
             ))}
           </ul>
         </AnimateIn>
+
+        {project.tradeoffs?.length ? (
+          <AnimateIn className="article-section" delay={0.18}>
+            <h2>Tradeoffs and Decisions</h2>
+            <ul className="bullet-list article-bullets">
+              {project.tradeoffs.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </AnimateIn>
+        ) : null}
 
         <AnimateIn className="article-section" delay={0.2}>
           <h2>Result</h2>

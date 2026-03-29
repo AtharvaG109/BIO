@@ -4,6 +4,7 @@ import { AnimateIn } from "@/components/animate-in";
 import { ContactPanel } from "@/components/contact-panel";
 import { SectionHeading } from "@/components/section-heading";
 import {
+  buildThemes,
   engineeringSignals,
   formatPublishedDate,
   getFeaturedProject,
@@ -11,6 +12,7 @@ import {
   hero,
   pathwayCards,
   principles,
+  selectedWins,
   stats,
   withBasePath
 } from "@/lib/site-data";
@@ -114,6 +116,26 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
+            eyebrow="What I Can Build"
+            title="Where I am most useful to an engineering team."
+            copy="The strongest fit is work that spans architecture, reliability, debugging, and secure delivery rather than only isolated ticket execution."
+          />
+        </AnimateIn>
+
+        <div className="capability-grid">
+          {buildThemes.map((item, index) => (
+            <AnimateIn key={item.title} className="surface capability-card" delay={0.08 + index * 0.05}>
+              <p className="micro-label">Scope</p>
+              <h3>{item.title}</h3>
+              <p className="muted">{item.body}</p>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block">
+        <AnimateIn delay={0.04}>
+          <SectionHeading
             eyebrow="Engineering Profile"
             title="The kind of work I am strongest in."
             copy="The portfolio is centered on backend delivery, platform reliability, and security work that survives contact with production."
@@ -134,9 +156,28 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
+            eyebrow="Selected Impact"
+            title="A few signals that matter quickly."
+            copy="I want the site to answer the first serious question fast: what changed because of the work?"
+          />
+        </AnimateIn>
+
+        <div className="proof-grid impact-grid">
+          {selectedWins.map((item, index) => (
+            <AnimateIn key={item.label} className="library-group impact-card" delay={0.08 + index * 0.05}>
+              <p className="impact-value">{item.value}</p>
+              <p className="muted">{item.label}</p>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block">
+        <AnimateIn delay={0.04}>
+          <SectionHeading
             eyebrow="Explore"
             title="Navigate the portfolio."
-            copy="Deep-dive into background, projects, labs, writing, or the resume view."
+            copy="Deep-dive into background, projects, the workbench, writing, or the resume view."
           />
         </AnimateIn>
 

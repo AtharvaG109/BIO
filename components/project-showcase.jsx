@@ -63,6 +63,16 @@ export function ProjectShowcase({ projects }) {
           </div>
 
           <p className="muted">{selectedProject.summary}</p>
+          {selectedProject.metrics?.length ? (
+            <div className="metric-grid project-metric-grid">
+              {selectedProject.metrics.map((metric) => (
+                <div key={`${metric.value}-${metric.label}`} className="metric-card">
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </div>
+              ))}
+            </div>
+          ) : null}
           <div className="media-frame">
             <img
               src={withBasePath(selectedProject.media.src)}
@@ -165,6 +175,11 @@ export function ProjectShowcase({ projects }) {
                   <h3>{project.title}</h3>
                   <p className="muted">{project.summary}</p>
                   <p className="project-impact">{project.impact}</p>
+                  {project.metrics?.[0] ? (
+                    <p className="project-card-metric">
+                      <strong>{project.metrics[0].value}</strong> {project.metrics[0].label}
+                    </p>
+                  ) : null}
                   <ul className="bullet-list compact-list">
                     {project.outcomes.map((outcome) => (
                       <li key={outcome}>{outcome}</li>

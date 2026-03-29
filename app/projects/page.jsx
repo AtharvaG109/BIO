@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         title="Case studies and interactive project previews."
         copy="Filter by category, preview in the spotlight, and explore both shipped engineering projects and published technical work."
         actions={[
-          { label: "Explore labs", href: "/labs/", variant: "secondary" },
+          { label: "Open workbench", href: "/workbench/", variant: "secondary" },
           { label: "Request intro", href: "/contact/", variant: "primary" }
         ]}
       />

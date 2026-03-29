@@ -20,7 +20,7 @@ export default function sitemap() {
     "/about/",
     "/experience/",
     "/projects/",
-    "/labs/",
+    "/workbench/",
     "/blog/",
     "/resume/",
     "/contact/"
