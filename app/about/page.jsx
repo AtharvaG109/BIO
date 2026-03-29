@@ -7,7 +7,6 @@ import {
   hero,
   interests,
   principles,
-  siteConfig,
   toolGroups
 } from "@/lib/site-data";
 
@@ -21,11 +20,11 @@ export default function AboutPage() {
     <main id="main-content" tabIndex="-1" className="page-shell page-main">
       <PageHero
         eyebrow="About"
-        title="Background, principles, and technical focus."
-        copy="Software engineering and cybersecurity at the intersection of systems depth and operational discipline."
+        title="Engineering profile, working principles, and technical focus."
+        copy="Software engineering grounded in backend delivery, debugging depth, and operational discipline."
         actions={[
           { label: "View experience", href: "/experience/", variant: "primary" },
-          { label: "LinkedIn", href: siteConfig.linkedin, variant: "secondary" }
+          { label: "Request intro", href: "/contact/", variant: "secondary" }
         ]}
       />
 

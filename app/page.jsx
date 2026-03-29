@@ -1,33 +1,22 @@
 import Link from "next/link";
 
 import { AnimateIn } from "@/components/animate-in";
+import { ContactPanel } from "@/components/contact-panel";
 import { SectionHeading } from "@/components/section-heading";
 import {
+  engineeringSignals,
   formatPublishedDate,
   getFeaturedProject,
   getLatestPost,
   hero,
   pathwayCards,
   principles,
-  siteConfig,
   stats,
   withBasePath
 } from "@/lib/site-data";
 
 const featuredProject = getFeaturedProject();
 const latestPost = getLatestPost();
-
-function getUtilityValue(label) {
-  if (label === "Email") {
-    return siteConfig.email;
-  }
-
-  if (label === "Phone") {
-    return siteConfig.phone;
-  }
-
-  return "Open profile";
-}
 
 export default function HomePage() {
   return (
@@ -36,7 +25,7 @@ export default function HomePage() {
         <AnimateIn className="hero-copy-block" delay={0.04}>
           <div className="hero-topline">
             <p className="eyebrow">{hero.eyebrow}</p>
-            <span className="availability-pill">Open to software, systems, platform, and security roles</span>
+            <span className="availability-pill">Open to backend, platform, software, and security roles</span>
           </div>
 
           <h1>{hero.headline}</h1>
@@ -58,16 +47,23 @@ export default function HomePage() {
 
           <div className="hero-utility-grid" aria-label="Contact links">
             {hero.utilityLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="hero-utility-link"
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-              >
-                <span className="micro-label">{link.label}</span>
-                <span>{getUtilityValue(link.label)}</span>
-              </a>
+              link.href.startsWith("http") || link.href.startsWith("mailto:") ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="hero-utility-link"
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  <span className="micro-label">{link.label}</span>
+                  <span>{link.value}</span>
+                </a>
+              ) : (
+                <Link key={link.label} href={link.href} className="hero-utility-link">
+                  <span className="micro-label">{link.label}</span>
+                  <span>{link.value}</span>
+                </Link>
+              )
             ))}
           </div>
         </AnimateIn>
@@ -113,6 +109,26 @@ export default function HomePage() {
             <p className="muted">{item.label}</p>
           </AnimateIn>
         ))}
+      </section>
+
+      <section className="section-block">
+        <AnimateIn delay={0.04}>
+          <SectionHeading
+            eyebrow="Engineering Profile"
+            title="The kind of work I am strongest in."
+            copy="The portfolio is centered on backend delivery, platform reliability, and security work that survives contact with production."
+          />
+        </AnimateIn>
+
+        <div className="capability-grid">
+          {engineeringSignals.map((item, index) => (
+            <AnimateIn key={item.title} className="surface capability-card depth-card" delay={0.08 + index * 0.05}>
+              <p className="micro-label">Strength</p>
+              <h3>{item.title}</h3>
+              <p className="muted">{item.body}</p>
+            </AnimateIn>
+          ))}
+        </div>
       </section>
 
       <section className="section-block">
@@ -201,27 +217,8 @@ export default function HomePage() {
       </section>
 
       <section className="section-block" id="contact">
-        <AnimateIn className="surface contact-band" delay={0.08}>
-          <div className="contact-copy">
-            <p className="eyebrow">Contact</p>
-            <h2>
-              If the role needs systems depth, security judgment, and reliable follow-through, I am
-              interested.
-            </h2>
-            <p className="muted">
-              I am based in {siteConfig.location} and open to conversations about backend, systems,
-              platform, and security engineering work where ownership and trust are treated seriously.
-            </p>
-          </div>
-
-          <div className="cta-row contact-actions">
-            <a href={`mailto:${siteConfig.email}`} className="button button-primary">
-              Email Atharva
-            </a>
-            <a href={siteConfig.linkedin} target="_blank" rel="noreferrer" className="button button-secondary">
-              LinkedIn
-            </a>
-          </div>
+        <AnimateIn delay={0.08}>
+          <ContactPanel />
         </AnimateIn>
       </section>
     </main>

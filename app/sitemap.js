@@ -22,7 +22,8 @@ export default function sitemap() {
     "/projects/",
     "/practice/",
     "/blog/",
-    "/resume/"
+    "/resume/",
+    "/contact/"
   ];
 
   const staticEntries = staticRoutes.map((route) => ({

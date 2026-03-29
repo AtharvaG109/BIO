@@ -21,10 +21,10 @@ export default function ExperiencePage() {
       <PageHero
         eyebrow="Experience"
         title="Roles, outcomes, and credentials."
-        copy="Career history with emphasis on impact and supporting technical depth."
+        copy="Career history with emphasis on production impact, systems ownership, and supporting technical depth."
         actions={[
           { label: "Open resume", href: "/resume/", variant: "primary" },
-          { label: "View projects", href: "/projects/", variant: "secondary" }
+          { label: "Request intro", href: "/contact/", variant: "secondary" }
         ]}
       />
 

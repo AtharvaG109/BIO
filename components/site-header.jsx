@@ -12,7 +12,8 @@ const navItems = [
   { label: "Projects", href: "/projects/" },
   { label: "Practice", href: "/practice/" },
   { label: "Writing", href: "/blog/" },
-  { label: "Resume", href: "/resume/" }
+  { label: "Resume", href: "/resume/" },
+  { label: "Contact", href: "/contact/" }
 ];
 
 function normalizePath(path) {

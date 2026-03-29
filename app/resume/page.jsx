@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { AnimateIn } from "@/components/animate-in";
 import { ResumePrintButton } from "@/components/resume-print-button";
 import { certifications, education, experience, siteConfig, withBasePath } from "@/lib/site-data";
@@ -15,7 +17,7 @@ export default function ResumePage() {
           <p className="eyebrow">Resume</p>
           <h1>{siteConfig.name}</h1>
           <p className="muted">
-            {siteConfig.location} • {siteConfig.email} • {siteConfig.phone}
+            {siteConfig.location} • {siteConfig.email} • Phone available after initial contact
           </p>
         </div>
 
@@ -23,6 +25,9 @@ export default function ResumePage() {
           <a href={withBasePath("/resume/Atharva_Gham_Resume.txt")} download className="button button-primary">
             Download text resume
           </a>
+          <Link href="/contact/" className="button button-secondary">
+            Request intro
+          </Link>
           <ResumePrintButton />
         </div>
       </AnimateIn>
@@ -31,9 +36,9 @@ export default function ResumePage() {
         <section className="resume-section">
           <h2>Profile</h2>
           <p>
-            Software engineer with hands-on depth in distributed backend services, observability,
-            low-level systems analysis, AI security automation, exploit research, and cloud-scale
-            monitoring.
+            Software engineer with hands-on depth in distributed backend services, platform
+            reliability, observability, low-level systems analysis, AI security automation, and
+            secure delivery workflows.
           </p>
         </section>
 

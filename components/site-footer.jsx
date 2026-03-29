@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div className="footer-copy">
           <p className="footer-title">{siteConfig.shortName}</p>
           <p className="muted">
-            Software engineer and cybersecurity engineer based in {siteConfig.location}.
+            Software engineer focused on backend, platform, and security work based in {siteConfig.location}.
           </p>
         </div>
 
@@ -20,11 +20,11 @@ export function SiteFooter() {
           <Link href="/practice/">Practice</Link>
           <Link href="/blog/">Writing</Link>
           <Link href="/resume/">Resume</Link>
+          <Link href="/contact/">Contact</Link>
           <a href={siteConfig.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>
           <a href={`mailto:${siteConfig.email}`}>Email</a>
-          <a href="tel:+12408798063">Phone</a>
         </div>
       </div>
     </footer>
