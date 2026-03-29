@@ -4,10 +4,10 @@ import { AnalyticsScript } from "@/components/analytics-script";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { siteConfig, withBasePath } from "@/lib/site-data";
+import { buildAbsoluteUrl, siteConfig, withBasePath } from "@/lib/site-data";
 
 const faviconPath = withBasePath("/favicon.svg");
-const socialPreviewPath = withBasePath("/social-preview.svg");
+const socialPreviewPath = buildAbsoluteUrl("/social-preview.svg");
 const googleSiteVerificationToken =
   process.env.GOOGLE_SITE_VERIFICATION ||
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
