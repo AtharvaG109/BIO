@@ -8,12 +8,16 @@ import { siteConfig, withBasePath } from "@/lib/site-data";
 
 const faviconPath = withBasePath("/favicon.svg");
 const socialPreviewPath = withBasePath("/social-preview.svg");
+const googleSiteVerificationToken =
+  process.env.GOOGLE_SITE_VERIFICATION ||
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+  "Q1qnn9j21GEvPg9Dx-20kHfxkeiG0zOffzHTG2Dr_Ug";
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   applicationName: siteConfig.shortName,
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    google: googleSiteVerificationToken
   },
   title: {
     default: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
