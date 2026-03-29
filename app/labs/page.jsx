@@ -2,16 +2,16 @@ import { AnimateIn } from "@/components/animate-in";
 import { evidenceDocuments, practiceFoundations, practiceTracks, withBasePath } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Practice",
+  title: "Labs",
   description:
     "Applied practice areas built from hands-on labs, challenge environments, exploit study, cloud security exercises, and operational workflows."
 };
 
-export default function PracticePage() {
+export default function LabsPage() {
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main">
       <AnimateIn className="surface page-hero" delay={0.05}>
-        <p className="eyebrow">Practice</p>
+        <p className="eyebrow">Labs</p>
         <h1>Applied security and systems practice.</h1>
         <p className="muted hero-copy">
           Hands-on workflows from labs, challenge environments, cloud exercises, and tool use — framed as work actually exercised.

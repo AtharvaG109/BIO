@@ -17,7 +17,7 @@ export function SiteFooter() {
           <Link href="/about/">About</Link>
           <Link href="/experience/">Experience</Link>
           <Link href="/projects/">Projects</Link>
-          <Link href="/practice/">Practice</Link>
+          <Link href="/labs/">Labs</Link>
           <Link href="/blog/">Writing</Link>
           <Link href="/resume/">Resume</Link>
           <Link href="/contact/">Contact</Link>

@@ -5,24 +5,24 @@
   <text x="60" y="110" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15">Centralized logging, behavior-based rules, and certificate lifecycle workflows</text>
 
   <rect x="60" y="155" width="220" height="110" rx="16" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
-  <text x="106" y="198" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">13+ Systems</text>
-  <text x="106" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Application logs</text>
-  <text x="106" y="248" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Identity events</text>
+  <text x="170" y="198" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">13+ Systems</text>
+  <text x="170" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Application logs</text>
+  <text x="170" y="248" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Identity events</text>
 
   <rect x="350" y="155" width="220" height="110" rx="16" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
-  <text x="418" y="198" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">ELK Core</text>
-  <text x="396" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Normalization + search</text>
-  <text x="396" y="248" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Shared investigation view</text>
+  <text x="460" y="198" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">ELK Core</text>
+  <text x="460" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Normalization + search</text>
+  <text x="460" y="248" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Shared investigation view</text>
 
   <rect x="640" y="155" width="230" height="110" rx="16" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
-  <text x="688" y="198" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Detection Layer</text>
-  <text x="688" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Behavioral rules</text>
-  <text x="688" y="248" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Automated response triggers</text>
+  <text x="755" y="198" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Detection Layer</text>
+  <text x="755" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Behavioral rules</text>
+  <text x="755" y="248" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Automated response triggers</text>
 
   <rect x="940" y="155" width="160" height="110" rx="16" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5"/>
-  <text x="994" y="198" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">PKI</text>
-  <text x="980" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Key rotation</text>
-  <text x="980" y="248" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Zero downtime</text>
+  <text x="1020" y="198" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">PKI</text>
+  <text x="1020" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Key rotation</text>
+  <text x="1020" y="248" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Zero downtime</text>
 
   <path d="M280 210H350" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
   <path d="M570 210H640" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
@@ -32,7 +32,7 @@
   <circle cx="905" cy="210" r="4" fill="rgba(16,185,129,0.6)"/>
 
   <rect x="100" y="330" width="960" height="120" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
-  <text x="140" y="370" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Operational Effect</text>
-  <text x="140" y="400" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Indicators of compromise easier to correlate across distributed systems.</text>
-  <text x="140" y="426" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Higher-confidence alerting reduced noise; automation handled compliance-sensitive certificate work.</text>
+  <text x="580" y="370" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Operational Effect</text>
+  <text x="580" y="400" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Indicators of compromise easier to correlate across distributed systems.</text>
+  <text x="580" y="426" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Higher-confidence alerting reduced noise; automation handled compliance-sensitive certificate work.</text>
 </svg>

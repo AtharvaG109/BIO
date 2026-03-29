@@ -1,10 +1,10 @@
-import PracticePage, { metadata as practiceMetadata } from "../practice/page";
+import LabsPage, { metadata as labsMetadata } from "../labs/page";
 
 export const metadata = {
-  ...practiceMetadata,
-  title: "Learning",
+  ...labsMetadata,
+  title: "Labs",
   alternates: {
-    canonical: "/practice/"
+    canonical: "/labs/"
   },
   robots: {
     index: false,
@@ -12,4 +12,4 @@ export const metadata = {
   }
 };
 
-export default PracticePage;
+export default LabsPage;

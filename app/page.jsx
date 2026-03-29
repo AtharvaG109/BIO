@@ -136,7 +136,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Explore"
             title="Navigate the portfolio."
-            copy="Deep-dive into background, projects, practice, writing, or the resume view."
+            copy="Deep-dive into background, projects, labs, writing, or the resume view."
           />
         </AnimateIn>
 

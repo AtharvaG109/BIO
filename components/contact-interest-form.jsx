@@ -1,76 +1,11 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
-
+import { useRef, useState } from "react";
 import { contactConfig } from "@/lib/site-data";
-
-const initialState = {
-  status: "idle",
-  message: ""
-};
-
-async function submitContactRequest(previousState, formData) {
-  const honeypot = formData.get("_honey");
-
-  if (typeof honeypot === "string" && honeypot.trim()) {
-    return {
-      status: "success",
-      message: "Request sent."
-    };
-  }
-
-  const email = String(formData.get("email") ?? "").trim();
-  const message = String(formData.get("message") ?? "").trim();
-
-  if (!email || !message) {
-    return {
-      status: "error",
-      message: "Add your email and a short note so I can respond properly."
-    };
-  }
-
-  try {
-    const response = await fetch(contactConfig.endpoint, {
-      method: "POST",
-      headers: {
-        Accept: "application/json"
-      },
-      body: formData
-    });
-
-    const payload = await response.json().catch(() => null);
-
-    if (!response.ok) {
-      return {
-        status: "error",
-        message:
-          payload?.message ||
-          "The form could not be submitted right now. Email or LinkedIn still work as fallback."
-      };
-    }
-
-    return {
-      status: "success",
-      message: "Request sent. I will review it and follow up directly if there is a fit."
-    };
-  } catch {
-    return {
-      status: "error",
-      message:
-        "The secure form is temporarily unavailable. Email or LinkedIn are still available while I fix it."
-    };
-  }
-}
 
 export function ContactInterestForm() {
   const formRef = useRef(null);
-  const [state, formAction, pending] = useActionState(submitContactRequest, initialState);
-
-  useEffect(() => {
-    if (state.status === "success") {
-      formRef.current?.reset();
-    }
-  }, [state.status]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <div className="surface contact-form-shell">
@@ -83,10 +18,20 @@ export function ContactInterestForm() {
         </p>
       </div>
 
-      <form ref={formRef} action={formAction} className="contact-form">
+      <form 
+        ref={formRef} 
+        action="https://formsubmit.co/atharvam10@icloud.com" 
+        method="POST" 
+        className="contact-form"
+        onSubmit={() => setIsSubmitting(true)}
+      >
         <input type="hidden" name="_subject" value="New portfolio contact request" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="source" value="Atharva portfolio site" />
+        {/* Redirect users back to the contact page after successful submission */}
+        <input type="hidden" name="_next" value="https://atharva109.github.io/Bio/contact/" />
+        {/* Disable FormSubmit's default captcha to improve conversion if they have already verified */}
+        <input type="hidden" name="_captcha" value="true" />
 
         <div className="honeypot-field" aria-hidden="true">
           <label htmlFor="company-website">Company website</label>
@@ -159,16 +104,10 @@ export function ContactInterestForm() {
             <span>{contactConfig.phonePolicy}</span>
           </div>
 
-          <button type="submit" className="button button-primary" disabled={pending}>
-            {pending ? "Sending..." : "Send request"}
+          <button type="submit" className="button button-primary" disabled={isSubmitting}>
+            {isSubmitting ? "Redirecting..." : "Send request"}
           </button>
         </div>
-
-        {state.message ? (
-          <p className={`form-status form-status-${state.status}`} role="status">
-            {state.message}
-          </p>
-        ) : null}
       </form>
     </div>
   );
