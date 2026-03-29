@@ -1,11 +1,63 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { contactConfig } from "@/lib/site-data";
+
+import { contactConfig, siteConfig } from "@/lib/site-data";
+
+function buildMailtoHref(fields) {
+  const subject = `${fields.interest} inquiry${fields.company ? ` from ${fields.company}` : ""}`;
+  const lines = [
+    "Hello Atharva,",
+    "",
+    `Name: ${fields.name}`,
+    `Email: ${fields.email}`,
+    fields.company ? `Company: ${fields.company}` : null,
+    fields.role ? `Role or team: ${fields.role}` : null,
+    `Interest: ${fields.interest}`,
+    fields.timeline ? `Timeline: ${fields.timeline}` : null,
+    "",
+    "Why this conversation:",
+    fields.message,
+    "",
+    "Sent from your portfolio contact form."
+  ].filter(Boolean);
+
+  return `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    lines.join("\n")
+  )}`;
+}
 
 export function ContactInterestForm() {
   const formRef = useRef(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const honeypot = String(formData.get("_honey") ?? "").trim();
+
+    if (honeypot) {
+      return;
+    }
+
+    const fields = {
+      name: String(formData.get("name") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      company: String(formData.get("company") ?? "").trim(),
+      interest: String(formData.get("interest") ?? "").trim(),
+      timeline: String(formData.get("timeline") ?? "").trim(),
+      role: String(formData.get("role") ?? "").trim(),
+      message: String(formData.get("message") ?? "").trim()
+    };
+
+    setStatus("success");
+    setStatusMessage(`Your email app should open a draft addressed to ${siteConfig.email}.`);
+
+    window.location.href = buildMailtoHref(fields);
+    formRef.current?.reset();
+  }
 
   return (
     <div className="surface contact-form-shell">
@@ -18,21 +70,7 @@ export function ContactInterestForm() {
         </p>
       </div>
 
-      <form 
-        ref={formRef} 
-        action="https://formsubmit.co/atharvam10@icloud.com" 
-        method="POST" 
-        className="contact-form"
-        onSubmit={() => setIsSubmitting(true)}
-      >
-        <input type="hidden" name="_subject" value="New portfolio contact request" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="source" value="Atharva portfolio site" />
-        {/* Redirect users back to the contact page after successful submission */}
-        <input type="hidden" name="_next" value="https://atharva109.github.io/Bio/contact/" />
-        {/* Disable FormSubmit's default captcha to improve conversion if they have already verified */}
-        <input type="hidden" name="_captcha" value="true" />
-
+      <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
         <div className="honeypot-field" aria-hidden="true">
           <label htmlFor="company-website">Company website</label>
           <input id="company-website" type="text" name="_honey" tabIndex="-1" autoComplete="off" />
@@ -73,7 +111,12 @@ export function ContactInterestForm() {
 
           <label className="form-field">
             <span>Timeline</span>
-            <input type="text" name="timeline" className="input-control" placeholder="Immediate, this quarter, or exploratory" />
+            <input
+              type="text"
+              name="timeline"
+              className="input-control"
+              placeholder="Immediate, this quarter, or exploratory"
+            />
           </label>
 
           <label className="form-field">
@@ -95,19 +138,25 @@ export function ContactInterestForm() {
 
         <label className="consent-row">
           <input type="checkbox" name="consent" value="agreed" required />
-          <span>I understand this request is reviewed personally and direct phone details are shared selectively.</span>
+          <span>I understand this request opens a direct email draft and phone details are shared selectively.</span>
         </label>
 
         <div className="contact-form-footer">
           <div className="form-note">
-            <strong>{contactConfig.replyWindow}</strong>
+            <strong>{contactConfig.deliveryNote}</strong>
             <span>{contactConfig.phonePolicy}</span>
           </div>
 
-          <button type="submit" className="button button-primary" disabled={isSubmitting}>
-            {isSubmitting ? "Redirecting..." : "Send request"}
+          <button type="submit" className="button button-primary">
+            Open email draft
           </button>
         </div>
+
+        {statusMessage ? (
+          <p className={`form-status form-status-${status === "success" ? "success" : "error"}`} role="status">
+            {statusMessage}
+          </p>
+        ) : null}
       </form>
     </div>
   );

@@ -9,7 +9,7 @@ Advanced Next.js portfolio for a software engineer and cybersecurity engineer.
 - Multi-section homepage with systems and security focus
 - Blog index plus article pages
 - Resume page with print/save support
-- Private contact request form with static-host-friendly submission
+- Private contact form that opens a direct email draft
 - Downloadable text resume in `public/resume`
 - Framer Motion reveal and filter animations
 - Google Analytics hook via `NEXT_PUBLIC_GA_ID`
@@ -48,14 +48,8 @@ Edit `lib/site-data.js` to update:
 
 The site now uses a private contact request flow instead of publishing a direct phone number.
 
-By default, the form submits through FormSubmit using the public email address already shown on the site.
-For a cleaner production setup, set your own endpoint before deploy:
-
-```bash
-NEXT_PUBLIC_CONTACT_FORM_ENDPOINT=https://formsubmit.co/ajax/your-form-id-or-address
-```
-
-If you keep the default FormSubmit setup, make sure you complete its one-time activation email the first time a submission comes through.
+The contact form opens a structured email draft addressed directly to `atharvam10@icloud.com`.
+This keeps the flow simple on a static site and avoids publishing the phone number publicly.
 
 ## Analytics
 

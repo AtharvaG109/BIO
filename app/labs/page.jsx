@@ -1,5 +1,5 @@
 import { AnimateIn } from "@/components/animate-in";
-import { evidenceDocuments, practiceFoundations, practiceTracks, withBasePath } from "@/lib/site-data";
+import { practiceFoundations, practiceTracks, studyThemes } from "@/lib/site-data";
 
 export const metadata = {
   title: "Labs",
@@ -56,25 +56,21 @@ export default function LabsPage() {
 
       <section className="section-block">
         <AnimateIn className="surface library-card" delay={0.06}>
-          <p className="eyebrow">Evidence Library</p>
-          <h2>Selected reports, coursework artifacts, and certificates.</h2>
-          <div className="proof-grid evidence-grid">
-            {evidenceDocuments.map((document) => (
-              <article key={document.title} className="library-group evidence-card">
-                <div className="preview-head">
-                  <h3>{document.title}</h3>
-                  <span>{document.year}</span>
+          <p className="eyebrow">Distilled Study</p>
+          <h2>I surface the substance of the material here instead of publishing raw course files.</h2>
+          <div className="preview-list compact-preview-list">
+            {studyThemes.map((theme) => (
+              <article key={theme.title} className="preview-item">
+                <div className="preview-head preview-head-column">
+                  <h3>{theme.title}</h3>
+                  <span>Applied theme</span>
                 </div>
-                <p className="micro-label">{document.type}</p>
-                <p className="muted">{document.summary}</p>
-                <a
-                  href={withBasePath(document.href)}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-link"
-                >
-                  Open document
-                </a>
+                <p className="muted">{theme.summary}</p>
+                <ul className="bullet-list compact-list">
+                  {theme.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
@@ -84,7 +80,7 @@ export default function LabsPage() {
       <section className="section-block">
         <AnimateIn className="surface library-card" delay={0.06}>
           <p className="eyebrow">Foundations</p>
-          <h2>Supporting material is still acknowledged, but it does not dominate the presentation.</h2>
+          <h2>What the study changed in how I work.</h2>
           <div className="proof-grid">
             {practiceFoundations.map((item) => (
               <article key={item} className="library-group">
