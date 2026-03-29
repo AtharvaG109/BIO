@@ -1,0 +1,68 @@
+Atharva Vijayanand Gham
+Davis, CA
++1 (240) 879-8063
+atharvam10@icloud.com
+
+WORK EXPERIENCE
+
+Software Engineer (Security & Systems), DMV Music Alliance, Washington DC
+January 2025 - Present
+- Engineered and maintained highly available distributed backend services in Go and Python.
+- Diagnosed and resolved performance bottlenecks across a microservices architecture, significantly reducing latency and improving throughput.
+- Traced complex deviations to root cause using OpenTelemetry and championed automated self-healing workflows that reduced operational toil by 20%.
+- Worked across application and network layers to implement high-signal observability while adapting to changing infrastructure priorities.
+
+Development and Testing Intern, Code Gurukul, Pune, India
+June 2021 - December 2021
+- Profiled and optimized Linux-based backend services, improving API responsiveness for 4,300+ users.
+- Managed server configuration and release workflows using automated Bash tooling across distributed environments.
+- Participated in system design reviews and applied algorithmic optimizations to backend API implementations.
+
+CORE ENGINEERING PROJECTS
+
+Massively Distributed Data Integration Pipeline
+- Designed and implemented a highly concurrent telemetry pipeline from scratch, capable of processing 50GB of raw data daily across distributed cloud environments.
+- Optimized ingestion logic and network protocols including TLS and IPsec for fault-tolerant, low-latency streaming.
+- Managed the entire lifecycle from system design to high-availability production deployment.
+
+AI Security & Agentic Workflow Automation
+- Conducted adversarial security reviews of LLM-integrated automation agents, identifying prompt injection and insecure tool-use vulnerabilities.
+- Designed multi-agent Python-based security automation workflows to triage 1,000+ daily alerts.
+
+Advanced Binary Research & Exploit Development
+- Reverse engineered 32/64-bit binaries to understand memory operations and CPU/kernel interactions.
+- Utilized GDB and advanced dynamic analysis to trace memory corruption faults and developed optimized C/C++ patches.
+- Worked directly with OS-level primitives and memory allocators.
+
+Web Vulnerability Research & Remediation Tooling
+- Built automated Python tooling to replicate and fingerprint SQL injection and XSS patterns across production environments.
+- Authored secure coding guidance and implemented Semgrep and CodeQL rules in CI/CD pipelines.
+
+Security Monitoring & IAM Compliance Automation
+- Engineered a centralized ELK-based monitoring platform ingesting logs from 13+ distributed systems.
+- Developed behavioral detection rules and automated response triggers to identify indicators of compromise.
+- Automated cryptographic key and SSL/TLS certificate lifecycle management to ensure zero downtime and regulatory compliance.
+
+EDUCATION
+
+University of Maryland, College Park
+Master of Engineering, Cybersecurity
+August 2023 - May 2025
+
+Vishwakarma University, Pune
+Bachelor of Technology, Computer Engineering
+IBM Cybersecurity & Forensics Graduate Program
+August 2018 - July 2022
+
+CERTIFICATIONS
+
+- Offensive Security Certified Professional (OSCP)
+- IBM Cyber Security and Forensics Graduate
+
+TECHNICAL SKILLS
+
+Programming Languages: Go, C/C++, Python, Java, Bash, SQL
+Systems & Low-Level: Linux Internals, OS Schedulers, TCP/IP Packet Inspection, Socket Programming, System Optimization, Latency Reduction
+Distributed Infrastructure: Kubernetes, Docker, Microservices, AWS, Azure, High-Availability Architectures
+Debugging & Tooling: GDB, Wireshark, OpenTelemetry, Prometheus, Grafana, Git, CI/CD
+Core Competencies: Root Cause Analysis, End-to-End Project Ownership, Reverse Engineering

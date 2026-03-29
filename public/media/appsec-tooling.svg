@@ -1,0 +1,35 @@
+<svg viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="24" fill="#111118"/>
+  <rect x="24" y="24" width="1152" height="472" rx="20" fill="#16161f" stroke="rgba(255,255,255,0.06)"/>
+  <text x="60" y="80" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Application Security Toolchain</text>
+  <text x="60" y="110" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15">Exploit reproduction, remediation guidance, and CI gate integration</text>
+
+  <rect x="60" y="155" width="200" height="90" rx="16" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <text x="114" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">HTTP Input</text>
+  <text x="106" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">SQLi / XSS probes</text>
+
+  <rect x="330" y="155" width="220" height="90" rx="16" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
+  <text x="382" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Python Harness</text>
+  <text x="374" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Reproduce and fingerprint</text>
+
+  <rect x="620" y="155" width="210" height="90" rx="16" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+  <text x="678" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Rule Layer</text>
+  <text x="668" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Semgrep + CodeQL</text>
+
+  <rect x="900" y="155" width="200" height="90" rx="16" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5"/>
+  <text x="966" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">CI Gate</text>
+  <text x="948" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Fail unsafe builds</text>
+
+  <path d="M260 200H330" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M550 200H620" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M830 200H900" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="295" cy="200" r="4" fill="rgba(99,102,241,0.6)"/>
+  <circle cx="585" cy="200" r="4" fill="rgba(139,92,246,0.6)"/>
+  <circle cx="865" cy="200" r="4" fill="rgba(16,185,129,0.6)"/>
+
+  <rect x="100" y="310" width="960" height="140" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="140" y="350" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Delivery Impact</text>
+  <text x="140" y="380" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Injection patterns turned into repeatable checks instead of one-off findings.</text>
+  <text x="140" y="406" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Actionable guidance delivered during normal development flow.</text>
+  <text x="140" y="432" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Security review shifted earlier through automated guardrails.</text>
+</svg>

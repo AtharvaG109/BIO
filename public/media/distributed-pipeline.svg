@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1200 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="580" rx="24" fill="#111118"/>
+  <rect x="24" y="24" width="1152" height="532" rx="20" fill="#16161f" stroke="rgba(255,255,255,0.06)"/>
+  <text x="60" y="80" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Distributed Telemetry Pipeline</text>
+  <text x="60" y="110" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15">High-volume ingestion, concurrent processing, transport hardening, and observability</text>
+
+  <rect x="60" y="160" width="200" height="90" rx="16" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <text x="108" y="200" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Edge Collectors</text>
+  <text x="116" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">TLS / IPsec ingress</text>
+
+  <rect x="330" y="160" width="200" height="90" rx="16" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
+  <text x="386" y="200" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Queue Layer</text>
+  <text x="368" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Retry-safe burst absorption</text>
+
+  <rect x="600" y="145" width="240" height="120" rx="18" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+  <text x="650" y="190" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Concurrent Workers</text>
+  <text x="644" y="216" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Parse, validate, enrich, route</text>
+  <text x="678" y="242" fill="rgba(139,92,246,0.7)" font-family="SF Mono, monospace" font-size="14">Go + Python</text>
+
+  <rect x="920" y="160" width="200" height="90" rx="16" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5"/>
+  <text x="982" y="200" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Storage</text>
+  <text x="966" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Durable cloud sinks</text>
+
+  <path d="M260 205H330" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M530 205H600" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M840 205H920" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="295" cy="205" r="4" fill="rgba(99,102,241,0.6)"/>
+  <circle cx="565" cy="205" r="4" fill="rgba(139,92,246,0.6)"/>
+  <circle cx="880" cy="205" r="4" fill="rgba(16,185,129,0.6)"/>
+
+  <rect x="100" y="330" width="280" height="110" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="130" y="370" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Performance</text>
+  <text x="130" y="396" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">50GB/day sustained input</text>
+  <text x="130" y="420" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Low-latency backpressure</text>
+
+  <rect x="440" y="330" width="280" height="110" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="470" y="370" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Reliability</text>
+  <text x="470" y="396" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Queue isolation and fan-out</text>
+  <text x="470" y="420" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Recovery without stalls</text>
+
+  <rect x="780" y="330" width="280" height="110" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="810" y="370" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Observability</text>
+  <text x="810" y="396" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Tracing on ingest path</text>
+  <text x="810" y="420" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Operational rollout metrics</text>
+</svg>

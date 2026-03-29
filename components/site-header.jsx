@@ -1,0 +1,95 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
+
+import { siteConfig } from "@/lib/site-data";
+
+const navItems = [
+  { label: "About", href: "/about/" },
+  { label: "Experience", href: "/experience/" },
+  { label: "Projects", href: "/projects/" },
+  { label: "Practice", href: "/practice/" },
+  { label: "Writing", href: "/blog/" },
+  { label: "Resume", href: "/resume/" }
+];
+
+function normalizePath(path) {
+  if (!path) {
+    return "/";
+  }
+
+  if (path === "/") {
+    return path;
+  }
+
+  return path.endsWith("/") ? path.slice(0, -1) : path;
+}
+
+function isActivePath(pathname, href) {
+  const current = normalizePath(pathname);
+  const target = normalizePath(href);
+
+  if (target === "/") {
+    return current === "/";
+  }
+
+  return current === target || current.startsWith(`${target}/`);
+}
+
+function NavLinks({ pathname, onNavigate }) {
+  return navItems.map((item) => (
+    <Link
+      key={item.label}
+      href={item.href}
+      aria-current={isActivePath(pathname, item.href) ? "page" : undefined}
+      onClick={onNavigate}
+    >
+      {item.label}
+    </Link>
+  ));
+}
+
+export function SiteHeader() {
+  const pathname = usePathname();
+  const disclosureRef = useRef(null);
+
+  useEffect(() => {
+    if (disclosureRef.current?.open) {
+      disclosureRef.current.open = false;
+    }
+  }, [pathname]);
+
+  return (
+    <header className="site-header">
+      <div className="page-shell header-shell">
+        <Link href="/" className="brand" aria-label={`${siteConfig.shortName} home`}>
+          <span className="brand-mark">{siteConfig.initials}</span>
+          <span className="brand-copy">
+            <strong>{siteConfig.shortName}</strong>
+            <span>{siteConfig.title}</span>
+          </span>
+        </Link>
+
+        <nav className="site-nav desktop-nav" aria-label="Primary">
+          <NavLinks pathname={pathname} />
+        </nav>
+
+        <details className="nav-disclosure" ref={disclosureRef}>
+          <summary>Menu</summary>
+          <nav className="site-nav disclosure-nav" aria-label="Mobile primary">
+            <NavLinks
+              pathname={pathname}
+              onNavigate={() => {
+                if (disclosureRef.current) {
+                  disclosureRef.current.open = false;
+                }
+              }}
+            />
+          </nav>
+        </details>
+      </div>
+    </header>
+  );
+}

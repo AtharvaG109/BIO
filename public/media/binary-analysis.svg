@@ -1,0 +1,36 @@
+<svg viewBox="0 0 1200 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="580" rx="24" fill="#111118"/>
+  <rect x="24" y="24" width="1152" height="532" rx="20" fill="#16161f" stroke="rgba(255,255,255,0.06)"/>
+  <text x="60" y="80" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Binary Analysis Workbench</text>
+  <text x="60" y="110" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15">Crash reproduction, memory inspection, and exploit path analysis</text>
+
+  <rect x="60" y="155" width="340" height="340" rx="16" fill="#0d0d14" stroke="rgba(255,255,255,0.08)"/>
+  <text x="90" y="196" fill="rgba(255,255,255,0.7)" font-family="SF Mono, Fira Code, monospace" font-size="16">gdb&gt; bt</text>
+  <text x="90" y="228" fill="rgba(16,185,129,0.8)" font-family="SF Mono, Fira Code, monospace" font-size="15">#0 vulnerable_copy()</text>
+  <text x="90" y="256" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">#1 parse_message()</text>
+  <text x="90" y="284" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">#2 worker_loop()</text>
+  <text x="90" y="326" fill="rgba(245,158,11,0.8)" font-family="SF Mono, Fira Code, monospace" font-size="15">rsp: 0x7fffffffd9c0</text>
+  <text x="90" y="354" fill="rgba(16,185,129,0.8)" font-family="SF Mono, Fira Code, monospace" font-size="15">saved rip overwritten</text>
+  <text x="90" y="396" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">pattern offset: 264 bytes</text>
+  <text x="90" y="424" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">mitigations: ASLR / NX</text>
+  <text x="90" y="452" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">strategy: disclosure + control</text>
+
+  <rect x="460" y="155" width="260" height="160" rx="16" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
+  <text x="500" y="196" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Observed State</text>
+  <text x="500" y="226" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Stack growth and frame layout</text>
+  <text x="500" y="252" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Allocator behavior</text>
+  <text x="500" y="278" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Register corruption path</text>
+
+  <rect x="460" y="335" width="260" height="160" rx="16" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+  <text x="500" y="376" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Analysis Flow</text>
+  <text x="500" y="406" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Reproduce crash</text>
+  <text x="500" y="432" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Trace overwrite boundary</text>
+  <text x="500" y="458" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Patch root cause</text>
+
+  <rect x="780" y="155" width="280" height="340" rx="16" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1.5"/>
+  <text x="820" y="196" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Outputs</text>
+  <text x="820" y="234" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">32/64-bit binary review</text>
+  <text x="820" y="262" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Memory corruption diagnosis</text>
+  <text x="820" y="290" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">C/C++ remediation</text>
+  <text x="820" y="318" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Exploit intuition under mitigations</text>
+</svg>
