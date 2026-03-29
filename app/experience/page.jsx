@@ -12,7 +12,7 @@ import {
 
 export const metadata = {
   title: "Experience",
-  description: "Experience, credentials, and technical range for Atharva Vijayanand Gham."
+  description: "Experience, credentials, and technical range for Atharva Gham."
 };
 
 export default function ExperiencePage() {

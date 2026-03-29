@@ -12,7 +12,7 @@ import {
 
 export const metadata = {
   title: "About",
-  description: "Profile, working style, values, and technical interests for Atharva Vijayanand Gham."
+  description: "Profile, working style, values, and technical interests for Atharva Gham."
 };
 
 export default function AboutPage() {

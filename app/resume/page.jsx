@@ -6,7 +6,7 @@ import { certifications, education, experience, siteConfig, withBasePath } from 
 
 export const metadata = {
   title: "Resume",
-  description: "Resume and credentials for Atharva Vijayanand Gham."
+  description: "Resume and credentials for Atharva Gham."
 };
 
 export default function ResumePage() {

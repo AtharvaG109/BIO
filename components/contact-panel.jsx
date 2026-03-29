@@ -25,9 +25,6 @@ export function ContactPanel() {
         </div>
 
         <div className="contact-direct-links">
-          <a href={`mailto:${siteConfig.email}`} className="text-link">
-            Email directly
-          </a>
           <a href={siteConfig.linkedin} target="_blank" rel="noreferrer" className="text-link">
             Open LinkedIn
           </a>

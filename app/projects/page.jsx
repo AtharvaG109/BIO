@@ -4,7 +4,7 @@ import { projects } from "@/lib/site-data";
 
 export const metadata = {
   title: "Projects",
-  description: "Interactive project browsing and case studies for Atharva Vijayanand Gham."
+  description: "Interactive project browsing and case studies for Atharva Gham."
 };
 
 export default function ProjectsPage() {

@@ -24,7 +24,6 @@ export function SiteFooter() {
           <a href={siteConfig.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a href={`mailto:${siteConfig.email}`}>Email</a>
         </div>
       </div>
     </footer>

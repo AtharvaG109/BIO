@@ -4,35 +4,13 @@ import { useRef, useState } from "react";
 
 import { contactConfig, siteConfig } from "@/lib/site-data";
 
-function buildMailtoHref(fields) {
-  const subject = `${fields.interest} inquiry${fields.company ? ` from ${fields.company}` : ""}`;
-  const lines = [
-    "Hello Atharva,",
-    "",
-    `Name: ${fields.name}`,
-    `Email: ${fields.email}`,
-    fields.company ? `Company: ${fields.company}` : null,
-    fields.role ? `Role or team: ${fields.role}` : null,
-    `Interest: ${fields.interest}`,
-    fields.timeline ? `Timeline: ${fields.timeline}` : null,
-    "",
-    "Why this conversation:",
-    fields.message,
-    "",
-    "Sent from your portfolio contact form."
-  ].filter(Boolean);
-
-  return `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-    lines.join("\n")
-  )}`;
-}
-
 export function ContactInterestForm() {
   const formRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -42,21 +20,41 @@ export function ContactInterestForm() {
       return;
     }
 
-    const fields = {
-      name: String(formData.get("name") ?? "").trim(),
-      email: String(formData.get("email") ?? "").trim(),
-      company: String(formData.get("company") ?? "").trim(),
-      interest: String(formData.get("interest") ?? "").trim(),
-      timeline: String(formData.get("timeline") ?? "").trim(),
-      role: String(formData.get("role") ?? "").trim(),
-      message: String(formData.get("message") ?? "").trim()
-    };
+    setIsSubmitting(true);
+    setStatus("idle");
+    setStatusMessage("");
 
-    setStatus("success");
-    setStatusMessage(`Your email app should open a draft addressed to ${siteConfig.email}.`);
+    formData.append("_subject", "New portfolio contact request");
+    formData.append("_template", "table");
+    formData.append("_captcha", "false");
+    formData.append("source", "Atharva Gham portfolio");
 
-    window.location.href = buildMailtoHref(fields);
-    formRef.current?.reset();
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json"
+        },
+        body: formData
+      });
+
+      const payload = await response.json().catch(() => null);
+
+      if (!response.ok || payload?.success === false) {
+        throw new Error(payload?.message || "Submission failed");
+      }
+
+      setStatus("success");
+      setStatusMessage("Request sent successfully. I will review it and follow up directly.");
+      formRef.current?.reset();
+    } catch {
+      setStatus("error");
+      setStatusMessage(
+        "The form could not be delivered right now. This usually means the form service still needs activation for the inbox."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -138,7 +136,7 @@ export function ContactInterestForm() {
 
         <label className="consent-row">
           <input type="checkbox" name="consent" value="agreed" required />
-          <span>I understand this request opens a direct email draft and phone details are shared selectively.</span>
+          <span>I understand this request is sent privately for review and phone details are shared selectively.</span>
         </label>
 
         <div className="contact-form-footer">
@@ -147,8 +145,8 @@ export function ContactInterestForm() {
             <span>{contactConfig.phonePolicy}</span>
           </div>
 
-          <button type="submit" className="button button-primary">
-            Open email draft
+          <button type="submit" className="button button-primary" disabled={isSubmitting}>
+            {isSubmitting ? "Sending request..." : "Send request"}
           </button>
         </div>
 
