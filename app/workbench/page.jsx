@@ -38,10 +38,10 @@ export default function WorkbenchPage() {
       <StructuredData data={workbenchSchema} />
       <AnimateIn className="surface page-hero" delay={0.05}>
         <p className="eyebrow">Workbench</p>
-        <h1>Research, reverse engineering, and applied systems work.</h1>
+        <h1>Research, reverse engineering, and applied systems practice.</h1>
         <p className="muted hero-copy">
           This section turns hands-on study into engineering signal: how I reason through binaries,
-          communications, operating-system behavior, cloud security, and exploit mechanics.
+          operating-system behavior, exploit mechanics, cloud security, and the debugging habits that carry back into shipped software.
         </p>
       </AnimateIn>
 
@@ -84,7 +84,7 @@ export default function WorkbenchPage() {
       <section className="section-block">
         <AnimateIn className="surface library-card" delay={0.06}>
           <p className="eyebrow">Distilled Study</p>
-          <h2>Substance over screenshots or file dumps.</h2>
+          <h2>Substance over screenshots, buzzwords, or file dumps.</h2>
           <div className="preview-list compact-preview-list">
             {studyThemes.map((theme) => (
               <article key={theme.title} className="preview-item">
@@ -107,7 +107,7 @@ export default function WorkbenchPage() {
       <section className="section-block">
         <AnimateIn className="surface library-card" delay={0.06}>
           <p className="eyebrow">How It Shows Up</p>
-          <h2>What this study changes in the way I build and debug systems.</h2>
+          <h2>What this study changes in the way I build, debug, and secure systems.</h2>
           <div className="proof-grid">
             {practiceFoundations.map((item) => (
               <article key={item} className="library-group">

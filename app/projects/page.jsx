@@ -31,8 +31,8 @@ export default function ProjectsPage() {
       <StructuredData data={projectIndexSchema} />
       <PageHero
         eyebrow="Projects"
-        title="Case studies and interactive project previews."
-        copy="Filter by category, preview in the spotlight, and explore both shipped engineering projects and published technical work."
+        title="Case studies from shipped systems and security work."
+        copy="Browse projects across backend systems, security products, AI security, application security, and published technical work."
         actions={[
           { label: "Open workbench", href: "/workbench/", variant: "secondary" },
           { label: "Request intro", href: "/contact/", variant: "primary" }

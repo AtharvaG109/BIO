@@ -108,7 +108,7 @@ export default function HomePage() {
               <p className="micro-label">Mission</p>
               <h2>{hero.mission}</h2>
               <p className="muted">
-                Engineering work grounded in ownership, clarity, and operational follow-through.
+                Engineering work grounded in ownership, clarity, and enough operational follow-through to survive real usage.
               </p>
             </article>
 
@@ -150,7 +150,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="What I Can Build"
             title="Where I am most useful to an engineering team."
-            copy="The strongest fit is work that spans architecture, reliability, debugging, and secure delivery rather than only isolated ticket execution."
+            copy="The strongest fit is work that spans architecture, reliability, debugging, and secure delivery instead of stopping at isolated feature tickets."
           />
         </AnimateIn>
 
@@ -170,7 +170,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Engineering Profile"
             title="The kind of work I am strongest in."
-            copy="The portfolio is centered on backend delivery, platform reliability, and security work that survives contact with production."
+            copy="The portfolio is centered on backend delivery, platform reliability, and security work that still makes sense once it reaches production."
           />
         </AnimateIn>
 
@@ -190,7 +190,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Selected Impact"
             title="A few signals that matter quickly."
-            copy="I want the site to answer the first serious question fast: what changed because of the work?"
+            copy="The goal is to answer the first serious question fast: what changed because of the work?"
           />
         </AnimateIn>
 
@@ -209,7 +209,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Explore"
             title="Navigate the portfolio."
-            copy="Deep-dive into background, projects, the workbench, writing, or the resume view."
+            copy="Move from profile and experience into projects, workbench notes, writing, and the recruiter-friendly resume view."
           />
         </AnimateIn>
 

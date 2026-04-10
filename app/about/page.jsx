@@ -44,8 +44,8 @@ export default function AboutPage() {
       <StructuredData data={aboutSchema} />
       <PageHero
         eyebrow="About"
-        title="Engineering profile, working principles, and technical focus."
-        copy="Software engineering grounded in backend delivery, debugging depth, and operational discipline."
+        title="Engineering profile, operating style, and technical depth."
+        copy="Backend, platform, and security work grounded in systems ownership, debugging fluency, and operational discipline."
         actions={[
           { label: "View experience", href: "/experience/", variant: "primary" },
           { label: "Request intro", href: "/contact/", variant: "secondary" }
@@ -56,8 +56,8 @@ export default function AboutPage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="Strengths"
-            title="Where I add depth."
-            copy="Building, debugging, and reasoning through failure without losing delivery discipline."
+            title="Where I add leverage."
+            copy="I tend to be most useful when a team needs design, execution, and production follow-through in the same person."
           />
         </AnimateIn>
 
@@ -76,8 +76,8 @@ export default function AboutPage() {
             <p className="eyebrow">Working style</p>
             <h2>{hero.mission}</h2>
             <p className="muted values-copy">
-              My professional standards matter as much as my technical range. I want the work to be
-              trustworthy, not just impressive on first look.
+              Technical range matters, but I care just as much about whether the work is explainable,
+              supportable, and trustworthy after the first release.
             </p>
 
             <div className="values-stack">
@@ -100,7 +100,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Execution Depth"
             title="How I turn technical range into reliable delivery."
-            copy="The goal is consistent performance under ambiguity, not just isolated technical wins."
+            copy="The goal is consistent performance under ambiguity, not just isolated technical wins or good demos."
           />
         </AnimateIn>
 
@@ -120,7 +120,7 @@ export default function AboutPage() {
         <div className="detail-grid">
           <AnimateIn className="surface panel-card" delay={0.08}>
             <p className="eyebrow">Interests</p>
-            <h2>The technical threads I keep following beyond role boundaries.</h2>
+            <h2>The technical threads I keep following beyond the job description.</h2>
             <div className="interest-stack">
               {interests.map((item) => (
                 <article key={item.title} className="interest-item">
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
           <AnimateIn className="surface panel-card" delay={0.14}>
             <p className="eyebrow">Technical range</p>
-            <h2>Tooling that shows up repeatedly across systems and security work.</h2>
+            <h2>Tooling that repeatedly shows up across systems, platform, and security work.</h2>
             <div className="preview-list compact-preview-list">
               {toolGroups.map((group) => (
                 <article key={group.title} className="preview-item">
