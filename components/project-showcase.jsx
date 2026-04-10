@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-import { withBasePath } from "@/lib/site-data";
+import { getSortedProjects, withBasePath } from "@/lib/site-data";
 
 const cardTransition = {
   duration: 0.3,
@@ -13,6 +13,7 @@ const cardTransition = {
 
 export function ProjectShowcase({ projects }) {
   const shouldReduceMotion = useReducedMotion();
+  const newestProjectSlug = useMemo(() => getSortedProjects(projects)[0]?.slug ?? null, [projects]);
   const categories = useMemo(() => {
     return ["All", ...new Set(projects.map((project) => project.category))];
   }, [projects]);
@@ -53,7 +54,12 @@ export function ProjectShowcase({ projects }) {
         >
           <div className="project-spotlight-head">
             <div>
-              <p className="eyebrow">Project spotlight</p>
+              <div className="project-label-row">
+                <p className="eyebrow">Project spotlight</p>
+                {selectedProject.slug === newestProjectSlug ? (
+                  <span className="project-badge">Newest project</span>
+                ) : null}
+              </div>
               <h3>{selectedProject.title}</h3>
             </div>
             <div className="project-meta">
@@ -172,6 +178,7 @@ export function ProjectShowcase({ projects }) {
                     <span>{project.category}</span>
                     <span>{project.year}</span>
                   </div>
+                  {project.slug === newestProjectSlug ? <span className="project-badge">Newest project</span> : null}
                   <h3>{project.title}</h3>
                   <p className="muted">{project.summary}</p>
                   <p className="project-impact">{project.impact}</p>

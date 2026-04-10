@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1200 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="580" rx="24" fill="#11161d"/>
+  <rect x="24" y="24" width="1152" height="532" rx="20" fill="#151c25" stroke="rgba(255,255,255,0.06)"/>
+  <text x="60" y="80" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">SpectreFS Secure Vault Flow</text>
+  <text x="60" y="110" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="15">Encrypted storage, trusted-app plaintext access, native macOS controls, and shipping workflow</text>
+
+  <rect x="60" y="160" width="220" height="100" rx="16" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.32)" stroke-width="1.5"/>
+  <text x="170" y="202" text-anchor="middle" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Encrypted Vault</text>
+  <text x="170" y="228" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Chunk-authenticated files</text>
+  <text x="170" y="250" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Encrypted names + metadata</text>
+
+  <rect x="340" y="145" width="240" height="130" rx="18" fill="rgba(56,189,248,0.08)" stroke="rgba(56,189,248,0.32)" stroke-width="1.5"/>
+  <text x="460" y="190" text-anchor="middle" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Access Boundary</text>
+  <text x="460" y="216" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Mounted vault or in-place flow</text>
+  <text x="460" y="238" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Argon2id + wrapped keys</text>
+  <text x="460" y="260" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Health, repair, snapshots</text>
+
+  <rect x="640" y="145" width="230" height="130" rx="18" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.32)" stroke-width="1.5"/>
+  <text x="755" y="190" text-anchor="middle" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">PBAC Layer</text>
+  <text x="755" y="216" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Trusted signed apps</text>
+  <text x="755" y="238" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Audit blocked reads</text>
+  <text x="755" y="260" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Auto-lock + panic controls</text>
+
+  <rect x="930" y="160" width="210" height="100" rx="16" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.32)" stroke-width="1.5"/>
+  <text x="1035" y="202" text-anchor="middle" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Desktop App</text>
+  <text x="1035" y="228" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">SwiftUI + WKWebView shell</text>
+  <text x="1035" y="250" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="13">Direct and no-FUSE modes</text>
+
+  <path d="M280 210H340" stroke="rgba(255,255,255,0.16)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M580 210H640" stroke="rgba(255,255,255,0.16)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M870 210H930" stroke="rgba(255,255,255,0.16)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="310" cy="210" r="4" fill="rgba(56,189,248,0.72)"/>
+  <circle cx="610" cy="210" r="4" fill="rgba(34,197,94,0.72)"/>
+  <circle cx="900" cy="210" r="4" fill="rgba(168,85,247,0.72)"/>
+
+  <rect x="100" y="345" width="280" height="112" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="240" y="385" text-anchor="middle" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Storage Security</text>
+  <text x="240" y="411" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="14">Per-chunk AEAD records</text>
+  <text x="240" y="435" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="14">Encrypted xattrs and sidecars</text>
+
+  <rect x="460" y="345" width="280" height="112" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="600" y="385" text-anchor="middle" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Operational Safety</text>
+  <text x="600" y="411" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="14">Health, repair, and recovery flows</text>
+  <text x="600" y="435" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="14">Unlock cooldowns and audit trails</text>
+
+  <rect x="820" y="345" width="280" height="112" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="960" y="385" text-anchor="middle" fill="#edf3f8" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Release Discipline</text>
+  <text x="960" y="411" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="14">Signing, notarization, and DMG build</text>
+  <text x="960" y="435" text-anchor="middle" fill="rgba(255,255,255,0.48)" font-family="Inter, system-ui, sans-serif" font-size="14">QA gate across tests and app packaging</text>
+</svg>

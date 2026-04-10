@@ -11,6 +11,7 @@ import {
   formatPublishedDate,
   getFeaturedProject,
   getLatestPost,
+  getNewestProject,
   hero,
   pathwayCards,
   principles,
@@ -21,6 +22,7 @@ import {
 } from "@/lib/site-data";
 
 const featuredProject = getFeaturedProject();
+const newestProject = getNewestProject();
 const latestPost = getLatestPost();
 const homepageSchema = [
   {
@@ -230,7 +232,12 @@ export default function HomePage() {
         <div className="detail-grid">
           {featuredProject ? (
             <AnimateIn className="surface panel-card" delay={0.08}>
-              <p className="eyebrow">Featured project</p>
+              <div className="project-label-row">
+                <p className="eyebrow">Featured project</p>
+                {featuredProject.slug === newestProject?.slug ? (
+                  <span className="project-badge">Newest project</span>
+                ) : null}
+              </div>
               <h2>{featuredProject.title}</h2>
               <p className="muted panel-copy">{featuredProject.summary}</p>
               <div className="media-frame">
