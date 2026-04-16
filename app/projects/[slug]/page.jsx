@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { AnimateIn } from "@/components/animate-in";
@@ -89,9 +90,11 @@ export default async function ProjectPage({ params }) {
       <article className="surface article-shell">
         <AnimateIn className="article-section" delay={0.06}>
           <div className="media-frame media-frame-wide">
-            <img
+            <Image
               src={withBasePath(project.media.src)}
               alt={project.media.alt}
+              width={1200}
+              height={600}
               className="project-media"
             />
           </div>

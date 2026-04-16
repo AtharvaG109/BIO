@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { AnimateIn } from "@/components/animate-in";
 import { ContactPanel } from "@/components/contact-panel";
@@ -241,9 +242,11 @@ export default function HomePage() {
               <h2>{featuredProject.title}</h2>
               <p className="muted panel-copy">{featuredProject.summary}</p>
               <div className="media-frame">
-                <img
+                <Image
                   src={withBasePath(featuredProject.media.src)}
                   alt={featuredProject.media.alt}
+                  width={1200}
+                  height={600}
                   className="project-media"
                 />
               </div>

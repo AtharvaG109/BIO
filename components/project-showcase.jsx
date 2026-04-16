@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
@@ -80,9 +81,11 @@ export function ProjectShowcase({ projects }) {
             </div>
           ) : null}
           <div className="media-frame">
-            <img
+            <Image
               src={withBasePath(selectedProject.media.src)}
               alt={selectedProject.media.alt}
+              width={1200}
+              height={600}
               className="project-media"
             />
           </div>
