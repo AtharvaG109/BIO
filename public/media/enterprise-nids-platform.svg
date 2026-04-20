@@ -1,75 +1,76 @@
 <svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="675" rx="32" fill="#081218"/>
+  <rect width="1200" height="675" rx="32" fill="#071118"/>
   <rect x="24" y="24" width="1152" height="627" rx="28" fill="url(#bg)"/>
-  <circle cx="156" cy="108" r="74" fill="#123140"/>
-  <circle cx="1054" cy="120" r="92" fill="#15384A"/>
-  <circle cx="1010" cy="540" r="118" fill="#102A38"/>
-  <rect x="72" y="76" width="276" height="196" rx="22" fill="#0F2029" stroke="#5EE6C6" stroke-width="2"/>
-  <rect x="462" y="76" width="276" height="196" rx="22" fill="#0F2029" stroke="#73B8FF" stroke-width="2"/>
-  <rect x="852" y="76" width="276" height="196" rx="22" fill="#0F2029" stroke="#F9B45E" stroke-width="2"/>
-  <rect x="72" y="402" width="276" height="196" rx="22" fill="#0F2029" stroke="#8ED6FF" stroke-width="2"/>
-  <rect x="462" y="402" width="276" height="196" rx="22" fill="#0F2029" stroke="#5EE6C6" stroke-width="2"/>
-  <rect x="852" y="402" width="276" height="196" rx="22" fill="#0F2029" stroke="#73B8FF" stroke-width="2"/>
+  <circle cx="168" cy="136" r="90" fill="#103141"/>
+  <circle cx="1040" cy="132" r="108" fill="#17394B"/>
+  <circle cx="1022" cy="548" r="126" fill="#0F2A38"/>
 
-  <text x="102" y="126" fill="#9DE8D6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Ingestion</text>
-  <text x="102" y="160" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">Offline PCAP</text>
-  <text x="102" y="198" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">and Live Capture</text>
-  <text x="102" y="236" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">DPKT, Scapy, PyShark,</text>
-  <text x="102" y="262" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">flow tracking, TCP rebuild</text>
+  <text x="74" y="64" fill="#E6F9F5" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="700">Enterprise NIDS</text>
+  <text x="338" y="64" fill="#A6BFCC" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600">Network Detection and Analysis Platform</text>
 
-  <text x="492" y="126" fill="#9BCBFF" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Detection</text>
-  <text x="492" y="160" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">Heuristics, ML,</text>
-  <text x="492" y="198" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">Fingerprinting, DPI</text>
-  <text x="492" y="236" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">Incident engine, JA3, p0f,</text>
-  <text x="492" y="262" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">Isolation Forest, payload carving</text>
+  <rect x="82" y="100" width="300" height="206" rx="24" fill="#11232D" stroke="#58E3C5" stroke-width="2.5"/>
+  <rect x="450" y="100" width="300" height="206" rx="24" fill="#11232D" stroke="#73B8FF" stroke-width="2.5"/>
+  <rect x="818" y="100" width="300" height="206" rx="24" fill="#11232D" stroke="#FFB455" stroke-width="2.5"/>
+  <rect x="82" y="382" width="300" height="206" rx="24" fill="#11232D" stroke="#8AD7FF" stroke-width="2.5"/>
+  <rect x="450" y="382" width="300" height="206" rx="24" fill="#11232D" stroke="#58E3C5" stroke-width="2.5"/>
+  <rect x="818" y="382" width="300" height="206" rx="24" fill="#11232D" stroke="#73B8FF" stroke-width="2.5"/>
 
-  <text x="882" y="126" fill="#FFD49A" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Explanation</text>
-  <text x="882" y="160" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">Reports and</text>
-  <text x="882" y="198" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">Traffic Diagrams</text>
-  <text x="882" y="236" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">Markdown, JSON, Mermaid,</text>
-  <text x="882" y="262" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">timeline and protocol inventory</text>
+  <path d="M382 203H450" stroke="#58E3C5" stroke-width="6" stroke-linecap="round"/>
+  <path d="M750 203H818" stroke="#73B8FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M232 306V358" stroke="#58E3C5" stroke-width="6" stroke-linecap="round"/>
+  <path d="M600 306V358" stroke="#73B8FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M968 306V358" stroke="#FFB455" stroke-width="6" stroke-linecap="round"/>
+  <path d="M382 485H450" stroke="#8AD7FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M750 485H818" stroke="#58E3C5" stroke-width="6" stroke-linecap="round"/>
 
-  <text x="102" y="452" fill="#9FD9FF" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Storage</text>
-  <text x="102" y="486" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">SQLite Telemetry</text>
-  <text x="102" y="524" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">and Runtime State</text>
-  <text x="102" y="562" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">Flows, alerts, IPS actions,</text>
-  <text x="102" y="588" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">DPI artifacts, health status</text>
+  <circle cx="450" cy="203" r="8" fill="#58E3C5"/>
+  <circle cx="818" cy="203" r="8" fill="#73B8FF"/>
+  <circle cx="232" cy="358" r="8" fill="#58E3C5"/>
+  <circle cx="600" cy="358" r="8" fill="#73B8FF"/>
+  <circle cx="968" cy="358" r="8" fill="#FFB455"/>
+  <circle cx="450" cy="485" r="8" fill="#8AD7FF"/>
+  <circle cx="818" cy="485" r="8" fill="#58E3C5"/>
 
-  <text x="492" y="452" fill="#9DE8D6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Platform Surface</text>
-  <text x="492" y="486" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">FastAPI Dashboard</text>
-  <text x="492" y="524" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">and Investigation API</text>
-  <text x="492" y="562" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">Stats, latest analysis,</text>
-  <text x="492" y="588" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">operations, replay, uploads</text>
+  <text x="112" y="142" fill="#9DE8D6" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700">Capture Inputs</text>
+  <text x="112" y="182" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">Offline PCAP</text>
+  <text x="112" y="217" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">+ Live Capture</text>
+  <text x="112" y="258" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">DPKT, Scapy, PyShark,</text>
+  <text x="112" y="284" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">flow tracking, TCP rebuild</text>
 
-  <text x="882" y="452" fill="#9BCBFF" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Publishing</text>
-  <text x="882" y="486" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">GitHub-Ready</text>
-  <text x="882" y="524" fill="#F2FAFF" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">Docs and CI</text>
-  <text x="882" y="562" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">Architecture README,</text>
-  <text x="882" y="588" fill="#B3C8D3" font-family="Helvetica, Arial, sans-serif" font-size="18">Actions workflow, public repo</text>
+  <text x="480" y="142" fill="#9FCBFF" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700">Detection Engine</text>
+  <text x="480" y="182" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">Heuristics, ML,</text>
+  <text x="480" y="217" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">JA3, p0f, DPI</text>
+  <text x="480" y="258" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">Incident engine, anomaly</text>
+  <text x="480" y="284" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">scoring, payload carving</text>
 
-  <path d="M348 174H432" stroke="#5EE6C6" stroke-width="6" stroke-linecap="round"/>
-  <path d="M738 174H822" stroke="#73B8FF" stroke-width="6" stroke-linecap="round"/>
-  <path d="M600 272V372" stroke="#7ABEFF" stroke-width="6" stroke-linecap="round"/>
-  <path d="M210 272V372" stroke="#5EE6C6" stroke-width="6" stroke-linecap="round"/>
-  <path d="M990 272V372" stroke="#F9B45E" stroke-width="6" stroke-linecap="round"/>
-  <path d="M348 500H432" stroke="#8ED6FF" stroke-width="6" stroke-linecap="round"/>
-  <path d="M738 500H822" stroke="#5EE6C6" stroke-width="6" stroke-linecap="round"/>
+  <text x="848" y="142" fill="#FFD59B" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700">Explainability</text>
+  <text x="848" y="182" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">Reports, maps,</text>
+  <text x="848" y="217" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">timeline, story</text>
+  <text x="848" y="258" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">Markdown, JSON, Mermaid,</text>
+  <text x="848" y="284" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">protocol inventory</text>
 
-  <circle cx="432" cy="174" r="8" fill="#5EE6C6"/>
-  <circle cx="822" cy="174" r="8" fill="#73B8FF"/>
-  <circle cx="600" cy="372" r="8" fill="#7ABEFF"/>
-  <circle cx="210" cy="372" r="8" fill="#5EE6C6"/>
-  <circle cx="990" cy="372" r="8" fill="#F9B45E"/>
-  <circle cx="432" cy="500" r="8" fill="#8ED6FF"/>
-  <circle cx="822" cy="500" r="8" fill="#5EE6C6"/>
+  <text x="112" y="424" fill="#A8DDFF" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700">Telemetry Store</text>
+  <text x="112" y="464" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">SQLite flows,</text>
+  <text x="112" y="499" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">alerts, health</text>
+  <text x="112" y="540" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">Runtime status, IPS actions,</text>
+  <text x="112" y="566" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">DPI artifacts, operations</text>
 
-  <text x="72" y="42" fill="#D9FBF3" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700">Enterprise NIDS</text>
-  <text x="329" y="42" fill="#A3BDCA" font-family="Helvetica, Arial, sans-serif" font-size="18">Network Detection and Analysis Platform</text>
+  <text x="480" y="424" fill="#9DE8D6" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700">API + Dashboard</text>
+  <text x="480" y="464" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">FastAPI UI,</text>
+  <text x="480" y="499" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">replay, uploads</text>
+  <text x="480" y="540" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">Latest analysis, stats,</text>
+  <text x="480" y="566" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">diagnostics, operations feed</text>
+
+  <text x="848" y="424" fill="#9FCBFF" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700">GitHub Delivery</text>
+  <text x="848" y="464" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">README, CI,</text>
+  <text x="848" y="499" fill="#F3FAFF" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">public docs</text>
+  <text x="848" y="540" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">Architecture diagram, tests,</text>
+  <text x="848" y="566" fill="#B7CAD5" font-family="Helvetica, Arial, sans-serif" font-size="17">GitHub-ready publishing</text>
 
   <defs>
-    <linearGradient id="bg" x1="112" y1="52" x2="1098" y2="623" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0D1C24"/>
-      <stop offset="1" stop-color="#102834"/>
+    <linearGradient id="bg" x1="102" y1="34" x2="1100" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1C24"/>
+      <stop offset="1" stop-color="#112C39"/>
     </linearGradient>
   </defs>
 </svg>

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 import { siteConfig } from "@/lib/site-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { label: "About", href: "/about/" },
@@ -73,23 +74,27 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="site-nav desktop-nav" aria-label="Primary">
-          <NavLinks pathname={pathname} />
-        </nav>
-
-        <details className="nav-disclosure" ref={disclosureRef}>
-          <summary>Menu</summary>
-          <nav className="site-nav disclosure-nav" aria-label="Mobile primary">
-            <NavLinks
-              pathname={pathname}
-              onNavigate={() => {
-                if (disclosureRef.current) {
-                  disclosureRef.current.open = false;
-                }
-              }}
-            />
+        <div className="header-actions">
+          <nav className="site-nav desktop-nav" aria-label="Primary">
+            <NavLinks pathname={pathname} />
           </nav>
-        </details>
+
+          <ThemeToggle />
+
+          <details className="nav-disclosure" ref={disclosureRef}>
+            <summary>Menu</summary>
+            <nav className="site-nav disclosure-nav" aria-label="Mobile primary">
+              <NavLinks
+                pathname={pathname}
+                onNavigate={() => {
+                  if (disclosureRef.current) {
+                    disclosureRef.current.open = false;
+                  }
+                }}
+              />
+            </nav>
+          </details>
+        </div>
       </div>
     </header>
   );

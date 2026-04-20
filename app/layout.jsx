@@ -16,6 +16,20 @@ const googleSiteVerificationToken =
   process.env.GOOGLE_SITE_VERIFICATION ||
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
   "Q1qnn9j21GEvPg9Dx-20kHfxkeiG0zOffzHTG2Dr_Ug";
+const themeInitScript = `
+  (function () {
+    try {
+      var key = "atharva-site-theme";
+      var stored = window.localStorage.getItem(key);
+      var theme = stored === "light" || stored === "dark" ? stored : "dark";
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+    } catch (error) {
+      document.documentElement.dataset.theme = "dark";
+      document.documentElement.style.colorScheme = "dark";
+    }
+  })();
+`;
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -63,6 +77,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning className={`${fontInter.variable} ${fontOutfit.variable}`}>
       <head>
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body suppressHydrationWarning>
         <a href="#main-content" className="skip-link">
