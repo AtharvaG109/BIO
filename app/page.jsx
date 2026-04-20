@@ -149,9 +149,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="What I Can Build"
-            title="Where I am most useful to an engineering team."
-            copy="The strongest fit is work that spans architecture, reliability, debugging, and secure delivery instead of stopping at isolated feature tickets."
+            eyebrow="What I Love Building"
+            title="Where I can help your team the most."
+            copy="I thrive on work that bridges architecture, reliability, and security, rather than just clearing isolated feature tickets."
           />
         </AnimateIn>
 
@@ -169,9 +169,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="Engineering Profile"
-            title="The kind of work I am strongest in."
-            copy="The portfolio is centered on backend delivery, platform reliability, and security work that still makes sense once it reaches production."
+            eyebrow="My Sweet Spots"
+            title="The kind of engineering I do best."
+            copy="My work is heavily focused on backend delivery, platform stability, and security setups that actually make sense once deployed."
           />
         </AnimateIn>
 
@@ -189,9 +189,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="Selected Impact"
-            title="A few signals that matter quickly."
-            copy="The goal is to answer the first serious question fast: what changed because of the work?"
+            eyebrow="Some Fun Wins"
+            title="A few indicators of what I can do."
+            copy="Because the first question is always: 'what actually changed because of your work?'"
           />
         </AnimateIn>
 
@@ -208,9 +208,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="Explore"
-            title="Navigate the portfolio."
-            copy="Move from profile and experience into projects, workbench notes, writing, and the recruiter-friendly resume view."
+            eyebrow="Look Around"
+            title="Check out the rest of the site."
+            copy="Dive into my detailed project case studies, my workbench notes on reverse engineering, my writing, or grab a recruiter-friendly resume."
           />
         </AnimateIn>
 
