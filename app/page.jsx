@@ -149,9 +149,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="What I Love Building"
-            title="Where I can help your team the most."
-            copy="I thrive on work that bridges architecture, reliability, and security, rather than just clearing isolated feature tickets."
+            eyebrow="What I Build"
+            title="The work I keep coming back to."
+            copy="The strongest fit is work that spans implementation, runtime behavior, and security instead of stopping at isolated feature delivery."
           />
         </AnimateIn>
 
@@ -169,9 +169,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="My Sweet Spots"
-            title="The kind of engineering I do best."
-            copy="My work is heavily focused on backend delivery, platform stability, and security setups that actually make sense once deployed."
+            eyebrow="How I Work"
+            title="The engineering habits behind the outcomes."
+            copy="I am usually most useful when a team needs someone to design carefully, debug from evidence, and stay with the operational details after launch."
           />
         </AnimateIn>
 
@@ -189,9 +189,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="Some Fun Wins"
-            title="A few indicators of what I can do."
-            copy="Because the first question is always: 'what actually changed because of your work?'"
+            eyebrow="Selected Outcomes"
+            title="A few concrete results."
+            copy="These numbers are the shorthand version of how I usually contribute: less guesswork, less toil, and fewer fragile releases."
           />
         </AnimateIn>
 
@@ -208,9 +208,9 @@ export default function HomePage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="Look Around"
-            title="Check out the rest of the site."
-            copy="Dive into my detailed project case studies, my workbench notes on reverse engineering, my writing, or grab a recruiter-friendly resume."
+            eyebrow="Explore"
+            title="The rest of the site, without the fluff."
+            copy="Projects go deep on shipped work, the workbench covers how I study systems and security, writing captures decisions and lessons, and the resume is the fast overview."
           />
         </AnimateIn>
 

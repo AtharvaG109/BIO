@@ -11,8 +11,8 @@ export default function ContactPage() {
     <main id="main-content" tabIndex="-1" className="page-shell page-main">
       <PageHero
         eyebrow="Contact"
-        title="Start the conversation with context."
-        copy="I keep direct phone details off the public site. Use the request form for serious roles, project discussions, engineering conversations, research, or collaboration."
+        title="Start with the role, project, or problem."
+        copy="I keep direct phone details off the public site. If you are reaching out about a role, collaboration, or technical discussion, send the context here and I will review it directly."
         actions={[
           { label: "View projects", href: "/projects/", variant: "secondary" },
           { label: "Open resume", href: "/resume/", variant: "primary" }

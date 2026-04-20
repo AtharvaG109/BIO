@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Projects"
         title="Case studies from shipped systems and security work."
-        copy="Browse projects across backend systems, security products, AI security, application security, and published technical work."
+        copy="These projects cover backend systems, security products, low-level research, and the engineering tradeoffs behind each one."
         actions={[
           { label: "Open workbench", href: "/workbench/", variant: "secondary" },
           { label: "Request intro", href: "/contact/", variant: "primary" }

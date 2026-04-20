@@ -111,8 +111,8 @@ export function ContactInterestForm() {
         <p className="eyebrow">Private Contact</p>
         <h2>Request a conversation.</h2>
         <p className="muted">
-          Share the role, team, or collaboration context. I review requests directly and keep phone
-          details private until the conversation makes sense.
+          Share the role, team, or collaboration context. I review requests myself and keep direct
+          phone details private until there is enough context for a useful conversation.
         </p>
       </div>
 

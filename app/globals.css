@@ -11,6 +11,17 @@
   --field-bg: rgba(9, 17, 24, 0.92);
   --field-placeholder: rgba(178, 194, 208, 0.5);
   --header-bg: rgba(7, 14, 19, 0.8);
+  --theme-toggle-bg: rgba(11, 23, 31, 0.9);
+  --theme-toggle-active-bg: rgba(229, 106, 84, 0.18);
+  --theme-toggle-label-bg: rgba(255, 255, 255, 0.04);
+  --contact-story-bg:
+    linear-gradient(180deg, rgba(14, 165, 233, 0.08), transparent 34%),
+    linear-gradient(320deg, rgba(229, 106, 84, 0.08), transparent 40%),
+    rgba(11, 20, 27, 0.96);
+  --contact-form-bg:
+    linear-gradient(180deg, rgba(20, 184, 166, 0.06), transparent 34%),
+    linear-gradient(320deg, rgba(245, 171, 53, 0.05), transparent 42%),
+    rgba(10, 18, 25, 0.97);
   --line: rgba(143, 171, 191, 0.15);
   --line-strong: rgba(143, 171, 191, 0.24);
   --text: #D5E1EA;
@@ -54,6 +65,17 @@ html[data-theme="light"] {
   --field-bg: rgba(255, 255, 255, 0.96);
   --field-placeholder: rgba(115, 115, 111, 0.72);
   --header-bg: rgba(250, 250, 248, 0.72);
+  --theme-toggle-bg: rgba(255, 255, 255, 0.96);
+  --theme-toggle-active-bg: rgba(229, 106, 84, 0.12);
+  --theme-toggle-label-bg: rgba(17, 17, 17, 0.04);
+  --contact-story-bg:
+    linear-gradient(180deg, rgba(229, 106, 84, 0.08), transparent 30%),
+    linear-gradient(320deg, rgba(14, 165, 233, 0.04), transparent 38%),
+    rgba(255, 255, 255, 0.98);
+  --contact-form-bg:
+    linear-gradient(180deg, rgba(14, 165, 233, 0.05), transparent 32%),
+    linear-gradient(320deg, rgba(20, 184, 166, 0.04), transparent 42%),
+    rgba(255, 255, 255, 0.99);
   --line: rgba(0, 0, 0, 0.06);
   --line-strong: rgba(0, 0, 0, 0.12);
   --text: #4A4A46;
@@ -390,12 +412,25 @@ ul {
 .theme-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.3rem;
   padding: 0.22rem;
   border-radius: 999px;
   border: 1px solid var(--line-strong);
-  background: var(--surface);
+  background: var(--theme-toggle-bg);
   box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.44rem 0.72rem;
+  border-radius: 999px;
+  background: var(--theme-toggle-label-bg);
+  color: var(--text-strong);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .theme-toggle-option {
@@ -417,8 +452,9 @@ ul {
 }
 
 .theme-toggle-option-active {
-  background: var(--surface-strong);
+  background: var(--theme-toggle-active-bg);
   color: var(--text-strong);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
 }
 
 .nav-disclosure {
@@ -468,6 +504,25 @@ ul {
 
 .disclosure-nav a:last-child {
   margin-bottom: 0;
+}
+
+.desktop-theme-toggle,
+.mobile-theme-toggle {
+  display: contents;
+}
+
+.mobile-theme-toggle {
+  width: 100%;
+}
+
+.mobile-theme-toggle .theme-toggle {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.45rem;
+}
+
+.mobile-theme-toggle .theme-toggle-option {
+  flex: 1 1 0;
 }
 
 /* ─── Surface Cards ─── */
@@ -1200,10 +1255,7 @@ ul {
   display: grid;
   gap: 1rem;
   align-content: start;
-  background:
-    linear-gradient(145deg, rgba(14, 165, 233, 0.08), transparent 42%),
-    linear-gradient(320deg, rgba(249, 115, 22, 0.06), transparent 36%),
-    var(--surface);
+  background: var(--contact-story-bg);
 }
 
 .contact-story-copy {
@@ -1221,8 +1273,8 @@ ul {
   z-index: 1;
   padding: 1rem;
   border-radius: var(--radius-sm);
-  background: var(--surface-elevated);
-  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  border: 1px solid var(--line-strong);
 }
 
 .contact-signal-card h3 {
@@ -1243,9 +1295,7 @@ ul {
 .contact-form-shell {
   display: grid;
   gap: 1rem;
-  background:
-    linear-gradient(160deg, rgba(6, 182, 212, 0.06), transparent 38%),
-    var(--surface-panel);
+  background: var(--contact-form-bg);
 }
 
 .contact-form-head {
@@ -1286,7 +1336,7 @@ ul {
   min-height: 3rem;
   padding: 0.8rem 0.95rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--field-bg);
   color: var(--text);
   transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
@@ -1582,6 +1632,14 @@ ul {
   .header-actions {
     gap: 0.55rem;
   }
+
+  .desktop-theme-toggle {
+    display: none;
+  }
+
+  .mobile-theme-toggle {
+    display: block;
+  }
 }
 
 @media (max-width: 860px) {
@@ -1606,6 +1664,11 @@ ul {
 
   .theme-toggle-option {
     min-width: 3.6rem;
+  }
+
+  .theme-toggle-label {
+    padding-inline: 0.62rem;
+    font-size: 0.72rem;
   }
 
   .nav-disclosure {
@@ -1731,6 +1794,10 @@ ul {
 
   .theme-toggle {
     padding: 0.18rem;
+  }
+
+  .theme-toggle-label {
+    display: none;
   }
 
   .theme-toggle-option {

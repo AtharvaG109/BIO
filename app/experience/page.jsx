@@ -21,7 +21,7 @@ export default function ExperiencePage() {
       <PageHero
         eyebrow="Experience"
         title="Roles, outcomes, and credentials."
-        copy="Career history with emphasis on production impact, systems ownership, observability, and security execution."
+        copy="Career history with emphasis on production ownership, observability, security execution, and the kind of work that holds up after launch."
         actions={[
           { label: "Open resume", href: "/resume/", variant: "primary" },
           { label: "Request intro", href: "/contact/", variant: "secondary" }
@@ -42,7 +42,7 @@ export default function ExperiencePage() {
           <SectionHeading
             eyebrow="Execution Pattern"
             title="How I run work from design to post-release learning."
-            copy="I focus on repeatable practices that protect reliability, speed up debugging, and improve the system after launch instead of only before it."
+            copy="I focus on habits that keep systems easier to ship, observe, and repair instead of treating production as someone else’s phase."
           />
         </AnimateIn>
 
@@ -62,7 +62,7 @@ export default function ExperiencePage() {
           <SectionHeading
             eyebrow="Career"
             title="Where performance, observability, and security converge."
-            copy="Most effective where the stack is wide, the failure modes are real, and someone needs to keep both speed and quality moving."
+            copy="Most effective where the stack is wide, the debugging trail is messy, and someone needs to keep quality and delivery moving together."
           />
         </AnimateIn>
 
@@ -104,7 +104,7 @@ export default function ExperiencePage() {
         <div className="detail-grid">
           <AnimateIn className="surface panel-card" delay={0.08}>
             <p className="eyebrow">Credentials</p>
-            <h2>Graduate study and security credentials that strengthen the engineering work.</h2>
+            <h2>Graduate study and security training that strengthen the engineering work.</h2>
             <div className="preview-list compact-preview-list">
               {education.map((item) => (
                 <article key={item.degree} className="preview-item">

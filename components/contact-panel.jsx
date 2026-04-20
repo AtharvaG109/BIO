@@ -7,10 +7,10 @@ export function ContactPanel() {
       <div className="surface contact-story">
         <div className="contact-story-copy">
           <p className="eyebrow">Contact</p>
-          <h2>Serious opportunities should feel deliberate, not noisy.</h2>
+          <h2>Good outreach is specific.</h2>
           <p className="muted">
-            {contactConfig.intro} The best outreach includes role scope, team context, and what you
-            need from the conversation.
+            {contactConfig.intro} The most useful messages include team context, role scope, timeline,
+            and why the conversation makes sense now.
           </p>
         </div>
 

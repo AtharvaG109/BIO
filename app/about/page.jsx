@@ -44,8 +44,8 @@ export default function AboutPage() {
       <StructuredData data={aboutSchema} />
       <PageHero
         eyebrow="About"
-        title="Engineering profile, operating style, and technical depth."
-        copy="Backend, platform, and security work grounded in systems ownership, debugging fluency, and operational discipline."
+        title="How I work, what I care about, and where I add leverage."
+        copy="My work sits at the intersection of backend engineering, platform reliability, and security. The through-line is ownership: design it well, ship it carefully, and keep it understandable once it is running."
         actions={[
           { label: "View experience", href: "/experience/", variant: "primary" },
           { label: "Request intro", href: "/contact/", variant: "secondary" }
@@ -57,7 +57,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Strengths"
             title="Where I add leverage."
-            copy="I tend to be most useful when a team needs design, execution, and production follow-through in the same person."
+            copy="I tend to be most useful when a project needs architecture, execution, and post-launch follow-through from the same person."
           />
         </AnimateIn>
 
@@ -99,8 +99,8 @@ export default function AboutPage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="Execution Depth"
-            title="How I turn technical range into reliable delivery."
-            copy="The goal is consistent performance under ambiguity, not just isolated technical wins or good demos."
+            title="How I turn range into reliable delivery."
+            copy="The goal is not to look broad on paper. It is to stay effective when the work crosses multiple layers and the failure modes are real."
           />
         </AnimateIn>
 
@@ -120,7 +120,7 @@ export default function AboutPage() {
         <div className="detail-grid">
           <AnimateIn className="surface panel-card" delay={0.08}>
             <p className="eyebrow">Interests</p>
-            <h2>The technical threads I keep following beyond the job description.</h2>
+            <h2>The technical threads I keep following outside immediate project needs.</h2>
             <div className="interest-stack">
               {interests.map((item) => (
                 <article key={item.title} className="interest-item">
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
           <AnimateIn className="surface panel-card" delay={0.14}>
             <p className="eyebrow">Technical range</p>
-            <h2>Tooling that repeatedly shows up across systems, platform, and security work.</h2>
+            <h2>Tooling that keeps showing up across backend, platform, and security work.</h2>
             <div className="preview-list compact-preview-list">
               {toolGroups.map((group) => (
                 <article key={group.title} className="preview-item">

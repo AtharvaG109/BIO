@@ -79,11 +79,16 @@ export function SiteHeader() {
             <NavLinks pathname={pathname} />
           </nav>
 
-          <ThemeToggle />
+          <div className="desktop-theme-toggle">
+            <ThemeToggle />
+          </div>
 
           <details className="nav-disclosure" ref={disclosureRef}>
             <summary>Menu</summary>
             <nav className="site-nav disclosure-nav" aria-label="Mobile primary">
+              <div className="mobile-theme-toggle">
+                <ThemeToggle />
+              </div>
               <NavLinks
                 pathname={pathname}
                 onNavigate={() => {

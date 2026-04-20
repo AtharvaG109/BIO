@@ -34,10 +34,10 @@ export default function BlogIndexPage() {
       <StructuredData data={blogIndexSchema} />
       <AnimateIn className="surface page-hero" delay={0.05}>
         <p className="eyebrow">Writing</p>
-        <h1>Field notes on systems, AI security, and engineering judgment.</h1>
+        <h1>Notes on systems, AI security, and engineering judgment.</h1>
         <p className="muted hero-copy">
-          This is where portfolio work turns into narrative: what changed, what broke, what the evidence said,
-          and what engineering decision followed after that.
+          This is where project work turns into explanation: what changed, what broke, what the
+          evidence said, and what decision followed from that.
         </p>
       </AnimateIn>
 
