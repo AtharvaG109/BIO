@@ -3,7 +3,10 @@ import { PageHero } from "@/components/page-hero";
 
 export const metadata = {
   title: "Contact",
-  description: "Private contact request flow for Atharva Gham."
+  description: "Private contact request flow for Atharva Gham.",
+  alternates: {
+    canonical: "/contact/"
+  }
 };
 
 export default function ContactPage() {

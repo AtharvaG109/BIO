@@ -12,7 +12,10 @@ import {
 
 export const metadata = {
   title: "Experience",
-  description: "Experience, credentials, and technical range for Atharva Gham."
+  description: "Experience, credentials, and technical range for Atharva Gham.",
+  alternates: {
+    canonical: "/experience/"
+  }
 };
 
 export default function ExperiencePage() {
