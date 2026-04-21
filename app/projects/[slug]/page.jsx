@@ -1,8 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { AnimateIn } from "@/components/animate-in";
-import { ProjectPreviewDiagram } from "@/components/project-preview-diagram";
 import { StructuredData } from "@/components/structured-data";
 import {
   buildAbsoluteUrl,
@@ -131,8 +131,42 @@ export default async function ProjectPage({ params }) {
 
       <article className="surface article-shell project-article-shell">
         <AnimateIn className="article-section project-media-section" delay={0.06}>
-          <div className="media-frame media-frame-wide project-preview-frame">
-            <ProjectPreviewDiagram project={project} variant="feature" />
+          <div className="project-diagram-shell">
+            <div className="project-diagram-head">
+              <div className="project-diagram-copy">
+                <p className="eyebrow">Architecture Diagram</p>
+                <h2>How the system fits together</h2>
+                <p className="muted">
+                  This visual is meant to show the operating shape of the project at a glance:
+                  where input begins, where decisions happen, and what the useful output surface
+                  actually is.
+                </p>
+              </div>
+
+              <div className="project-diagram-meta">
+                <div className="project-diagram-stat">
+                  <span>Scope</span>
+                  <strong>{project.category}</strong>
+                </div>
+                <div className="project-diagram-stat">
+                  <span>Signals</span>
+                  <strong>{project.metrics?.[0]?.value ?? `${project.stack.length} tools`}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div className="media-frame media-frame-wide project-hero-diagram-frame">
+              <Image
+                src={withBasePath(project.media.src)}
+                alt={project.media.alt}
+                width={1200}
+                height={675}
+                className="project-media project-media-diagram"
+                priority={project.featured}
+              />
+            </div>
+
+            <p className="project-diagram-caption">{project.media.alt}</p>
           </div>
         </AnimateIn>
 
@@ -214,14 +248,19 @@ export default async function ProjectPage({ params }) {
           )}
         </AnimateIn>
 
-        <AnimateIn className="article-section" delay={0.2}>
-          <h2>Stack</h2>
-          <div className="tag-row">
-            {project.stack.map((item) => (
-              <span key={item} className="tag">
-                {item}
-              </span>
-            ))}
+        <AnimateIn className="article-section project-stack-section" delay={0.2}>
+          <div className="project-stack-shell">
+            <div className="project-stack-copy">
+              <p className="eyebrow">Stack</p>
+              <h2>Tools and technologies behind the work</h2>
+            </div>
+            <div className="tag-row">
+              {project.stack.map((item) => (
+                <span key={item} className="tag">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </AnimateIn>
       </article>
