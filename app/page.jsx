@@ -30,7 +30,7 @@ const homepageSchema = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.shortName,
-    alternateName: `${siteConfig.shortName} Portfolio`,
+    alternateName: "Portfolio Page",
     url: buildAbsoluteUrl("/")
   },
   {
@@ -106,10 +106,10 @@ export default function HomePage() {
         <AnimateIn className="surface hero-aside" delay={0.12}>
           <div className="hero-aside-grid">
             <article className="hero-glance-card hero-glance-featured">
-              <p className="micro-label">Mission</p>
+              <p className="micro-label">What drives me</p>
               <h2>{hero.mission}</h2>
               <p className="muted">
-                Engineering work grounded in ownership, clarity, and enough operational follow-through to survive real usage.
+                I care about work that is technically honest, operationally grounded, and still understandable when things start going wrong.
               </p>
             </article>
 
@@ -137,6 +137,42 @@ export default function HomePage() {
         </AnimateIn>
       </section>
 
+      <section className="section-block">
+        <div className="detail-grid">
+          <AnimateIn className="surface panel-card" delay={0.05}>
+            <p className="eyebrow">Who I Am</p>
+            <h2>A systems-minded engineer who likes being close to the real behavior of software.</h2>
+            <div className="preview-list compact-preview-list">
+              <article className="preview-item">
+                <p>
+                  I am most comfortable in backend and platform work where the details matter:
+                  service behavior, instrumentation, packet flow, debugging, release safety, and
+                  the security controls around all of that.
+                </p>
+              </article>
+              <article className="preview-item">
+                <p>
+                  I like understanding why systems behave the way they do, especially when the
+                  answer sits below the surface symptom. That is why a lot of my work naturally
+                  pulls me toward observability, runtime evidence, security tooling, and low-level
+                  debugging.
+                </p>
+              </article>
+            </div>
+          </AnimateIn>
+
+          <AnimateIn className="surface panel-card" delay={0.11}>
+            <p className="eyebrow">What This Site Covers</p>
+            <h2>The projects, habits, and areas of work that best represent me.</h2>
+            <ul className="bullet-list">
+              <li>Product-shaped security and systems projects that are public, explainable, and technically honest.</li>
+              <li>Backend and platform work where reliability, telemetry, and debugging depth are part of the job.</li>
+              <li>Research and low-level study that improves the way I build and secure real software.</li>
+            </ul>
+          </AnimateIn>
+        </div>
+      </section>
+
       <section className="signal-grid" aria-label="Key portfolio metrics">
         {stats.map((item, index) => (
           <AnimateIn key={item.label} className="surface signal-card" delay={0.08 + index * 0.04}>
@@ -150,8 +186,8 @@ export default function HomePage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="What I Build"
-            title="The work I keep coming back to."
-            copy="The strongest fit is work that spans implementation, runtime behavior, and security instead of stopping at isolated feature delivery."
+            title="The kind of work I want to keep doing."
+            copy="I am at my best when the work spans implementation, runtime behavior, operations, and security instead of ending at the first shipped version."
           />
         </AnimateIn>
 
@@ -170,8 +206,8 @@ export default function HomePage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="How I Work"
-            title="The engineering habits behind the outcomes."
-            copy="I am usually most useful when a team needs someone to design carefully, debug from evidence, and stay with the operational details after launch."
+            title="How I usually add value."
+            copy="I tend to help most when a team needs someone who can design carefully, debug from evidence, and stay with the operational details after launch."
           />
         </AnimateIn>
 
@@ -209,8 +245,8 @@ export default function HomePage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="Explore"
-            title="The rest of the site, without the fluff."
-            copy="Projects go deep on shipped work, the workbench covers how I study systems and security, writing captures decisions and lessons, and the resume is the fast overview."
+            title="The rest of the site."
+            copy="The About page explains who I am, Projects shows the strongest work, Workbench covers how I study systems and security, and the resume is the quick summary."
           />
         </AnimateIn>
 

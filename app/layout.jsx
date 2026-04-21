@@ -33,13 +33,13 @@ const themeInitScript = `
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
-  applicationName: siteConfig.shortName,
+  applicationName: "Portfolio Page",
   verification: {
     google: googleSiteVerificationToken
   },
   title: {
-    default: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
-    template: `%s | ${siteConfig.shortName}`
+    default: `${siteConfig.name} | Portfolio Page`,
+    template: `%s | Portfolio Page`
   },
   description: siteConfig.description,
   alternates: {
@@ -49,10 +49,10 @@ export const metadata = {
     icon: faviconPath
   },
   openGraph: {
-    title: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
+    title: `${siteConfig.name} | Portfolio Page`,
     description: siteConfig.description,
     url: siteConfig.siteUrl,
-    siteName: siteConfig.shortName,
+    siteName: "Portfolio Page",
     locale: "en_US",
     type: "website",
     images: [
@@ -66,7 +66,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.shortName} | Backend, Platform, Security Engineer`,
+    title: `${siteConfig.name} | Portfolio Page`,
     description: siteConfig.description,
     images: [socialPreviewPath]
   }

@@ -44,8 +44,8 @@ export default function AboutPage() {
       <StructuredData data={aboutSchema} />
       <PageHero
         eyebrow="About"
-        title="How I work, what I care about, and where I add leverage."
-        copy="My work sits at the intersection of backend engineering, platform reliability, and security. The through-line is ownership: design it well, ship it carefully, and keep it understandable once it is running."
+        title="Who I am, what kind of engineer I am, and how I like to work."
+        copy="I am a backend, platform, and security engineer who likes difficult systems work. I care about reliability, clear architecture, real debugging, and building things that still make sense once they are running in the real world."
         actions={[
           { label: "View experience", href: "/experience/", variant: "primary" },
           { label: "Request intro", href: "/contact/", variant: "secondary" }
@@ -53,11 +53,53 @@ export default function AboutPage() {
       />
 
       <section className="section-block">
+        <div className="detail-grid">
+          <AnimateIn className="surface panel-card" delay={0.06}>
+            <p className="eyebrow">Who I Am</p>
+            <h2>I am not just trying to ship features. I like understanding how the system actually behaves.</h2>
+            <div className="preview-list compact-preview-list">
+              <article className="preview-item">
+                <p>
+                  My strongest work usually sits somewhere between backend engineering, platform
+                  reliability, and security. I like being close to the runtime, the telemetry, the
+                  packet flow, the release process, and the debugging trail when something goes
+                  wrong.
+                </p>
+              </article>
+              <article className="preview-item">
+                <p>
+                  I enjoy building useful systems, but I also care a lot about whether the system is
+                  explainable. If a service is hard to observe, hard to reason about, or easy to
+                  break during rollout, I do not consider the job finished yet.
+                </p>
+              </article>
+              <article className="preview-item">
+                <p>
+                  A lot of my interest in security comes from that same mindset. I care about making
+                  systems safer in ways that are concrete and operational, not cosmetic.
+                </p>
+              </article>
+            </div>
+          </AnimateIn>
+
+          <AnimateIn className="surface panel-card" delay={0.12}>
+            <p className="eyebrow">What I Want To Keep Doing</p>
+            <h2>The environments where I do my best work.</h2>
+            <ul className="bullet-list">
+              <li>Backend or platform teams where reliability, observability, and performance are treated as engineering work, not cleanup.</li>
+              <li>Security-minded environments where guardrails, automation, and debugging depth matter more than buzzwords.</li>
+              <li>Teams that value ownership, clear communication, and engineers who stay with the hard parts after launch.</li>
+            </ul>
+          </AnimateIn>
+        </div>
+      </section>
+
+      <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="Strengths"
             title="Where I add leverage."
-            copy="I tend to be most useful when a project needs architecture, execution, and post-launch follow-through from the same person."
+            copy="I tend to be most useful when a project needs architecture, implementation, and post-launch follow-through from the same person."
           />
         </AnimateIn>
 
@@ -76,7 +118,7 @@ export default function AboutPage() {
             <p className="eyebrow">Working style</p>
             <h2>{hero.mission}</h2>
             <p className="muted values-copy">
-              Technical range matters, but I care just as much about whether the work is explainable,
+              Technical range matters, but I care just as much about whether the work is observable,
               supportable, and trustworthy after the first release.
             </p>
 
@@ -99,8 +141,8 @@ export default function AboutPage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="Execution Depth"
-            title="How I turn range into reliable delivery."
-            copy="The goal is not to look broad on paper. It is to stay effective when the work crosses multiple layers and the failure modes are real."
+            title="How I turn broad range into reliable delivery."
+            copy="The goal is not to sound broad. The goal is to stay useful when the work crosses multiple layers and somebody needs to keep the whole thing understandable."
           />
         </AnimateIn>
 
@@ -120,7 +162,7 @@ export default function AboutPage() {
         <div className="detail-grid">
           <AnimateIn className="surface panel-card" delay={0.08}>
             <p className="eyebrow">Interests</p>
-            <h2>The technical threads I keep following outside immediate project needs.</h2>
+            <h2>The technical areas I keep coming back to, even when they are not required by the current project.</h2>
             <div className="interest-stack">
               {interests.map((item) => (
                 <article key={item.title} className="interest-item">
@@ -133,7 +175,7 @@ export default function AboutPage() {
 
           <AnimateIn className="surface panel-card" delay={0.14}>
             <p className="eyebrow">Technical range</p>
-            <h2>Tooling that keeps showing up across backend, platform, and security work.</h2>
+            <h2>The tooling that keeps showing up across the work I do.</h2>
             <div className="preview-list compact-preview-list">
               {toolGroups.map((group) => (
                 <article key={group.title} className="preview-item">
