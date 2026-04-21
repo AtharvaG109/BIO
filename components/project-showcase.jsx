@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-import { getSortedProjects, withBasePath } from "@/lib/site-data";
+import { ProjectPreviewDiagram } from "@/components/project-preview-diagram";
+import { getSortedProjects } from "@/lib/site-data";
 
 const cardTransition = {
   duration: 0.3,
@@ -80,14 +80,8 @@ export function ProjectShowcase({ projects }) {
               ))}
             </div>
           ) : null}
-          <div className="media-frame">
-            <Image
-              src={withBasePath(selectedProject.media.src)}
-              alt={selectedProject.media.alt}
-              width={1200}
-              height={600}
-              className="project-media"
-            />
+          <div className="media-frame project-preview-frame">
+            <ProjectPreviewDiagram project={selectedProject} variant="feature" />
           </div>
           <p className="project-impact">{selectedProject.challenge}</p>
 
@@ -177,14 +171,8 @@ export function ProjectShowcase({ projects }) {
                   onClick={() => setSelectedSlug(project.slug)}
                   aria-pressed={isActive}
                 >
-                  <div className="project-card-thumbnail">
-                    <Image
-                      src={withBasePath(project.media.src)}
-                      alt={project.media.alt}
-                      width={1200}
-                      height={600}
-                      className="project-media"
-                    />
+                  <div className="project-card-thumbnail project-preview-frame">
+                    <ProjectPreviewDiagram project={project} variant="compact" />
                   </div>
                   <div className="project-meta">
                     <span>{project.category}</span>

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import { AnimateIn } from "@/components/animate-in";
 import { ContactPanel } from "@/components/contact-panel";
+import { ProjectPreviewDiagram } from "@/components/project-preview-diagram";
 import { SectionHeading } from "@/components/section-heading";
 import { StructuredData } from "@/components/structured-data";
 import {
@@ -18,8 +18,7 @@ import {
   principles,
   selectedWins,
   siteConfig,
-  stats,
-  withBasePath
+  stats
 } from "@/lib/site-data";
 
 const featuredProject = getFeaturedProject();
@@ -332,14 +331,8 @@ export default function HomePage() {
               </div>
               <h2>{featuredProject.title}</h2>
               <p className="muted panel-copy">{featuredProject.summary}</p>
-              <div className="media-frame">
-                <Image
-                  src={withBasePath(featuredProject.media.src)}
-                  alt={featuredProject.media.alt}
-                  width={1200}
-                  height={600}
-                  className="project-media"
-                />
+              <div className="media-frame project-preview-frame">
+                <ProjectPreviewDiagram project={featuredProject} variant="feature" />
               </div>
               <p className="project-impact">{featuredProject.challenge}</p>
               <div className="tag-row">

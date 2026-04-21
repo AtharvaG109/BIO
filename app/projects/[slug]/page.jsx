@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { AnimateIn } from "@/components/animate-in";
+import { ProjectPreviewDiagram } from "@/components/project-preview-diagram";
 import { StructuredData } from "@/components/structured-data";
 import {
   buildAbsoluteUrl,
@@ -131,14 +131,8 @@ export default async function ProjectPage({ params }) {
 
       <article className="surface article-shell project-article-shell">
         <AnimateIn className="article-section project-media-section" delay={0.06}>
-          <div className="media-frame media-frame-wide">
-            <Image
-              src={withBasePath(project.media.src)}
-              alt={project.media.alt}
-              width={1200}
-              height={600}
-              className="project-media"
-            />
+          <div className="media-frame media-frame-wide project-preview-frame">
+            <ProjectPreviewDiagram project={project} variant="feature" />
           </div>
         </AnimateIn>
 
