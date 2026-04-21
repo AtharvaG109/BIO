@@ -1,6 +1,6 @@
-# Bio
+# Portfolio
 
-Atharva Gham portfolio site (Next.js static export) configured for GitHub Pages and other free static hosts.
+Portfolio site for Atharva Gham, built with Next.js static export and configured for GitHub Pages and other free static hosts.
 
 Advanced Next.js portfolio for a software engineer and cybersecurity engineer.
 
