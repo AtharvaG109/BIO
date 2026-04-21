@@ -1,35 +1,67 @@
-<svg viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="520" rx="24" fill="#111118"/>
-  <rect x="24" y="24" width="1152" height="472" rx="20" fill="#16161f" stroke="rgba(255,255,255,0.06)"/>
-  <text x="60" y="80" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Application Security Toolchain</text>
-  <text x="60" y="110" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15">Exploit reproduction, remediation guidance, and CI gate integration</text>
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Application security tooling diagram</title>
+  <desc id="desc">Premium flow diagram showing exploit reproduction, rule generation, and developer remediation for application security tooling.</desc>
+  <defs>
+    <linearGradient id="bg-appsec" x1="84" y1="28" x2="1110" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13141A"/>
+      <stop offset="1" stop-color="#1A1B25"/>
+    </linearGradient>
+  </defs>
 
-  <rect x="60" y="155" width="200" height="90" rx="16" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
-  <text x="114" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">HTTP Input</text>
-  <text x="106" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">SQLi / XSS probes</text>
+  <rect width="1200" height="675" rx="34" fill="#0A0B10"/>
+  <rect x="24" y="24" width="1152" height="627" rx="28" fill="url(#bg-appsec)"/>
+  <rect x="48" y="48" width="1104" height="579" rx="24" fill="#11141C" stroke="#30303E"/>
 
-  <rect x="330" y="155" width="220" height="90" rx="16" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
-  <text x="382" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Python Harness</text>
-  <text x="374" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Reproduce and fingerprint</text>
+  <circle cx="170" cy="132" r="102" fill="#3A241D" fill-opacity="0.62"/>
+  <circle cx="1012" cy="132" r="118" fill="#201D2F" fill-opacity="0.8"/>
+  <circle cx="1030" cy="560" r="142" fill="#1A1827" fill-opacity="0.82"/>
 
-  <rect x="620" y="155" width="210" height="90" rx="16" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
-  <text x="678" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Rule Layer</text>
-  <text x="668" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Semgrep + CodeQL</text>
+  <text x="86" y="92" fill="#F6F8FB" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Application Security Tooling</text>
+  <text x="86" y="126" fill="#B2B9C7" font-family="Inter, Arial, sans-serif" font-size="18">Exploit reproduction, static rule translation, and developer-facing remediation that shifts security earlier.</text>
 
-  <rect x="900" y="155" width="200" height="90" rx="16" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5"/>
-  <text x="966" y="195" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">CI Gate</text>
-  <text x="948" y="221" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Fail unsafe builds</text>
+  <rect x="901" y="70" width="189" height="38" rx="19" fill="#1A1B23" stroke="#40333A"/>
+  <text x="995" y="94" text-anchor="middle" fill="#EDF0F4" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">APPLICATION SECURITY</text>
 
-  <path d="M260 200H330" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
-  <path d="M550 200H620" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
-  <path d="M830 200H900" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="295" cy="200" r="4" fill="rgba(99,102,241,0.6)"/>
-  <circle cx="585" cy="200" r="4" fill="rgba(139,92,246,0.6)"/>
-  <circle cx="865" cy="200" r="4" fill="rgba(16,185,129,0.6)"/>
+  <rect x="86" y="186" width="298" height="196" rx="24" fill="#131620" stroke="#FF9C73" stroke-opacity="0.64" stroke-width="2"/>
+  <rect x="451" y="186" width="298" height="196" rx="24" fill="#131620" stroke="#F4C96C" stroke-opacity="0.62" stroke-width="2"/>
+  <rect x="816" y="186" width="298" height="196" rx="24" fill="#131620" stroke="#8AB4FF" stroke-opacity="0.58" stroke-width="2"/>
 
-  <rect x="100" y="310" width="960" height="140" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
-  <text x="140" y="350" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Delivery Impact</text>
-  <text x="140" y="380" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Injection patterns turned into repeatable checks instead of one-off findings.</text>
-  <text x="140" y="406" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Actionable guidance delivered during normal development flow.</text>
-  <text x="140" y="432" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Security review shifted earlier through automated guardrails.</text>
+  <text x="116" y="230" fill="#FFBEA0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">EXPLOIT LAB</text>
+  <text x="116" y="274" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">SQLi and XSS</text>
+  <text x="116" y="309" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">reproduction</text>
+  <text x="116" y="344" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">Python tooling recreates exploit</text>
+  <text x="116" y="371" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">patterns under controlled conditions.</text>
+
+  <text x="481" y="230" fill="#F8DA90" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">RULE TRANSLATION</text>
+  <text x="481" y="274" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">Semgrep and</text>
+  <text x="481" y="309" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">CodeQL policies</text>
+  <text x="481" y="344" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">Repeated exploit shapes become</text>
+  <text x="481" y="371" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">continuous delivery guardrails.</text>
+
+  <text x="846" y="230" fill="#B0CDFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">DEVELOPER REMEDIATION</text>
+  <text x="846" y="274" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">From finding to</text>
+  <text x="846" y="309" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">usable fix</text>
+  <text x="846" y="344" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">Guidance is designed to help</text>
+  <text x="846" y="371" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">engineers remove the root issue.</text>
+
+  <path d="M384 284H451" stroke="#FF9C73" stroke-width="5" stroke-linecap="round"/>
+  <path d="M749 284H816" stroke="#F4C96C" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="417" cy="284" r="6" fill="#FF9C73"/>
+  <circle cx="782" cy="284" r="6" fill="#F4C96C"/>
+
+  <rect x="86" y="440" width="298" height="126" rx="22" fill="#10131B" stroke="#31323E"/>
+  <rect x="451" y="440" width="298" height="126" rx="22" fill="#10131B" stroke="#31323E"/>
+  <rect x="816" y="440" width="298" height="126" rx="22" fill="#10131B" stroke="#31323E"/>
+
+  <text x="116" y="480" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Shift-left</text>
+  <text x="116" y="512" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">Security checks move earlier</text>
+  <text x="116" y="537" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">without staying one-off research.</text>
+
+  <text x="481" y="480" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Automated rules</text>
+  <text x="481" y="512" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">Reproducible exploit patterns become</text>
+  <text x="481" y="537" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">repeatable CI and PR checks.</text>
+
+  <text x="846" y="480" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Developer-usable</text>
+  <text x="846" y="512" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">The guardrails are paired with</text>
+  <text x="846" y="537" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">concrete code-level remediation.</text>
 </svg>

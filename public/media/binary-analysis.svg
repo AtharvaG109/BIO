@@ -1,36 +1,67 @@
-<svg viewBox="0 0 1200 580" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="580" rx="24" fill="#111118"/>
-  <rect x="24" y="24" width="1152" height="532" rx="20" fill="#16161f" stroke="rgba(255,255,255,0.06)"/>
-  <text x="60" y="80" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Binary Analysis Workbench</text>
-  <text x="60" y="110" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15">Crash reproduction, memory inspection, and exploit path analysis</text>
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Binary research and exploit development diagram</title>
+  <desc id="desc">Premium flow diagram showing process-state analysis, dynamic debugging, and remediation output for binary research work.</desc>
+  <defs>
+    <linearGradient id="bg-binary" x1="84" y1="28" x2="1110" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121318"/>
+      <stop offset="1" stop-color="#1A1824"/>
+    </linearGradient>
+  </defs>
 
-  <rect x="60" y="155" width="340" height="340" rx="16" fill="#0d0d14" stroke="rgba(255,255,255,0.08)"/>
-  <text x="90" y="196" fill="rgba(255,255,255,0.7)" font-family="SF Mono, Fira Code, monospace" font-size="16">gdb&gt; bt</text>
-  <text x="90" y="228" fill="rgba(16,185,129,0.8)" font-family="SF Mono, Fira Code, monospace" font-size="15">#0 vulnerable_copy()</text>
-  <text x="90" y="256" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">#1 parse_message()</text>
-  <text x="90" y="284" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">#2 worker_loop()</text>
-  <text x="90" y="326" fill="rgba(245,158,11,0.8)" font-family="SF Mono, Fira Code, monospace" font-size="15">rsp: 0x7fffffffd9c0</text>
-  <text x="90" y="354" fill="rgba(16,185,129,0.8)" font-family="SF Mono, Fira Code, monospace" font-size="15">saved rip overwritten</text>
-  <text x="90" y="396" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">pattern offset: 264 bytes</text>
-  <text x="90" y="424" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">mitigations: ASLR / NX</text>
-  <text x="90" y="452" fill="rgba(255,255,255,0.55)" font-family="SF Mono, Fira Code, monospace" font-size="15">strategy: disclosure + control</text>
+  <rect width="1200" height="675" rx="34" fill="#0A0B10"/>
+  <rect x="24" y="24" width="1152" height="627" rx="28" fill="url(#bg-binary)"/>
+  <rect x="48" y="48" width="1104" height="579" rx="24" fill="#11141B" stroke="#2E3040"/>
 
-  <rect x="460" y="155" width="260" height="160" rx="16" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
-  <text x="590" y="196" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Observed State</text>
-  <text x="590" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Stack growth and frame layout</text>
-  <text x="590" y="252" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Allocator behavior</text>
-  <text x="590" y="278" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Register corruption path</text>
+  <circle cx="170" cy="130" r="98" fill="#3A253A" fill-opacity="0.62"/>
+  <circle cx="1015" cy="130" r="116" fill="#201B2E" fill-opacity="0.8"/>
+  <circle cx="1034" cy="558" r="142" fill="#1A1828" fill-opacity="0.86"/>
 
-  <rect x="460" y="335" width="260" height="160" rx="16" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
-  <text x="590" y="376" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Analysis Flow</text>
-  <text x="590" y="406" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Reproduce crash</text>
-  <text x="590" y="432" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Trace overwrite boundary</text>
-  <text x="590" y="458" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Patch root cause</text>
+  <text x="86" y="92" fill="#F6F7FA" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Binary Research and Exploit Development</text>
+  <text x="86" y="126" fill="#B1B8C5" font-family="Inter, Arial, sans-serif" font-size="18">Reverse engineering, runtime evidence, and patch-oriented debugging across 32-bit and 64-bit binaries.</text>
 
-  <rect x="780" y="155" width="280" height="340" rx="16" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1.5"/>
-  <text x="920" y="196" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Outputs</text>
-  <text x="920" y="234" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">32/64-bit binary review</text>
-  <text x="920" y="262" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Memory corruption diagnosis</text>
-  <text x="920" y="290" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">C/C++ remediation</text>
-  <text x="920" y="318" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Exploit intuition under mitigations</text>
+  <rect x="973" y="70" width="117" height="38" rx="19" fill="#191B24" stroke="#3A3450"/>
+  <text x="1031" y="94" text-anchor="middle" fill="#ECEFF5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">RESEARCH</text>
+
+  <rect x="86" y="186" width="298" height="196" rx="24" fill="#13151D" stroke="#C8A4FF" stroke-opacity="0.62" stroke-width="2"/>
+  <rect x="451" y="186" width="298" height="196" rx="24" fill="#13151D" stroke="#FFB780" stroke-opacity="0.62" stroke-width="2"/>
+  <rect x="816" y="186" width="298" height="196" rx="24" fill="#13151D" stroke="#8AB4FF" stroke-opacity="0.58" stroke-width="2"/>
+
+  <text x="116" y="230" fill="#D9C4FF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">PROCESS STATE</text>
+  <text x="116" y="274" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">Stacks, allocators,</text>
+  <text x="116" y="309" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">control flow</text>
+  <text x="116" y="344" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">The work begins with the real</text>
+  <text x="116" y="371" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">runtime shape of the failure.</text>
+
+  <text x="481" y="230" fill="#FFD3A5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">DYNAMIC DEBUGGING</text>
+  <text x="481" y="274" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">GDB, traces,</text>
+  <text x="481" y="309" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">fault isolation</text>
+  <text x="481" y="344" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">Crash symptoms are tied back to</text>
+  <text x="481" y="371" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">memory behavior and call paths.</text>
+
+  <text x="846" y="230" fill="#AED2FF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">PATCH PATH</text>
+  <text x="846" y="274" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">Root cause to</text>
+  <text x="846" y="309" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">defensive fix</text>
+  <text x="846" y="344" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">Findings are translated into</text>
+  <text x="846" y="371" fill="#BDC7D5" font-family="Inter, Arial, sans-serif" font-size="18">safer C/C++ remediation work.</text>
+
+  <path d="M384 284H451" stroke="#C8A4FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M749 284H816" stroke="#FFB780" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="417" cy="284" r="6" fill="#C8A4FF"/>
+  <circle cx="782" cy="284" r="6" fill="#FFB780"/>
+
+  <rect x="86" y="440" width="298" height="126" rx="22" fill="#10131A" stroke="#2F3343"/>
+  <rect x="451" y="440" width="298" height="126" rx="22" fill="#10131A" stroke="#2F3343"/>
+  <rect x="816" y="440" width="298" height="126" rx="22" fill="#10131A" stroke="#2F3343"/>
+
+  <text x="116" y="480" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">32-bit + 64-bit</text>
+  <text x="116" y="512" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">Work across multiple binary</text>
+  <text x="116" y="537" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">execution environments.</text>
+
+  <text x="481" y="480" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Root-cause focus</text>
+  <text x="481" y="512" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">Runtime evidence matters more</text>
+  <text x="481" y="537" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">than surface exploit symptoms.</text>
+
+  <text x="846" y="480" fill="#F7FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Patch-ready outcome</text>
+  <text x="846" y="512" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">Analysis ends in corrective code,</text>
+  <text x="846" y="537" fill="#B2BECE" font-family="Inter, Arial, sans-serif" font-size="17">not only proof-of-concept insight.</text>
 </svg>

@@ -1,45 +1,67 @@
-<svg viewBox="0 0 1200 580" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="580" rx="24" fill="#111118"/>
-  <rect x="24" y="24" width="1152" height="532" rx="20" fill="#16161f" stroke="rgba(255,255,255,0.06)"/>
-  <text x="60" y="80" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Distributed Telemetry Pipeline</text>
-  <text x="60" y="110" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15">High-volume ingestion, concurrent processing, transport hardening, and observability</text>
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Distributed telemetry pipeline diagram</title>
+  <desc id="desc">Premium flow diagram showing edge intake, queue-backed workers, and observable storage for a distributed telemetry pipeline.</desc>
+  <defs>
+    <linearGradient id="bg-pipeline" x1="80" y1="30" x2="1110" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F141C"/>
+      <stop offset="1" stop-color="#15192A"/>
+    </linearGradient>
+  </defs>
 
-  <rect x="60" y="160" width="200" height="90" rx="16" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
-  <text x="160" y="200" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Edge Collectors</text>
-  <text x="160" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">TLS / IPsec ingress</text>
+  <rect width="1200" height="675" rx="34" fill="#0A0E15"/>
+  <rect x="24" y="24" width="1152" height="627" rx="28" fill="url(#bg-pipeline)"/>
+  <rect x="48" y="48" width="1104" height="579" rx="24" fill="#121722" stroke="#262E40"/>
 
-  <rect x="330" y="160" width="200" height="90" rx="16" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
-  <text x="430" y="200" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Queue Layer</text>
-  <text x="430" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Retry-safe burst absorption</text>
+  <circle cx="172" cy="136" r="102" fill="#242034" fill-opacity="0.75"/>
+  <circle cx="1010" cy="132" r="114" fill="#182536" fill-opacity="0.82"/>
+  <circle cx="1030" cy="560" r="142" fill="#162031" fill-opacity="0.85"/>
 
-  <rect x="600" y="145" width="240" height="120" rx="18" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
-  <text x="720" y="190" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Concurrent Workers</text>
-  <text x="720" y="216" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Parse, validate, enrich, route</text>
-  <text x="720" y="242" text-anchor="middle" fill="rgba(139,92,246,0.7)" font-family="SF Mono, monospace" font-size="14">Go + Python</text>
+  <text x="86" y="92" fill="#F5F8FC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Distributed Telemetry Pipeline</text>
+  <text x="86" y="126" fill="#AAB8C8" font-family="Inter, Arial, sans-serif" font-size="18">Concurrent ingestion, transport hardening, and observable throughput across distributed cloud environments.</text>
 
-  <rect x="920" y="160" width="200" height="90" rx="16" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5"/>
-  <text x="1020" y="200" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Storage</text>
-  <text x="1020" y="226" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="13">Durable cloud sinks</text>
+  <rect x="929" y="70" width="161" height="38" rx="19" fill="#181E2B" stroke="#313B53"/>
+  <text x="1010" y="94" text-anchor="middle" fill="#E3ECF5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">SYSTEMS · 2025</text>
 
-  <path d="M260 205H330" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
-  <path d="M530 205H600" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
-  <path d="M840 205H920" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="295" cy="205" r="4" fill="rgba(99,102,241,0.6)"/>
-  <circle cx="565" cy="205" r="4" fill="rgba(139,92,246,0.6)"/>
-  <circle cx="880" cy="205" r="4" fill="rgba(16,185,129,0.6)"/>
+  <rect x="86" y="186" width="298" height="196" rx="24" fill="#111924" stroke="#F6C96A" stroke-opacity="0.62" stroke-width="2"/>
+  <rect x="451" y="186" width="298" height="196" rx="24" fill="#111924" stroke="#8AB4FF" stroke-opacity="0.6" stroke-width="2"/>
+  <rect x="816" y="186" width="298" height="196" rx="24" fill="#111924" stroke="#6BE3BF" stroke-opacity="0.58" stroke-width="2"/>
 
-  <rect x="100" y="330" width="280" height="110" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
-  <text x="240" y="370" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Performance</text>
-  <text x="240" y="396" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">50GB/day sustained input</text>
-  <text x="240" y="420" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Low-latency backpressure</text>
+  <text x="116" y="230" fill="#F8D98E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">EDGE INTAKE</text>
+  <text x="116" y="274" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">Collectors and</text>
+  <text x="116" y="309" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">secure transport</text>
+  <text x="116" y="344" fill="#B7C6D5" font-family="Inter, Arial, sans-serif" font-size="18">TLS and IPsec protect the</text>
+  <text x="116" y="371" fill="#B7C6D5" font-family="Inter, Arial, sans-serif" font-size="18">first mile of telemetry ingress.</text>
 
-  <rect x="440" y="330" width="280" height="110" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
-  <text x="580" y="370" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Reliability</text>
-  <text x="580" y="396" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Queue isolation and fan-out</text>
-  <text x="580" y="420" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Recovery without stalls</text>
+  <text x="481" y="230" fill="#B0CDFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">QUEUE + WORKERS</text>
+  <text x="481" y="274" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">Burst absorption</text>
+  <text x="481" y="309" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">and fan-out stages</text>
+  <text x="481" y="344" fill="#B7C6D5" font-family="Inter, Arial, sans-serif" font-size="18">Go and Python workers parse,</text>
+  <text x="481" y="371" fill="#B7C6D5" font-family="Inter, Arial, sans-serif" font-size="18">enrich, and route with retries.</text>
 
-  <rect x="780" y="330" width="280" height="110" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
-  <text x="920" y="370" text-anchor="middle" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600">Observability</text>
-  <text x="920" y="396" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Tracing on ingest path</text>
-  <text x="920" y="420" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="14">Operational rollout metrics</text>
+  <text x="846" y="230" fill="#8EF0CF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">STORAGE + TELEMETRY</text>
+  <text x="846" y="274" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">Durable sinks and</text>
+  <text x="846" y="309" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700">runtime visibility</text>
+  <text x="846" y="344" fill="#B7C6D5" font-family="Inter, Arial, sans-serif" font-size="18">Backlog growth and worker</text>
+  <text x="846" y="371" fill="#B7C6D5" font-family="Inter, Arial, sans-serif" font-size="18">imbalance stay observable.</text>
+
+  <path d="M384 284H451" stroke="#F6C96A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M749 284H816" stroke="#8AB4FF" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="417" cy="284" r="6" fill="#F6C96A"/>
+  <circle cx="782" cy="284" r="6" fill="#8AB4FF"/>
+
+  <rect x="86" y="440" width="298" height="126" rx="22" fill="#0F1520" stroke="#262F42"/>
+  <rect x="451" y="440" width="298" height="126" rx="22" fill="#0F1520" stroke="#262F42"/>
+  <rect x="816" y="440" width="298" height="126" rx="22" fill="#0F1520" stroke="#262F42"/>
+
+  <text x="116" y="480" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">50GB/day</text>
+  <text x="116" y="512" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">Sustained telemetry volume</text>
+  <text x="116" y="537" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">with low-latency ingestion.</text>
+
+  <text x="481" y="480" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">High availability</text>
+  <text x="481" y="512" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">Queueing and worker isolation</text>
+  <text x="481" y="537" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">keep failures from stalling flow.</text>
+
+  <text x="846" y="480" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">End-to-end ownership</text>
+  <text x="846" y="512" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">Architecture, rollout, tuning,</text>
+  <text x="846" y="537" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">and operational hardening.</text>
 </svg>
