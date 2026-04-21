@@ -1,3 +1,4 @@
+import { AnimateIn } from "@/components/animate-in";
 import { PageHero } from "@/components/page-hero";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { StructuredData } from "@/components/structured-data";
@@ -40,6 +41,29 @@ export default function ProjectsPage() {
       />
 
       <section className="section-block">
+        <div className="projects-intro-grid">
+          <AnimateIn className="surface panel-card projects-intro-panel" delay={0.04}>
+            <p className="eyebrow">How To Read This Page</p>
+            <h2>This is not a gallery of one-off demos.</h2>
+            <p className="muted">
+              I use these projects to show how I think about systems: what the problem really was,
+              why the architecture ended up the way it did, and what changed because the work
+              shipped.
+            </p>
+          </AnimateIn>
+
+          <AnimateIn className="surface panel-card projects-note-panel" delay={0.1}>
+            <p className="eyebrow">What To Expect</p>
+            <ul className="bullet-list">
+              <li>Public, product-shaped work with clearer scope and more honest tradeoffs.</li>
+              <li>Backend, platform, security, and low-level systems projects rather than generic app builds.</li>
+              <li>Case studies that explain why the design matters, not only what tech was used.</li>
+            </ul>
+          </AnimateIn>
+        </div>
+      </section>
+
+      <section className="section-block projects-showcase-section">
         <ProjectShowcase projects={projects} />
       </section>
     </main>

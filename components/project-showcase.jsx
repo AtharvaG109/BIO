@@ -177,6 +177,15 @@ export function ProjectShowcase({ projects }) {
                   onClick={() => setSelectedSlug(project.slug)}
                   aria-pressed={isActive}
                 >
+                  <div className="project-card-thumbnail">
+                    <Image
+                      src={withBasePath(project.media.src)}
+                      alt={project.media.alt}
+                      width={1200}
+                      height={600}
+                      className="project-media"
+                    />
+                  </div>
                   <div className="project-meta">
                     <span>{project.category}</span>
                     <span>{project.year}</span>

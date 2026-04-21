@@ -53,43 +53,50 @@ export default function AboutPage() {
       />
 
       <section className="section-block">
-        <div className="detail-grid">
-          <AnimateIn className="surface panel-card" delay={0.06}>
+        <div className="about-intro-grid">
+          <AnimateIn className="surface panel-card about-story-panel" delay={0.06}>
             <p className="eyebrow">Who I Am</p>
             <h2>I am not just trying to ship features. I like understanding how the system actually behaves.</h2>
-            <div className="preview-list compact-preview-list">
-              <article className="preview-item">
-                <p>
-                  My strongest work usually sits somewhere between backend engineering, platform
-                  reliability, and security. I like being close to the runtime, the telemetry, the
-                  packet flow, the release process, and the debugging trail when something goes
-                  wrong.
-                </p>
-              </article>
-              <article className="preview-item">
+            <p className="about-lead">
+              My strongest work usually sits somewhere between backend engineering, platform
+              reliability, and security. I like being close to the runtime, the telemetry, the
+              packet flow, the release process, and the debugging trail when something goes wrong.
+            </p>
+            <div className="about-story-grid">
+              <article className="about-story-note">
                 <p>
                   I enjoy building useful systems, but I also care a lot about whether the system is
                   explainable. If a service is hard to observe, hard to reason about, or easy to
                   break during rollout, I do not consider the job finished yet.
                 </p>
               </article>
-              <article className="preview-item">
+              <article className="about-story-note about-story-note-accent">
+                <p className="micro-label">Why security stays close</p>
                 <p>
-                  A lot of my interest in security comes from that same mindset. I care about making
-                  systems safer in ways that are concrete and operational, not cosmetic.
+                  A lot of my interest in security comes from the same mindset. I want systems to be
+                  safer in ways that are concrete, observable, and operational instead of cosmetic.
                 </p>
               </article>
             </div>
           </AnimateIn>
 
-          <AnimateIn className="surface panel-card" delay={0.12}>
+          <AnimateIn className="surface panel-card about-aim-panel" delay={0.12}>
             <p className="eyebrow">What I Want To Keep Doing</p>
             <h2>The environments where I do my best work.</h2>
-            <ul className="bullet-list">
-              <li>Backend or platform teams where reliability, observability, and performance are treated as engineering work, not cleanup.</li>
-              <li>Security-minded environments where guardrails, automation, and debugging depth matter more than buzzwords.</li>
-              <li>Teams that value ownership, clear communication, and engineers who stay with the hard parts after launch.</li>
-            </ul>
+            <div className="about-aim-list">
+              <article className="about-aim-item">
+                <span className="about-aim-mark" aria-hidden="true" />
+                <p>Backend or platform teams where reliability, observability, and performance are treated as engineering work, not cleanup.</p>
+              </article>
+              <article className="about-aim-item">
+                <span className="about-aim-mark" aria-hidden="true" />
+                <p>Security-minded environments where guardrails, automation, and debugging depth matter more than buzzwords.</p>
+              </article>
+              <article className="about-aim-item">
+                <span className="about-aim-mark" aria-hidden="true" />
+                <p>Teams that value ownership, clear communication, and engineers who stay with the hard parts after launch.</p>
+              </article>
+            </div>
           </AnimateIn>
         </div>
       </section>
@@ -114,21 +121,23 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <AnimateIn className="surface values-panel" delay={0.16}>
-            <p className="eyebrow">Working style</p>
-            <h2>{hero.mission}</h2>
-            <p className="muted values-copy">
-              Technical range matters, but I care just as much about whether the work is observable,
-              supportable, and trustworthy after the first release.
-            </p>
+          <AnimateIn className="surface home-collaboration-shell about-values-shell" delay={0.16}>
+            <div className="home-collaboration-head">
+              <div>
+                <p className="eyebrow">Working style</p>
+                <h2>{hero.mission}</h2>
+              </div>
+              <p className="muted home-collaboration-copy">
+                Technical range matters, but I care just as much about whether the work is
+                observable, supportable, and trustworthy after the first release.
+              </p>
+            </div>
 
-            <div className="values-stack">
+            <div className="home-collaboration-grid">
               {principles.map((principle) => (
-                <article key={principle.title} className="value-item">
-                  <div>
-                    <p className="micro-label">{principle.title}</p>
-                    <p>{principle.body}</p>
-                  </div>
+                <article key={principle.title} className="home-collaboration-card">
+                  <p className="micro-label">{principle.title}</p>
+                  <p>{principle.body}</p>
                   <p className="muted">{principle.signal}</p>
                 </article>
               ))}
