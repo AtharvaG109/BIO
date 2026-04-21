@@ -25,6 +25,28 @@ import {
 const featuredProject = getFeaturedProject();
 const newestProject = getNewestProject();
 const latestPost = getLatestPost();
+const currentThreads = [
+  "Building public security and systems projects that are technically honest and easy to explain.",
+  "Looking for backend, platform, and security roles where reliability and debugging depth actually matter.",
+  "Studying low-level systems and threat-modeling patterns that feed back into real product work."
+];
+const collaborationSignals = [
+  {
+    title: "I stay close to runtime behavior",
+    body:
+      "I like working where telemetry, packet flow, release safety, and production debugging are part of the day-to-day job instead of cleanup after the fact."
+  },
+  {
+    title: "I care about systems that are explainable",
+    body:
+      "A backend service or security workflow is only half-finished if nobody can reason about it once it is running under pressure."
+  },
+  {
+    title: "I am comfortable with technical depth",
+    body:
+      "When the fast answer is wrong, I am happy to go lower: traces, logs, packet captures, binaries, kernel behavior, and the actual mechanism behind the problem."
+  }
+];
 const homepageSchema = [
   {
     "@context": "https://schema.org",
@@ -138,19 +160,17 @@ export default function HomePage() {
       </section>
 
       <section className="section-block">
-        <div className="detail-grid">
-          <AnimateIn className="surface panel-card" delay={0.05}>
+        <div className="home-editorial-grid">
+          <AnimateIn className="surface panel-card identity-feature-panel" delay={0.05}>
             <p className="eyebrow">Who I Am</p>
             <h2>A systems-minded engineer who likes being close to the real behavior of software.</h2>
-            <div className="preview-list compact-preview-list">
-              <article className="preview-item">
-                <p>
-                  I am most comfortable in backend and platform work where the details matter:
-                  service behavior, instrumentation, packet flow, debugging, release safety, and
-                  the security controls around all of that.
-                </p>
-              </article>
-              <article className="preview-item">
+            <p className="identity-lead">
+              I am most comfortable in backend and platform work where the real details matter:
+              service behavior, instrumentation, packet flow, debugging, release safety, and the
+              security controls around all of that.
+            </p>
+            <div className="identity-split">
+              <article className="identity-note">
                 <p>
                   I like understanding why systems behave the way they do, especially when the
                   answer sits below the surface symptom. That is why a lot of my work naturally
@@ -158,17 +178,27 @@ export default function HomePage() {
                   debugging.
                 </p>
               </article>
+              <article className="identity-note identity-note-quote">
+                <p className="micro-label">What matters to me</p>
+                <p>
+                  Clean architecture matters, but I care just as much about whether the system is
+                  legible, debuggable, and trustworthy when it is under real load.
+                </p>
+              </article>
             </div>
           </AnimateIn>
 
-          <AnimateIn className="surface panel-card" delay={0.11}>
-            <p className="eyebrow">What This Site Covers</p>
-            <h2>The projects, habits, and areas of work that best represent me.</h2>
-            <ul className="bullet-list">
-              <li>Product-shaped security and systems projects that are public, explainable, and technically honest.</li>
-              <li>Backend and platform work where reliability, telemetry, and debugging depth are part of the job.</li>
-              <li>Research and low-level study that improves the way I build and secure real software.</li>
-            </ul>
+          <AnimateIn className="surface panel-card identity-side-panel" delay={0.11}>
+            <p className="eyebrow">What I Am Focused On</p>
+            <h2>What is shaping the work I want to do next.</h2>
+            <div className="identity-stack">
+              {currentThreads.map((item) => (
+                <article key={item} className="identity-thread">
+                  <span className="identity-thread-mark" aria-hidden="true" />
+                  <p>{item}</p>
+                </article>
+              ))}
+            </div>
           </AnimateIn>
         </div>
       </section>
@@ -220,6 +250,31 @@ export default function HomePage() {
             </AnimateIn>
           ))}
         </div>
+      </section>
+
+      <section className="section-block">
+        <AnimateIn className="surface home-collaboration-shell" delay={0.06}>
+          <div className="home-collaboration-head">
+            <div>
+              <p className="eyebrow">Why Teams Pull Me In</p>
+              <h2>The situations where I usually become most useful.</h2>
+            </div>
+            <p className="muted home-collaboration-copy">
+              This is the kind of work I want more of: systems that need real reasoning, clear
+              communication, and someone willing to stay with the problem until it makes sense.
+            </p>
+          </div>
+
+          <div className="home-collaboration-grid">
+            {collaborationSignals.map((item) => (
+              <article key={item.title} className="home-collaboration-card">
+                <p className="micro-label">Signal</p>
+                <h3>{item.title}</h3>
+                <p className="muted">{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </AnimateIn>
       </section>
 
       <section className="section-block">
