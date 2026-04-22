@@ -1,0 +1,26 @@
+name: Feature request
+description: Suggest a portfolio, content, or UX improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What should change?
+      description: Describe the improvement you want to see.
+      placeholder: Add a lightweight changelog or update the project cards with impact metrics.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Why is it useful?
+      description: Explain how this helps recruiters, collaborators, or visitors.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Any design ideas, content constraints, or examples.

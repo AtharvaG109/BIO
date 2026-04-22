@@ -1,0 +1,16 @@
+{
+  "name": "Atharva Gham Portfolio",
+  "short_name": "Atharva Gham",
+  "description": "Backend, platform, and security engineering portfolio for Atharva Gham.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

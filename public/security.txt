@@ -1,0 +1,5 @@
+Contact: mailto:atharvam10@icloud.com
+Expires: 2027-04-22T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://atharvag109.github.io/Portfolio/security.txt
+Policy: https://github.com/AtharvaG109/Portfolio/security

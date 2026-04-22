@@ -14,6 +14,8 @@ Advanced Next.js portfolio for a software engineer and cybersecurity engineer.
 - Framer Motion reveal and filter animations
 - Google Analytics hook via `NEXT_PUBLIC_GA_ID`
 - Static export configuration for free hosting
+- Web manifest plus public `security.txt`, `llms.txt`, and `humans.txt` metadata
+- GitHub issue templates, PR template, and CI build workflow
 
 ## Project Structure
 
@@ -21,6 +23,7 @@ Advanced Next.js portfolio for a software engineer and cybersecurity engineer.
 - `components/`: shared UI and client components
 - `lib/site-data.js`: portfolio content, resume data, blog content
 - `public/`: downloadable resume and static assets
+- `.github/`: deploy workflow plus contribution templates
 
 ## Run Locally
 
@@ -97,3 +100,14 @@ npm run build
 ```
 
 Then deploy the generated `out/` directory with GitHub Pages or any static host.
+
+## Repository Hygiene
+
+The repo includes a lightweight GitHub Actions CI workflow that runs `npm ci` and `npm run build` on pushes and pull requests.
+
+Additional public metadata files live under `public/`:
+
+- `site.webmanifest`
+- `security.txt`
+- `llms.txt`
+- `humans.txt`

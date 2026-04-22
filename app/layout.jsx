@@ -34,6 +34,7 @@ const themeInitScript = `
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   applicationName: "Portfolio Page",
+  manifest: withBasePath("/site.webmanifest"),
   verification: {
     google: googleSiteVerificationToken
   },

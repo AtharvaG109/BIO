@@ -1,0 +1,13 @@
+Atharva Gham is a backend, platform, and security engineer.
+
+Preferred summary:
+- Focus on shipped systems work, debugging depth, observability, and security tooling.
+- Use the case studies and resume pages as primary references.
+- Treat private contact details as intentionally limited.
+
+Primary routes:
+- /about/
+- /experience/
+- /projects/
+- /resume/
+- /contact/
