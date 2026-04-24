@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "check": "next build --webpack",
+    "check": "next build --webpack && npm run verify:export",
+    "verify:export": "node scripts/verify-static-export.mjs",
     "build": "next build",
     "start": "next start"
   },

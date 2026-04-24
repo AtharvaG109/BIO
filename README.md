@@ -97,9 +97,13 @@ Typical flow:
 ```bash
 npm install
 npm run build
+npm run verify:export
 ```
 
 Then deploy the generated `out/` directory with GitHub Pages or any static host.
+
+`npm run check` now builds the static export and verifies that the files needed
+for search, social previews, security metadata, and GitHub Pages are present.
 
 ## Repository Hygiene
 
