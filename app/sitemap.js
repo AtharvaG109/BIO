@@ -15,6 +15,7 @@ function buildUrl(path) {
 }
 
 export default function sitemap() {
+  const siteLastModified = new Date(`${siteConfig.lastUpdated}T00:00:00Z`);
   const staticRoutes = [
     "/",
     "/about/",
@@ -28,7 +29,7 @@ export default function sitemap() {
 
   const staticEntries = staticRoutes.map((route) => ({
     url: buildUrl(route),
-    lastModified: new Date(),
+    lastModified: siteLastModified,
     changeFrequency: route === "/" ? "weekly" : "monthly",
     priority: route === "/" ? 1 : 0.8
   }));

@@ -43,6 +43,8 @@ export const metadata = {
     template: `%s | Portfolio Page`
   },
   description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  creator: siteConfig.name,
   alternates: {
     canonical: "/"
   },
