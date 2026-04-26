@@ -16,6 +16,7 @@ import {
   hero,
   pathwayCards,
   principles,
+  roleFitCards,
   selectedWins,
   siteConfig,
   stats
@@ -66,6 +67,8 @@ const homepageSchema = [
       "Platform engineering",
       "Observability",
       "Security automation",
+      "AI security",
+      "Secure CI/CD",
       "Reverse engineering",
       "Application security"
     ],
@@ -209,6 +212,27 @@ export default function HomePage() {
             <p className="muted">{item.label}</p>
           </AnimateIn>
         ))}
+      </section>
+
+      <section className="section-block">
+        <AnimateIn delay={0.04}>
+          <SectionHeading
+            eyebrow="Hiring Snapshot"
+            title="Where I am most relevant for modern engineering teams."
+            copy="The through-line is practical systems ownership: services that run reliably, security controls that fit delivery, and debugging habits grounded in evidence."
+          />
+        </AnimateIn>
+
+        <div className="capability-grid">
+          {roleFitCards.map((item, index) => (
+            <AnimateIn key={item.title} className="surface capability-card depth-card" delay={0.08 + index * 0.05}>
+              <p className="micro-label">Role fit</p>
+              <h3>{item.title}</h3>
+              <p className="muted">{item.body}</p>
+              <p className="route-card-signal">{item.signal}</p>
+            </AnimateIn>
+          ))}
+        </div>
       </section>
 
       <section className="section-block">

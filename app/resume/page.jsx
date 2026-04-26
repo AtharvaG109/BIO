@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { AnimateIn } from "@/components/animate-in";
 import { ResumePrintButton } from "@/components/resume-print-button";
-import { certifications, education, experience, siteConfig, withBasePath } from "@/lib/site-data";
+import { certifications, education, experience, siteConfig, toolGroups, withBasePath } from "@/lib/site-data";
 
 export const metadata = {
   title: "Resume",
@@ -84,6 +84,27 @@ export default function ResumePage() {
                 <h3>{item.name}</h3>
                 <p>{item.issuer}</p>
                 <p className="muted">{item.details}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="resume-section">
+          <h2>Technical Skills</h2>
+          <div className="preview-list compact-preview-list">
+            {toolGroups.map((group) => (
+              <article key={group.title} className="preview-item">
+                <div className="preview-head preview-head-column">
+                  <h3>{group.title}</h3>
+                  <span>{group.items.length} tools</span>
+                </div>
+                <div className="tag-row">
+                  {group.items.map((item) => (
+                    <span key={item} className="tag">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </article>
             ))}
           </div>

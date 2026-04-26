@@ -6,6 +6,7 @@ import {
   deliveryPatterns,
   education,
   experience,
+  roleFitCards,
   stats,
   toolGroups
 } from "@/lib/site-data";
@@ -55,6 +56,27 @@ export default function ExperiencePage() {
               <p className="micro-label">Pattern</p>
               <h3>{item.title}</h3>
               <p className="muted">{item.body}</p>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block">
+        <AnimateIn delay={0.04}>
+          <SectionHeading
+            eyebrow="Role Fit"
+            title="Current industry areas where the work maps cleanly."
+            copy="These are the hiring lanes where my portfolio has the strongest evidence: backend ownership, security automation, AI security, and low-level debugging."
+          />
+        </AnimateIn>
+
+        <div className="capability-grid">
+          {roleFitCards.map((item, index) => (
+            <AnimateIn key={item.title} className="surface capability-card depth-card" delay={0.08 + index * 0.05}>
+              <p className="micro-label">Hiring signal</p>
+              <h3>{item.title}</h3>
+              <p className="muted">{item.body}</p>
+              <p className="route-card-signal">{item.signal}</p>
             </AnimateIn>
           ))}
         </div>

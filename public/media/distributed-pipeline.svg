@@ -1,6 +1,6 @@
 <svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Distributed telemetry pipeline diagram</title>
-  <desc id="desc">Premium flow diagram showing edge intake, queue-backed workers, and observable storage for a distributed telemetry pipeline.</desc>
+  <title id="title">Event ingestion and observability pipeline diagram</title>
+  <desc id="desc">Premium flow diagram showing edge intake, queue-backed workers, and observable storage for an event ingestion pipeline.</desc>
   <defs>
     <linearGradient id="bg-pipeline" x1="80" y1="30" x2="1110" y2="650" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0F141C"/>
@@ -16,8 +16,8 @@
   <circle cx="1010" cy="132" r="114" fill="#182536" fill-opacity="0.82"/>
   <circle cx="1030" cy="560" r="142" fill="#162031" fill-opacity="0.85"/>
 
-  <text x="86" y="92" fill="#F5F8FC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Distributed Telemetry Pipeline</text>
-  <text x="86" y="126" fill="#AAB8C8" font-family="Inter, Arial, sans-serif" font-size="18">Concurrent ingestion, transport hardening, and observable throughput across distributed cloud environments.</text>
+  <text x="86" y="92" fill="#F5F8FC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Event Ingestion Pipeline</text>
+  <text x="86" y="126" fill="#AAB8C8" font-family="Inter, Arial, sans-serif" font-size="18">Concurrent ingestion, transport hardening, and observable service behavior across distributed cloud environments.</text>
 
   <rect x="929" y="70" width="161" height="38" rx="19" fill="#181E2B" stroke="#313B53"/>
   <text x="1010" y="94" text-anchor="middle" fill="#E3ECF5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">SYSTEMS · 2025</text>
@@ -53,9 +53,9 @@
   <rect x="451" y="440" width="298" height="126" rx="22" fill="#0F1520" stroke="#262F42"/>
   <rect x="816" y="440" width="298" height="126" rx="22" fill="#0F1520" stroke="#262F42"/>
 
-  <text x="116" y="480" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">50GB/day</text>
-  <text x="116" y="512" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">Sustained telemetry volume</text>
-  <text x="116" y="537" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">with low-latency ingestion.</text>
+  <text x="116" y="480" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Backpressure-aware</text>
+  <text x="116" y="512" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">Queueing, retries, and workers</text>
+  <text x="116" y="537" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">keep bursty traffic controlled.</text>
 
   <text x="481" y="480" fill="#F5FAFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">High availability</text>
   <text x="481" y="512" fill="#AFC1D0" font-family="Inter, Arial, sans-serif" font-size="17">Queueing and worker isolation</text>

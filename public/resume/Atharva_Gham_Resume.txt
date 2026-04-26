@@ -20,10 +20,10 @@ June 2021 - December 2021
 
 CORE ENGINEERING PROJECTS
 
-Massively Distributed Data Integration Pipeline
-- Designed and implemented a highly concurrent telemetry pipeline from scratch, capable of processing 50GB of raw data daily across distributed cloud environments.
+Event Ingestion and Observability Pipeline
+- Designed and implemented a concurrent event-ingestion pipeline with queue-backed workers, retry behavior, and backpressure-aware service boundaries.
 - Optimized ingestion logic and network protocols including TLS and IPsec for fault-tolerant, low-latency streaming.
-- Managed the entire lifecycle from system design to high-availability production deployment.
+- Managed the lifecycle from system design through production rollout, runtime visibility, and operational hardening.
 
 AI Security & Agentic Workflow Automation
 - Conducted adversarial security reviews of LLM-integrated automation agents, identifying prompt injection and insecure tool-use vulnerabilities.
@@ -61,8 +61,8 @@ CERTIFICATIONS
 
 TECHNICAL SKILLS
 
-Programming Languages: Go, C/C++, Python, Java, Bash, SQL
+Programming Languages: Go, Python, Rust, C/C++, Bash, SQL
 Systems & Low-Level: Linux Internals, OS Schedulers, TCP/IP Packet Inspection, Socket Programming, System Optimization, Latency Reduction
-Distributed Infrastructure: Kubernetes, Docker, Microservices, AWS, Azure, High-Availability Architectures
-Debugging & Tooling: GDB, Wireshark, OpenTelemetry, Prometheus, Grafana, Git, CI/CD
+Distributed Infrastructure: Kubernetes, Docker, Terraform, Microservices, AWS, Azure, High-Availability Architectures
+Debugging & Tooling: GDB, Wireshark, OpenTelemetry, Prometheus, Grafana, GitHub Actions, CI/CD
 Core Competencies: Root Cause Analysis, End-to-End Project Ownership, Reverse Engineering
