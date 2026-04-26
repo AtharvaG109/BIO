@@ -41,37 +41,18 @@ const aboutSchema = [
   }
 ];
 
-const campusVisuals = [
+const profileVisuals = [
   {
-    title: "McKeldin Library and McKeldin Mall",
-    src: "/media/umd-mckeldin-library.jpg",
-    alt: "McKeldin Library and McKeldin Mall at the University of Maryland, College Park.",
-    credit: "Photo by blacktupelo",
-    license: "CC BY-SA 4.0",
-    source: "https://commons.wikimedia.org/wiki/File:McKeldin_Library_Mall_University_Maryland_College_Park.jpg"
+    title: "University of Maryland campus",
+    src: "/media/about-umd-campus-building.jpg",
+    alt: "University of Maryland campus building photographed from a local file.",
+    note: "Local campus photo from your files, used to support the UMD graduate background."
   },
   {
-    title: "McKeldin Mall at sunset",
-    src: "/media/umd-mckeldin-mall-sunset.jpg",
-    alt: "McKeldin Mall at sunset on the University of Maryland, College Park campus.",
-    credit: "Photo by APK",
-    license: "CC BY-SA 4.0",
-    source: "https://commons.wikimedia.org/wiki/File:McKeldin_Mall_sunset_University_Maryland_College_Park.jpg"
-  }
-];
-
-const portfolioMarks = [
-  {
-    title: "Custom AG security mark",
-    src: "/media/ag-security-engineering-mark.svg",
-    alt: "Custom AG security engineering portfolio mark.",
-    note: "A portfolio-native mark for backend, platform, and security work."
-  },
-  {
-    title: "UMD cybersecurity credential badge",
-    src: "/media/umd-cybersecurity-credential-badge.svg",
-    alt: "Custom University of Maryland cybersecurity engineering credential badge.",
-    note: "A custom credential badge for the education section, not an official UMD logo."
+    title: "McKeldin Mall view",
+    src: "/media/about-umd-mall-local.jpg",
+    alt: "McKeldin Mall at the University of Maryland photographed from a local file.",
+    note: "Local campus photo from your files, with no online image source or AI generation."
   }
 ];
 
@@ -93,57 +74,49 @@ export default function AboutPage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="University of Maryland"
-            title="Graduate work grounded in secure systems and real engineering practice."
-            copy="My M.Eng. in Cybersecurity Engineering at the University of Maryland, College Park strengthened the systems, cloud security, offensive practice, and defensive engineering work behind this portfolio."
+            title="Campus photos from your own files, not online sources."
+            copy="These images come from the local HEIC files you provided. They connect the About page to your University of Maryland cybersecurity engineering background without using online images or AI-generated campus scenes."
           />
         </AnimateIn>
 
         <div className="about-visual-grid">
-          <AnimateIn className="surface about-campus-gallery" delay={0.08}>
-            {campusVisuals.map((item) => (
-              <figure key={item.src} className="about-campus-card">
+          <AnimateIn className="surface about-photo-gallery" delay={0.08}>
+            {profileVisuals.map((item) => (
+              <figure key={item.src} className="about-photo-card">
                 <Image
                   src={withBasePath(item.src)}
                   alt={item.alt}
                   width={1800}
-                  height={1200}
-                  className="about-campus-image"
+                  height={1350}
+                  className="about-profile-image"
                   sizes="(max-width: 860px) 100vw, 50vw"
-                  priority={item.src.includes("library")}
+                  priority={item.src.includes("campus-building")}
                 />
                 <figcaption>
                   <span>{item.title}</span>
-                  <a href={item.source} target="_blank" rel="noopener noreferrer">
-                    {item.credit}, {item.license}
-                  </a>
+                  <small>{item.note}</small>
                 </figcaption>
               </figure>
             ))}
           </AnimateIn>
 
-          <AnimateIn className="surface about-mark-panel" delay={0.14}>
-            <p className="eyebrow">Marks</p>
-            <h2>Credential context for the resume story.</h2>
+          <AnimateIn className="surface about-photo-panel" delay={0.14}>
+            <p className="eyebrow">Background</p>
+            <h2>Cybersecurity engineering, grounded in a real UMD context.</h2>
             <p className="muted">
-              The UMD badge is site-specific and not an official university logo; the AG mark is a
-              custom portfolio mark for backend, platform, and security engineering work.
+              My M.Eng. in Cybersecurity Engineering at the University of Maryland, College Park
+              strengthened the secure systems, cloud security, offensive practice, and defensive
+              engineering work behind this portfolio.
             </p>
-            <div className="about-mark-grid">
-              {portfolioMarks.map((item) => (
-                <article key={item.src} className="about-mark-card">
-                  <Image
-                    src={withBasePath(item.src)}
-                    alt={item.alt}
-                    width={item.src.includes("credential") ? 960 : 640}
-                    height={item.src.includes("credential") ? 540 : 640}
-                    className="about-mark-image"
-                  />
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p className="muted">{item.note}</p>
-                  </div>
-                </article>
-              ))}
+            <div className="about-photo-note-grid">
+              <article>
+                <p className="micro-label">Source</p>
+                <p>Converted from your local HEIC files and stripped of image metadata before publishing.</p>
+              </article>
+              <article>
+                <p className="micro-label">Style</p>
+                <p>Real campus context without synthetic backgrounds, stock imagery, or external photo credits.</p>
+              </article>
             </div>
           </AnimateIn>
         </div>
