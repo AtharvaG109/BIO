@@ -1,0 +1,10 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AG security engineering mark</title>
+  <desc id="desc">Custom portfolio mark for Atharva Gham focused on backend, platform, and security engineering.</desc>
+  <rect width="640" height="640" rx="96" fill="#081116"/>
+  <rect x="32" y="32" width="576" height="576" rx="72" fill="#111D26" stroke="#2ABF9E" stroke-opacity="0.32" stroke-width="3"/>
+  <path d="M320 90L492 158V288C492 398 421 494 320 548C219 494 148 398 148 288V158L320 90Z" fill="#0E1A22" stroke="#E56A54" stroke-width="12"/>
+  <path d="M224 424L294 214H348L418 424H370L356 376H286L272 424H224ZM299 336H343L321 270L299 336Z" fill="#F5FAFD"/>
+  <path d="M392 252C374 232 351 222 322 222C266 222 228 262 228 320C228 379 268 418 326 418C352 418 374 411 392 397V342H323V304H438V418C409 446 372 460 325 460C240 460 180 402 180 320C180 238 240 180 322 180C369 180 409 196 438 228L392 252Z" fill="#67ECCD" fill-opacity="0.86"/>
+  <path d="M214 490H426" stroke="#F5B85D" stroke-width="12" stroke-linecap="round"/>
+</svg>

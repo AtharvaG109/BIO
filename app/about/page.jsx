@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { AnimateIn } from "@/components/animate-in";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
@@ -11,7 +13,8 @@ import {
   interests,
   principles,
   siteConfig,
-  toolGroups
+  toolGroups,
+  withBasePath
 } from "@/lib/site-data";
 
 export const metadata = {
@@ -38,6 +41,40 @@ const aboutSchema = [
   }
 ];
 
+const campusVisuals = [
+  {
+    title: "McKeldin Library and McKeldin Mall",
+    src: "/media/umd-mckeldin-library.jpg",
+    alt: "McKeldin Library and McKeldin Mall at the University of Maryland, College Park.",
+    credit: "Photo by blacktupelo",
+    license: "CC BY-SA 4.0",
+    source: "https://commons.wikimedia.org/wiki/File:McKeldin_Library_Mall_University_Maryland_College_Park.jpg"
+  },
+  {
+    title: "McKeldin Mall at sunset",
+    src: "/media/umd-mckeldin-mall-sunset.jpg",
+    alt: "McKeldin Mall at sunset on the University of Maryland, College Park campus.",
+    credit: "Photo by APK",
+    license: "CC BY-SA 4.0",
+    source: "https://commons.wikimedia.org/wiki/File:McKeldin_Mall_sunset_University_Maryland_College_Park.jpg"
+  }
+];
+
+const portfolioMarks = [
+  {
+    title: "Custom AG security mark",
+    src: "/media/ag-security-engineering-mark.svg",
+    alt: "Custom AG security engineering portfolio mark.",
+    note: "A portfolio-native mark for backend, platform, and security work."
+  },
+  {
+    title: "UMD cybersecurity credential badge",
+    src: "/media/umd-cybersecurity-credential-badge.svg",
+    alt: "Custom University of Maryland cybersecurity engineering credential badge.",
+    note: "A custom credential badge for the education section, not an official UMD logo."
+  }
+];
+
 export default function AboutPage() {
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main">
@@ -51,6 +88,66 @@ export default function AboutPage() {
           { label: "Request intro", href: "/contact/", variant: "secondary" }
         ]}
       />
+
+      <section className="section-block">
+        <AnimateIn delay={0.04}>
+          <SectionHeading
+            eyebrow="University of Maryland"
+            title="Graduate work grounded in secure systems and real engineering practice."
+            copy="My M.Eng. in Cybersecurity Engineering at the University of Maryland, College Park strengthened the systems, cloud security, offensive practice, and defensive engineering work behind this portfolio."
+          />
+        </AnimateIn>
+
+        <div className="about-visual-grid">
+          <AnimateIn className="surface about-campus-gallery" delay={0.08}>
+            {campusVisuals.map((item) => (
+              <figure key={item.src} className="about-campus-card">
+                <Image
+                  src={withBasePath(item.src)}
+                  alt={item.alt}
+                  width={1800}
+                  height={1200}
+                  className="about-campus-image"
+                  sizes="(max-width: 860px) 100vw, 50vw"
+                  priority={item.src.includes("library")}
+                />
+                <figcaption>
+                  <span>{item.title}</span>
+                  <a href={item.source} target="_blank" rel="noopener noreferrer">
+                    {item.credit}, {item.license}
+                  </a>
+                </figcaption>
+              </figure>
+            ))}
+          </AnimateIn>
+
+          <AnimateIn className="surface about-mark-panel" delay={0.14}>
+            <p className="eyebrow">Marks</p>
+            <h2>Credential context for the resume story.</h2>
+            <p className="muted">
+              The UMD badge is site-specific and not an official university logo; the AG mark is a
+              custom portfolio mark for backend, platform, and security engineering work.
+            </p>
+            <div className="about-mark-grid">
+              {portfolioMarks.map((item) => (
+                <article key={item.src} className="about-mark-card">
+                  <Image
+                    src={withBasePath(item.src)}
+                    alt={item.alt}
+                    width={item.src.includes("credential") ? 960 : 640}
+                    height={item.src.includes("credential") ? 540 : 640}
+                    className="about-mark-image"
+                  />
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p className="muted">{item.note}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
 
       <section className="section-block">
         <div className="about-intro-grid">

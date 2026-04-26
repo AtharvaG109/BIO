@@ -719,6 +719,96 @@ ul {
     #08131b;
 }
 
+.about-visual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.about-campus-gallery,
+.about-mark-panel {
+  padding: 1rem;
+}
+
+.about-campus-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.about-campus-card {
+  position: relative;
+  min-height: 28rem;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
+.about-campus-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+}
+
+.about-campus-card figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 0.22rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, transparent, rgba(5, 10, 14, 0.86));
+  color: #fff;
+}
+
+.about-campus-card figcaption span {
+  font-weight: 700;
+}
+
+.about-campus-card figcaption a {
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8rem;
+}
+
+.about-mark-panel {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.about-mark-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.about-mark-card {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
+.about-mark-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.about-mark-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
 .project-preview {
   position: relative;
   isolation: isolate;
@@ -2294,6 +2384,7 @@ ul {
   .detail-grid,
   .home-editorial-grid,
   .about-intro-grid,
+  .about-visual-grid,
   .projects-intro-grid,
   .resume-grid,
   .contact-panel {
@@ -2303,7 +2394,8 @@ ul {
   .home-collaboration-head,
   .home-collaboration-grid,
   .identity-split,
-  .about-story-grid {
+  .about-story-grid,
+  .about-campus-gallery {
     grid-template-columns: 1fr;
   }
 
@@ -2392,6 +2484,14 @@ ul {
   .contact-band {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .about-campus-card {
+    min-height: 22rem;
+  }
+
+  .about-mark-card {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
   }
 
   .hero-utility-grid,
