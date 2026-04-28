@@ -6,6 +6,7 @@ const requiredFiles = [
   "404.html",
   "sitemap.xml",
   "robots.txt",
+  "_headers",
   "security.txt",
   "humans.txt",
   "llms.txt",

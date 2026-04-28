@@ -14,6 +14,7 @@ Advanced Next.js portfolio for a software engineer and cybersecurity engineer.
 - Framer Motion reveal and filter animations
 - Google Analytics hook via `NEXT_PUBLIC_GA_ID`
 - Static export configuration for free hosting
+- Static-host security headers via `public/_headers` for hosts that support it
 - Web manifest plus public `security.txt`, `llms.txt`, and `humans.txt` metadata
 - GitHub issue templates, PR template, and CI build workflow
 
