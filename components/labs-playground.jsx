@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 
+import { validateDecodedText, validateUserInput } from "@/lib/input-security";
+
 const sampleJwt =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InBvcnRmb2xpby1kZW1vIn0.eyJzdWIiOiJzYW5pdGl6ZWQtdXNlciIsInJvbGUiOiJyZWFkZXIiLCJzY29wZSI6ImFydGlmYWN0OnJlYWQiLCJleHAiOjE5MDAwMDAwMDB9.signature";
 const sampleLog =
@@ -74,21 +76,50 @@ export function LabsPlayground() {
   const [rule, setRule] = useState(sampleRule);
   const [risk, setRisk] = useState({ impact: 8, likelihood: 7, exploitability: 6 });
   const [packetMode, setPacketMode] = useState("tls");
+  const [inputWarning, setInputWarning] = useState("");
+
+  function updateSafeInput(nextValue, setter, options) {
+    const result = validateUserInput(nextValue, options);
+
+    if (!result.ok) {
+      setInputWarning(result.message);
+      return;
+    }
+
+    setInputWarning("");
+    setter(result.value);
+  }
 
   const jwtDecoded = useMemo(() => {
     const [header = "", payload = ""] = jwt.split(".");
 
     try {
+      const decodedHeader = safeJson(decodeBase64Url(header));
+      const decodedPayload = safeJson(decodeBase64Url(payload));
+      const headerSafety = validateDecodedText(decodedHeader, "Decoded JWT header");
+      const payloadSafety = validateDecodedText(decodedPayload, "Decoded JWT payload");
+
+      if (!headerSafety.ok || !payloadSafety.ok) {
+        return {
+          header: "Blocked unsafe decoded header",
+          payload: "Blocked unsafe decoded payload",
+          validShape: false,
+          warning: headerSafety.message || payloadSafety.message
+        };
+      }
+
       return {
-        header: safeJson(decodeBase64Url(header)),
-        payload: safeJson(decodeBase64Url(payload)),
-        validShape: jwt.split(".").length === 3
+        header: decodedHeader,
+        payload: decodedPayload,
+        validShape: jwt.split(".").length === 3,
+        warning: ""
       };
     } catch {
       return {
         header: "Unable to decode header",
         payload: "Unable to decode payload",
-        validShape: false
+        validShape: false,
+        warning: ""
       };
     }
   }, [jwt]);
@@ -115,13 +146,26 @@ export function LabsPlayground() {
           <p className="eyebrow">JWT Inspector</p>
           <h2>Decode headers and claims without sending data anywhere.</h2>
         </div>
-        <textarea value={jwt} onChange={(event) => setJwt(event.target.value)} aria-label="JWT value" />
+        <textarea
+          value={jwt}
+          onChange={(event) =>
+            updateSafeInput(event.target.value, setJwt, {
+              label: "JWT input",
+              maxLength: 4096,
+              allowPattern: /^[A-Za-z0-9._-]*$/,
+              allowMultiline: false
+            })
+          }
+          aria-label="JWT value"
+          maxLength="4096"
+        />
         <div className="lab-output-grid">
           <pre>{jwtDecoded.header}</pre>
           <pre>{jwtDecoded.payload}</pre>
         </div>
         <p className={jwtDecoded.validShape ? "lab-status lab-status-ok" : "lab-status lab-status-warn"}>
-          {jwtDecoded.validShape ? "Three-part token shape detected." : "Token does not look like header.payload.signature."}
+          {jwtDecoded.warning ||
+            (jwtDecoded.validShape ? "Three-part token shape detected." : "Token does not look like header.payload.signature.")}
         </p>
       </section>
 
@@ -130,7 +174,18 @@ export function LabsPlayground() {
           <p className="eyebrow">Log Parser</p>
           <h2>Turn one operational line into fields.</h2>
         </div>
-        <textarea value={logLine} onChange={(event) => setLogLine(event.target.value)} aria-label="Log line" />
+        <textarea
+          value={logLine}
+          onChange={(event) =>
+            updateSafeInput(event.target.value, setLogLine, {
+              label: "Log input",
+              maxLength: 1200,
+              allowMultiline: true
+            })
+          }
+          aria-label="Log line"
+          maxLength="1200"
+        />
         <pre>{JSON.stringify(parsedLog, null, 2)}</pre>
       </section>
 
@@ -139,12 +194,32 @@ export function LabsPlayground() {
           <p className="eyebrow">Detection Matcher</p>
           <h2>Preview a rule against parsed event state.</h2>
         </div>
-        <input value={rule} onChange={(event) => setRule(event.target.value)} aria-label="Detection rule" />
+        <input
+          value={rule}
+          onChange={(event) =>
+            updateSafeInput(event.target.value, setRule, {
+              label: "Detection rule",
+              maxLength: 240
+            })
+          }
+          aria-label="Detection rule"
+          maxLength="240"
+        />
         <div className="lab-result">
           <strong>{ruleMatch}</strong>
           <span>Rule input stays local in the browser.</span>
         </div>
       </section>
+
+      {inputWarning ? (
+        <section className="surface lab-tool lab-tool-wide lab-security-warning" role="alert">
+          <div className="lab-tool-head">
+            <p className="eyebrow">Input Guard</p>
+            <h2>Potentially unsafe input blocked.</h2>
+          </div>
+          <p>{inputWarning}</p>
+        </section>
+      ) : null}
 
       <section className="surface lab-tool">
         <div className="lab-tool-head">

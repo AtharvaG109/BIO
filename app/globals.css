@@ -2950,9 +2950,21 @@ ul {
 }
 
 .lab-status-warn,
-.ci-review {
+.ci-review,
+.lab-security-warning,
+.search-warning {
   border: 1px solid rgba(245, 184, 93, 0.32);
   background: var(--warm-soft);
+}
+
+.lab-security-warning h2 {
+  font-size: 1.2rem;
+}
+
+.search-warning {
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  color: var(--text-strong);
 }
 
 .lab-result {

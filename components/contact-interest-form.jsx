@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { validateUserInput } from "@/lib/input-security";
 import { contactConfig, siteConfig } from "@/lib/site-data";
 
 export function ContactInterestForm() {
@@ -39,13 +40,40 @@ export function ContactInterestForm() {
       return;
     }
 
-    const name = String(formData.get("name") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const company = String(formData.get("company") ?? "").trim();
-    const interest = String(formData.get("interest") ?? "").trim();
-    const timeline = String(formData.get("timeline") ?? "").trim();
-    const role = String(formData.get("role") ?? "").trim();
-    const message = String(formData.get("message") ?? "").trim();
+    const fields = {
+      name: validateUserInput(formData.get("name"), { label: "Name", minLength: 2, maxLength: 80 }),
+      email: validateUserInput(formData.get("email"), {
+        label: "Email",
+        minLength: 5,
+        maxLength: 120,
+        allowPattern: /^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/
+      }),
+      company: validateUserInput(formData.get("company"), { label: "Company", maxLength: 120 }),
+      interest: validateUserInput(formData.get("interest"), { label: "Interest", maxLength: 80 }),
+      timeline: validateUserInput(formData.get("timeline"), { label: "Timeline", maxLength: 80 }),
+      role: validateUserInput(formData.get("role"), { label: "Role or team", maxLength: 120 }),
+      message: validateUserInput(formData.get("message"), {
+        label: "Message",
+        minLength: 20,
+        maxLength: 2000,
+        allowMultiline: true
+      })
+    };
+    const invalidField = Object.values(fields).find((field) => !field.ok);
+
+    if (invalidField) {
+      setStatus("error");
+      setStatusMessage(invalidField.message);
+      return;
+    }
+
+    const name = fields.name.value;
+    const email = fields.email.value;
+    const company = fields.company.value;
+    const interest = fields.interest.value;
+    const timeline = fields.timeline.value;
+    const role = fields.role.value;
+    const message = fields.message.value;
 
     if (name.length < 2 || message.length < 20) {
       setStatus("error");

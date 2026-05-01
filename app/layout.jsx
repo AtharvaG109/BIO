@@ -30,6 +30,19 @@ const themeInitScript = `
     }
   })();
 `;
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https://www.google-analytics.com",
+  "font-src 'self' data:",
+  "connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self' https://formsubmit.co",
+  "frame-src 'none'",
+  "upgrade-insecure-requests"
+].join("; ");
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -80,6 +93,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning className={`${fontInter.variable} ${fontOutfit.variable}`}>
       <head>
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body suppressHydrationWarning>

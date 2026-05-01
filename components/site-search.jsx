@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { validateUserInput } from "@/lib/input-security";
+
 export function SiteSearch({ entries }) {
   const [query, setQuery] = useState("");
+  const [warning, setWarning] = useState("");
   const [activeType, setActiveType] = useState("All");
   const types = useMemo(() => ["All", ...new Set(entries.map((entry) => entry.type))], [entries]);
   const results = useMemo(() => {
@@ -34,10 +37,29 @@ export function SiteSearch({ entries }) {
           <input
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => {
+              const result = validateUserInput(event.target.value, {
+                label: "Search query",
+                maxLength: 120
+              });
+
+              if (!result.ok) {
+                setWarning(result.message);
+                return;
+              }
+
+              setWarning("");
+              setQuery(result.value);
+            }}
             placeholder="Try Rust, OpenTelemetry, AI security, packet analysis..."
+            maxLength="120"
           />
         </label>
+        {warning ? (
+          <p className="search-warning" role="alert">
+            {warning}
+          </p>
+        ) : null}
         <div className="chip-row" role="toolbar" aria-label="Search result type">
           {types.map((type) => (
             <button
