@@ -1,0 +1,31 @@
+---
+slug: spectrefs-encrypted-vault-filesystem
+title: SpectreFS Encrypted Vault Filesystem and Desktop App
+category: Security Product
+updatedAt: 2026-04-08
+excerpt: Encrypted overlay filesystem and macOS desktop workflow with trusted-app access, repair, audit, and release gates.
+tags: [C++, SwiftUI, OpenSSL, FUSE, Argon2id, macOS]
+image: /media/spectrefs-vault-system.svg
+---
+
+## Problem
+
+Security and usability had to coexist. The vault needed authenticated random-access encrypted IO, protected metadata, trusted-app controls, recovery flows, and a realistic macOS distribution path.
+
+## Architecture
+
+- Vault data stays encrypted at rest while a mounted or in-place workflow exposes plaintext only at the interaction boundary.
+- Argon2id-derived credentials, wrapped master keys, and authenticated chunks protect contents and metadata.
+- Native app flows, maintenance tooling, audit history, repair checks, and release scripts make the project operable.
+
+```text
+audit event=read decision=allow app=trusted-editor path=/vault/report.md chunk_auth=verified
+```
+
+## Tradeoffs
+
+The split between filesystem logic, native UI, and release automation is more complex than a CLI-only project. That complexity is justified because a real desktop security product needs recovery, auditability, and packaging discipline.
+
+## Result
+
+SpectreFS is framed as a security product rather than an encryption snippet: encrypted storage, process-aware access control, native workflows, and quality gates around release.

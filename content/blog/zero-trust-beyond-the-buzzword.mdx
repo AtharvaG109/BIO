@@ -1,0 +1,24 @@
+---
+slug: zero-trust-beyond-the-buzzword
+title: "Zero Trust: Implementation Beyond the Buzzword"
+category: Architecture
+publishedAt: 2025-11-05
+readTime: 7 min read
+excerpt: Zero Trust architectures fail when they try to wrap legacy monoliths instead of reshaping identity verification at the micro-boundary.
+tags: [zero trust, mTLS, IAM, platform security]
+image: /social-preview.svg
+---
+
+## Move the perimeter to the workload
+
+The corporate VPN is an artifact of an architecture that assumed trust based on IP subnets. Real zero trust models demand that the identity of the user, the health of the device, and the authorization of the process itself are evaluated on every request.
+
+When deploying microservices, mutual TLS is not a flourish. It is the foundation of secure service-to-service dialog.
+
+## Fail closed securely
+
+If a policy engine goes down, the default behavior should be a hard deny. Engineers hate this because it breaks uptime metrics, but failing open creates catastrophic lateral movement paths.
+
+- Implement localized policy caching to survive intermittent control-plane failures
+- Ensure fail-closed states throw highly visible alerts
+- Treat identity revocation as immediately consistent, even globally

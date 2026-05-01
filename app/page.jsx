@@ -5,13 +5,13 @@ import { ContactPanel } from "@/components/contact-panel";
 import { ProjectPreviewDiagram } from "@/components/project-preview-diagram";
 import { SectionHeading } from "@/components/section-heading";
 import { StructuredData } from "@/components/structured-data";
+import { getSortedContent } from "@/lib/content";
 import {
   buildAbsoluteUrl,
   buildThemes,
   engineeringSignals,
   formatPublishedDate,
   getFeaturedProject,
-  getLatestPost,
   getNewestProject,
   hero,
   pathwayCards,
@@ -24,7 +24,7 @@ import {
 
 const featuredProject = getFeaturedProject();
 const newestProject = getNewestProject();
-const latestPost = getLatestPost();
+const latestPost = getSortedContent("blog")[0] ?? null;
 const currentThreads = [
   "Building public security and systems projects that are technically honest and easy to explain.",
   "Looking for backend, platform, and security roles where reliability and debugging depth actually matter.",
@@ -390,7 +390,7 @@ export default function HomePage() {
                     {formatPublishedDate(latestPost.publishedAt)}
                   </time>
                 </div>
-                <p className="muted">{latestPost.intro}</p>
+                <p className="muted">{latestPost.excerpt}</p>
               </div>
               <div className="cta-row compact-actions">
                 <Link href="/blog/" className="button button-secondary">

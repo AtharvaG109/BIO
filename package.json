@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "check": "next build --webpack && npm run verify:export",
+    "check": "npm run lint && npm run build && npm run index:search && npm run verify:export && npm run smoke:export",
+    "lint": "node scripts/validate-content.mjs",
+    "index:search": "node scripts/build-search-index.mjs",
+    "smoke:export": "node scripts/smoke-static-export.mjs",
     "verify:export": "node scripts/verify-static-export.mjs",
     "build": "next build",
     "start": "next start"

@@ -1,4 +1,5 @@
-import { blogPosts, projects, siteConfig } from "@/lib/site-data";
+import { getSortedContent } from "@/lib/content";
+import { projects, siteConfig } from "@/lib/site-data";
 
 export const dynamic = "force-static";
 
@@ -21,8 +22,10 @@ export default function sitemap() {
     "/about/",
     "/experience/",
     "/projects/",
+    "/labs/",
     "/workbench/",
     "/blog/",
+    "/search/",
     "/resume/",
     "/contact/"
   ];
@@ -34,7 +37,7 @@ export default function sitemap() {
     priority: route === "/" ? 1 : 0.8
   }));
 
-  const blogEntries = blogPosts.map((post) => ({
+  const blogEntries = getSortedContent("blog").map((post) => ({
     url: buildUrl(`/blog/${post.slug}/`),
     lastModified: new Date(`${post.publishedAt}T00:00:00Z`),
     changeFrequency: "monthly",

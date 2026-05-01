@@ -2,7 +2,8 @@ import Link from "next/link";
 
 import { AnimateIn } from "@/components/animate-in";
 import { StructuredData } from "@/components/structured-data";
-import { buildAbsoluteUrl, createBreadcrumbSchema, formatPublishedDate, getSortedBlogPosts } from "@/lib/site-data";
+import { getSortedContent } from "@/lib/content";
+import { buildAbsoluteUrl, createBreadcrumbSchema, formatPublishedDate } from "@/lib/site-data";
 
 export const metadata = {
   title: "Writing",
@@ -27,7 +28,7 @@ const blogIndexSchema = [
 ];
 
 export default function BlogIndexPage() {
-  const sortedPosts = getSortedBlogPosts();
+  const sortedPosts = getSortedContent("blog");
 
   return (
     <main id="main-content" tabIndex="-1" className="page-shell page-main blog-main">
@@ -51,6 +52,13 @@ export default function BlogIndexPage() {
             </div>
             <h2>{post.title}</h2>
             <p className="muted">{post.excerpt}</p>
+            <div className="tag-row">
+              {(post.tags ?? []).slice(0, 4).map((tag) => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
             <Link href={`/blog/${post.slug}/`} className="text-link">
               Open article
             </Link>

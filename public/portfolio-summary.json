@@ -1,0 +1,44 @@
+{
+  "name": "Atharva Gham",
+  "role_focus": [
+    "backend engineering",
+    "platform engineering",
+    "security engineering",
+    "observability",
+    "AI and agentic security"
+  ],
+  "location": "San Francisco, California",
+  "availability": "Open to backend, platform, software, and security engineering roles.",
+  "primary_strengths": [
+    "Go, Python, Rust, Linux, and distributed systems",
+    "OpenTelemetry-driven debugging and production reliability",
+    "security automation, detection engineering, application security, and CI/CD guardrails",
+    "low-level debugging, reverse engineering, and systems security communication"
+  ],
+  "flagship_projects": [
+    {
+      "name": "Enterprise NIDS",
+      "summary": "Network detection and analysis platform with PCAP replay, live capture, explainable reporting, telemetry, and a FastAPI dashboard."
+    },
+    {
+      "name": "Patchbot Security Platform",
+      "summary": "Security platform with browser-backed IAST confirmation, high-entropy secret detection, and enterprise isolation controls."
+    },
+    {
+      "name": "Sysguard",
+      "summary": "Rust and eBPF Linux activity monitor with YAML policies and scoped outbound-connect enforcement."
+    },
+    {
+      "name": "SpectreFS",
+      "summary": "Encrypted vault filesystem and macOS desktop workflow with trusted-app access, audit, repair, and release gates."
+    }
+  ],
+  "routes": {
+    "projects": "/projects/",
+    "labs": "/labs/",
+    "writing": "/blog/",
+    "search": "/search/",
+    "resume": "/resume/",
+    "contact": "/contact/"
+  }
+}

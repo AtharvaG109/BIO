@@ -1,0 +1,32 @@
+---
+slug: threat-modeling-agentic-workflows
+title: Threat Modeling Agentic Workflows
+category: AI Security
+publishedAt: 2026-02-14
+readTime: 6 min read
+excerpt: Agentic systems fail differently from traditional software. The security problem is often not the model alone but the way tools, prompts, memory, and permissions combine.
+tags: [AI security, prompt injection, tool use, auditability]
+image: /social-preview.svg
+---
+
+## The interesting bugs are compositional
+
+Prompt injection matters, but it is only part of the picture. In practice, risk emerges when model behavior, tool-use permissions, memory persistence, and weak validation line up in the wrong order.
+
+That makes threat modeling for agentic workflows closer to systems design than prompt hygiene alone.
+
+:::callout title="Practical boundary"
+Separate model reasoning, policy decisions, and tool execution so no single layer silently becomes the trust anchor.
+:::
+
+## Constrain every boundary
+
+Useful agentic systems still need tight boundaries. Tools should be scoped, outputs validated, permissions minimized, and actions auditable.
+
+- Separate retrieval context from executable instructions
+- Add allowlists around tools and parameter shapes
+- Log decision paths before actions are taken
+
+## Security wins when workflows stay observable
+
+If a team cannot reconstruct why an agent acted, then response and remediation will always lag behind failure. Auditability is part of the product, not an afterthought.

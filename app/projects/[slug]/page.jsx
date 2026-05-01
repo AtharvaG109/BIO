@@ -3,7 +3,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { AnimateIn } from "@/components/animate-in";
+import { ProjectDemo } from "@/components/project-demo";
+import { RichContent } from "@/components/rich-content";
 import { StructuredData } from "@/components/structured-data";
+import { getContentBySlug } from "@/lib/content";
 import {
   buildAbsoluteUrl,
   createBreadcrumbSchema,
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }) {
       description: project.summary,
       url: buildAbsoluteUrl(`/projects/${project.slug}/`),
       type: "article",
-      images: [buildAbsoluteUrl(withBasePath(project.media.src))]
+      images: [buildAbsoluteUrl(`/projects/${project.slug}/opengraph-image`)]
     }
   };
 }
@@ -47,6 +50,7 @@ export async function generateMetadata({ params }) {
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
+  const projectContent = getContentBySlug("projects", slug);
 
   if (!project) {
     notFound();
@@ -197,6 +201,18 @@ export default async function ProjectPage({ params }) {
             <p>{project.result}</p>
           </section>
         </AnimateIn>
+
+        {projectContent ? (
+          <AnimateIn className="article-section rich-content" delay={0.11}>
+            <div className="section-heading project-section-heading">
+              <p className="eyebrow">Case Study</p>
+              <h2>Problem, architecture, artifacts, and operating signals</h2>
+            </div>
+            <RichContent blocks={projectContent.blocks} />
+          </AnimateIn>
+        ) : null}
+
+        <ProjectDemo slug={project.slug} />
 
         <AnimateIn className="article-section project-story-grid" delay={0.12}>
           <section className="article-panel">

@@ -1,0 +1,29 @@
+---
+slug: why-low-level-debugging-still-matters
+title: Why Low-Level Debugging Still Matters
+category: Research
+publishedAt: 2026-01-20
+readTime: 4 min read
+excerpt: Cloud-native systems still fail where abstractions leak. Low-level debugging remains a practical engineering advantage, not just a specialist hobby.
+tags: [GDB, reverse engineering, Linux, memory analysis]
+image: /social-preview.svg
+---
+
+## The stack eventually bottoms out
+
+Even when working primarily in cloud infrastructure or high-level services, there are moments when the fastest route to truth is understanding what the process, binary, or operating system is actually doing.
+
+```text
+gdb> bt
+#0 parse_frame at parser.c:118
+#1 worker_loop at queue.c:87
+#2 start_thread at pthread_create.c:442
+```
+
+## Reverse engineering sharpens defensive intuition
+
+Analyzing memory corruption, allocator behavior, and exploit paths teaches the kinds of assumptions that break under pressure. That feeds directly back into more defensive software design.
+
+## Debugging depth changes engineering judgment
+
+Low-level fluency improves how you reason about performance, unsafe boundaries, failure modes, and remediation tradeoffs even when the immediate problem is not exploitation.

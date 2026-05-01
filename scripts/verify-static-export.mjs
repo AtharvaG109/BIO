@@ -10,7 +10,8 @@ const requiredFiles = [
   "humans.txt",
   "llms.txt",
   "site.webmanifest",
-  "social-preview.svg"
+  "social-preview.svg",
+  "search-index.json"
 ];
 
 const outDir = new URL("../out/", import.meta.url);

@@ -1,0 +1,35 @@
+---
+slug: patchbot-security-platform
+title: Patchbot Security Platform
+category: Security Product
+updatedAt: 2026-04-15
+excerpt: Autonomous attack emulation, high-entropy secret detection, and enterprise data-isolation controls.
+tags: [Python, Playwright, IAST, secrets, SQLCipher]
+image: /media/patchbot-platform.svg
+---
+
+## Problem
+
+Security scanners are easy to make noisy. Patchbot focuses on confidence: confirming web risk through browser-backed interaction and reducing false positives in secret detection through statistical context.
+
+## Architecture
+
+- Playwright sessions confirm exploitability during dynamic web scanning.
+- Entropy checks and suppressions separate likely secrets from ordinary identifiers.
+- Tenant-aware storage and encryption-at-rest keep scan data bounded by organization and repository.
+
+:::artifact title="Public repository" kind="GitHub" href="https://github.com/AtharvaG109/patchbot"
+The public repo is the reviewable artifact for scanner behavior, findings, and project packaging.
+:::
+
+```text
+finding=reflected-input route=/admin/export confidence=confirmed proof=playwright status=needs-fix
+```
+
+## Tradeoffs
+
+Headless browser confirmation costs more runtime than static matching, but it gives the finding enough evidence to be useful to developers. Secret detection is tuned toward high-signal matches to avoid turning security into background noise.
+
+## Result
+
+Patchbot presents security output as a remediation workflow: evidence, confidence, scope, and the smallest useful next action.

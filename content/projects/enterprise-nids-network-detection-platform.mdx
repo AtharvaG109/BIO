@@ -1,0 +1,35 @@
+---
+slug: enterprise-nids-network-detection-platform
+title: Enterprise NIDS Network Detection and Analysis Platform
+category: Security Product
+updatedAt: 2026-04-20
+excerpt: Packet capture, detection, visualization, reporting, and runtime health in one explainable network-analysis workflow.
+tags: [Python, FastAPI, Scapy, DPKT, SQLite, packet analysis]
+image: /media/enterprise-nids-platform.svg
+---
+
+## Problem
+
+Raw packet analysis is powerful but hard to hand to another engineer or stakeholder. The useful version needed to connect capture, detection, diagrams, telemetry, and reporting without becoming a set of unrelated scripts.
+
+## Architecture
+
+- Packet ingestion flows through parser backends, flow tracking, and TCP stream reconstruction.
+- Detection layers combine heuristics, fingerprinting, anomaly scoring, DPI carving, and project-aware context.
+- Output surfaces include SQLite telemetry, markdown and JSON reports, Mermaid diagrams, and a FastAPI dashboard.
+
+:::artifact title="Public repository" kind="GitHub" href="https://github.com/AtharvaG109/enterprise-nids"
+The public repo is the source artifact for architecture, dashboard behavior, and project-level documentation.
+:::
+
+```text
+alert_id=nids-demo-014 severity=high flow=198.51.100.42:443 ja3=unusual anomaly=0.82 output=incident-report.md
+```
+
+## Security and observability
+
+The project treats explainability as part of detection quality. A finding is more useful when it includes the traffic path, why the rule fired, and where the operator should look next.
+
+## Result
+
+The project works as an end-to-end detection platform with offline PCAP replay, live capture, report artifacts, dashboard views, and GitHub-ready documentation.

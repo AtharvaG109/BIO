@@ -55,7 +55,7 @@ jobs:
               export NEXT_PUBLIC_SITE_URL="https://${OWNER}.github.io/${REPO}"
             fi
           fi
-          npm run build
+          npm run check
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

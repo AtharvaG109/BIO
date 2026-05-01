@@ -1,0 +1,125 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
+const demos = {
+  "enterprise-nids-network-detection-platform": {
+    title: "Packet investigation timeline",
+    intro: "A sanitized replay of how the NIDS turns packet flow into explainable alerts.",
+    modes: ["PCAP replay", "Live capture"],
+    events: [
+      { time: "00:00.120", label: "PCAP loaded", signal: "2,418 packets indexed", severity: "ok" },
+      { time: "00:01.860", label: "Flow assembled", signal: "TLS session with unusual JA3", severity: "warn" },
+      { time: "00:02.440", label: "DPI carved", signal: "Suspicious payload fragment", severity: "high" },
+      { time: "00:03.020", label: "Report emitted", signal: "Markdown + JSON incident summary", severity: "ok" }
+    ]
+  },
+  "patchbot-security-platform": {
+    title: "Security scan preview",
+    intro: "A client-side model of how Patchbot separates noisy findings from confirmed risk.",
+    modes: ["IAST confirmation", "Secret scan"],
+    events: [
+      { time: "step 1", label: "Route discovered", signal: "/admin/export accepts query input", severity: "warn" },
+      { time: "step 2", label: "Browser proof", signal: "Playwright confirms reflected payload", severity: "high" },
+      { time: "step 3", label: "Secret candidate", signal: "Entropy 4.8, allowlist miss", severity: "warn" },
+      { time: "step 4", label: "Developer output", signal: "Fix guidance with reproduction context", severity: "ok" }
+    ]
+  },
+  "sysguard-ebpf-linux-activity-monitor": {
+    title: "eBPF policy simulator",
+    intro: "A narrow, honest model of how events become ALLOW, LOG, ALERT, or BLOCK outcomes.",
+    modes: ["Monitor", "Enforce"],
+    events: [
+      { time: "execve", label: "/usr/bin/curl", signal: "Rule: network tool execution", severity: "warn" },
+      { time: "openat", label: "/etc/ssh/sshd_config", signal: "Rule: sensitive file read", severity: "high" },
+      { time: "connect4", label: "203.0.113.24:443", signal: "Rule: outbound block exact IPv4", severity: "high" },
+      { time: "emit", label: "JSON output", signal: "Deduped event delivered to operator", severity: "ok" }
+    ]
+  },
+  "spectrefs-encrypted-vault-filesystem": {
+    title: "Vault access flow",
+    intro: "A sanitized audit trail for encrypted-at-rest storage with trusted-app plaintext access.",
+    modes: ["Mounted vault", "No-FUSE mode"],
+    events: [
+      { time: "unlock", label: "Key derivation", signal: "Argon2id derives wrapping material", severity: "ok" },
+      { time: "read", label: "Trusted app check", signal: "Bundle identity allowed", severity: "ok" },
+      { time: "audit", label: "Plaintext exposure", signal: "Read recorded with process context", severity: "warn" },
+      { time: "repair", label: "Health workflow", signal: "Chunk authentication verified", severity: "ok" }
+    ]
+  }
+};
+
+const severityCopy = {
+  ok: "Normal",
+  warn: "Review",
+  high: "High signal"
+};
+
+export function ProjectDemo({ slug }) {
+  const demo = demos[slug];
+  const [activeMode, setActiveMode] = useState(demo?.modes?.[0] ?? "");
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const activeEvent = useMemo(() => demo?.events?.[activeIndex] ?? demo?.events?.[0], [activeIndex, demo]);
+
+  if (!demo) {
+    return null;
+  }
+
+  return (
+    <section className="article-section project-demo-shell" aria-labelledby="project-demo-heading">
+      <div className="section-heading project-section-heading">
+        <p className="eyebrow">Interactive Demo</p>
+        <h2 id="project-demo-heading">{demo.title}</h2>
+        <p className="muted">{demo.intro}</p>
+      </div>
+
+      <div className="demo-console">
+        <div className="demo-toolbar" role="toolbar" aria-label="Demo mode">
+          {demo.modes.map((mode) => (
+            <button
+              key={mode}
+              type="button"
+              className={`chip ${mode === activeMode ? "chip-active" : ""}`}
+              onClick={() => setActiveMode(mode)}
+              aria-pressed={mode === activeMode}
+            >
+              {mode}
+            </button>
+          ))}
+        </div>
+
+        <div className="demo-grid">
+          <div className="event-stream" aria-label={`${demo.title} event stream`}>
+            {demo.events.map((event, index) => (
+              <button
+                key={`${event.time}-${event.label}`}
+                type="button"
+                className={`event-row event-${event.severity} ${index === activeIndex ? "event-row-active" : ""}`}
+                onClick={() => setActiveIndex(index)}
+              >
+                <span>{event.time}</span>
+                <strong>{event.label}</strong>
+                <em>{severityCopy[event.severity]}</em>
+              </button>
+            ))}
+          </div>
+
+          <div className={`event-detail event-${activeEvent.severity}`}>
+            <p className="micro-label">{activeMode}</p>
+            <h3>{activeEvent.label}</h3>
+            <p>{activeEvent.signal}</p>
+            <div className="trace-bar" aria-hidden="true">
+              {demo.events.map((event, index) => (
+                <span
+                  key={`${event.label}-bar`}
+                  className={`trace-segment trace-${event.severity} ${index <= activeIndex ? "trace-segment-lit" : ""}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

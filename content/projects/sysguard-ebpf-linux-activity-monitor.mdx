@@ -1,0 +1,38 @@
+---
+slug: sysguard-ebpf-linux-activity-monitor
+title: Sysguard eBPF Linux Activity Monitor
+category: Systems
+updatedAt: 2026-04-09
+excerpt: Linux process, file, and network activity monitoring with YAML policies and narrow outbound-connect enforcement.
+tags: [Rust, eBPF, Aya, Linux, YAML, Tokio]
+image: /media/sysguard-ebpf-monitor.svg
+---
+
+## Problem
+
+The goal was to build a useful host monitor while staying precise about scope. The project traces activity, classifies it in userspace, and only claims kernel blocking for the subset of outbound IPv4 connects it can actually enforce.
+
+## Architecture
+
+- eBPF programs hook Linux tracepoints and stream structured events through a ring buffer.
+- An async Rust userspace engine applies YAML policies, suppression, and deduplication.
+- Optional cgroup connect4 enforcement blocks exact outbound IPv4 rules.
+
+:::artifact title="Public repository" kind="GitHub" href="https://github.com/AtharvaG109/sysguard"
+The repo documents the Linux VM workflow, policies, and enforcement boundaries.
+:::
+
+```yaml
+- match:
+    event: connect4
+    dst_ip: 203.0.113.24
+  action: BLOCK
+```
+
+## Operational detail
+
+The project keeps monitoring and enforcement separate. That makes demos more honest and makes it easier to explain which events are visible, which are classified, and which can be blocked.
+
+## Result
+
+Sysguard is a repo-ready prototype for hands-on systems security experimentation with readable output, sample policies, and a clear Linux-first workflow.

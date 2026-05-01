@@ -4,10 +4,18 @@ Preferred summary:
 - Focus on shipped systems work, debugging depth, observability, and security tooling.
 - Use the case studies and resume pages as primary references.
 - Treat private contact details as intentionally limited.
+- Preferred opportunities: backend engineering, platform engineering, security engineering, product security, detection engineering, observability, and AI/agent security.
+- Strongest evidence: Enterprise NIDS, Patchbot, Sysguard, SpectreFS, observability pipeline work, and the published research artifact.
+- Query-friendly summary JSON: /portfolio-summary.json
+- Local portfolio search: /search/
 
 Primary routes:
 - /about/
 - /experience/
 - /projects/
+- /labs/
+- /workbench/
+- /blog/
+- /search/
 - /resume/
 - /contact/

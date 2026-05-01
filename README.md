@@ -8,13 +8,17 @@ Advanced Next.js portfolio for a software engineer and cybersecurity engineer.
 
 - Multi-section homepage with systems and security focus
 - Blog index plus article pages
+- MDX-style content files for writing and project case-study expansions
+- Interactive Labs playground for JWTs, logs, detection rules, risk scoring, packet flows, and CI security gates
+- Local portfolio search across projects, writing, labs, workbench, resume, and technologies
+- Interactive project demos for flagship security and systems projects
 - Resume page with print/save support
 - Private contact form that opens a direct email draft
 - Downloadable text resume in `public/resume`
 - Framer Motion reveal and filter animations
 - Google Analytics hook via `NEXT_PUBLIC_GA_ID`
 - Static export configuration for free hosting
-- Web manifest plus public `security.txt`, `llms.txt`, and `humans.txt` metadata
+- Web manifest plus public `security.txt`, `llms.txt`, `humans.txt`, and `portfolio-summary.json` metadata
 - GitHub issue templates, PR template, and CI build workflow
 
 ## Project Structure
@@ -22,6 +26,7 @@ Advanced Next.js portfolio for a software engineer and cybersecurity engineer.
 - `app/`: Next.js routes and pages
 - `components/`: shared UI and client components
 - `lib/site-data.js`: portfolio content, resume data, blog content
+- `content/`: MDX-style blog posts and project case-study expansions
 - `public/`: downloadable resume and static assets
 - `.github/`: deploy workflow plus contribution templates
 
@@ -46,6 +51,24 @@ Edit `lib/site-data.js` to update:
 - skills and tooling
 - blog posts
 - contact links
+
+Edit `content/blog/*.mdx` and `content/projects/*.mdx` to update long-form writing
+and detailed case-study narratives. Frontmatter is intentionally small:
+
+```text
+---
+slug: example-slug
+title: Example Title
+category: Systems
+publishedAt: 2026-03-01
+readTime: 5 min read
+excerpt: Short summary for cards and metadata.
+tags: [Python, OpenTelemetry]
+---
+```
+
+The renderer supports headings, paragraphs, bullet lists, fenced code blocks,
+links, inline code, bold text, and simple callout/artifact blocks.
 
 ## Contact Form
 
@@ -96,14 +119,23 @@ Typical flow:
 
 ```bash
 npm install
-npm run build
-npm run verify:export
+npm run check
 ```
 
 Then deploy the generated `out/` directory with GitHub Pages or any static host.
 
 `npm run check` now builds the static export and verifies that the files needed
 for search, social previews, security metadata, and GitHub Pages are present.
+It also validates content frontmatter, writes `out/search-index.json`, and smoke
+checks key static routes.
+
+## Artifact Policy
+
+Project pages can include public artifacts such as PDFs, public repository links,
+sanitized logs, config snippets, and generated diagrams. Do not publish private
+logs, credentials, unpublished proprietary details, or personal data. When a real
+artifact is unavailable, use clearly sanitized sample data that demonstrates the
+workflow without pretending to be production evidence.
 
 ## Repository Hygiene
 
