@@ -5,21 +5,19 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { StructuredData } from "@/components/structured-data";
 import {
-  aboutDepthCards,
   buildAbsoluteUrl,
-  capabilityCards,
   createBreadcrumbSchema,
-  hero,
-  interests,
-  principles,
   siteConfig,
   toolGroups,
   withBasePath
 } from "@/lib/site-data";
 
+const aboutDescription =
+  "About Atharva Gham, a backend, platform, and security engineer shaped by graduate cybersecurity work at the University of Maryland.";
+
 export const metadata = {
   title: "About",
-  description: "Profile, working style, values, and technical interests for Atharva Gham.",
+  description: aboutDescription,
   alternates: {
     canonical: "/about/"
   }
@@ -36,23 +34,110 @@ const aboutSchema = [
     name: siteConfig.name,
     url: buildAbsoluteUrl("/about/"),
     jobTitle: "Software Engineer",
-    description: siteConfig.description,
+    description: aboutDescription,
     sameAs: siteConfig.sameAs
   }
 ];
 
 const profileVisuals = [
   {
-    title: "University of Maryland campus",
+    title: "UMD campus before a storm",
     src: "/media/about-umd-campus-building.jpg",
-    alt: "University of Maryland campus building photographed from a local file.",
-    note: "Local campus photo from your files, used to support the UMD graduate background."
+    alt: "Brick University of Maryland campus building with a white cupola under dark storm clouds.",
+    note: "A familiar College Park view from the period when secure systems and cloud security became everyday work for me."
   },
   {
-    title: "McKeldin Mall view",
+    title: "McKeldin Mall in the evening",
     src: "/media/about-umd-mall-local.jpg",
-    alt: "McKeldin Mall at the University of Maryland photographed from a local file.",
-    note: "Local campus photo from your files, with no online image source or AI generation."
+    alt: "Wide view across McKeldin Mall at the University of Maryland under a blue evening sky.",
+    note: "The long view across campus fits the way I think about engineering: keep the larger system visible while working through the details."
+  }
+];
+
+const aboutStrengths = [
+  {
+    title: "Backend and Platform Systems",
+    body:
+      "APIs, workers, queues, service boundaries, and deployment paths built with failure modes in mind."
+  },
+  {
+    title: "Observability-Led Debugging",
+    body:
+      "Tracing, logs, metrics, packet captures, and direct runtime evidence before guessing at a fix."
+  },
+  {
+    title: "Security That Fits Delivery",
+    body:
+      "CI checks, policy gates, detection logic, IAM hygiene, and remediation workflows that engineering teams can maintain."
+  },
+  {
+    title: "Low-Level Curiosity",
+    body:
+      "Enough comfort with Linux, binaries, memory, and networking to keep digging when the bug sits below the application layer."
+  }
+];
+
+const workingPrinciples = [
+  {
+    title: "Be Direct About Uncertainty",
+    body:
+      "I would rather say what we know, what we do not know, and what evidence would settle it than oversell a guess.",
+    signal: "Useful in incidents, security reviews, and technical handoffs."
+  },
+  {
+    title: "Stay With the Hard Parts",
+    body:
+      "Shipping is not the finish line if rollout, alerts, docs, or cleanup are still weak.",
+    signal: "Ownership means making the system easier to live with."
+  },
+  {
+    title: "Use Evidence",
+    body:
+      "When behavior is unclear, I reach for traces, logs, packets, source, and tests instead of debating from memory.",
+    signal: "It keeps discussions concrete and fixes defensible."
+  }
+];
+
+const aboutDepthCards = [
+  {
+    title: "Architecture to Operations",
+    body:
+      "I think about deployability, fallback behavior, telemetry, and support paths while the design is still being shaped.",
+    signal: "The result is less cleanup after launch."
+  },
+  {
+    title: "Security as Engineering Quality",
+    body:
+      "Threat models, defaults, and guardrails work best when they are built into the flow of delivery.",
+    signal: "That makes risk easier to find, explain, and reduce."
+  },
+  {
+    title: "Communication That Lowers Friction",
+    body:
+      "I write notes and summaries so another engineer can understand the decision, reproduce the issue, or continue the work.",
+    signal: "Good context saves time when the work gets complicated."
+  }
+];
+
+const interestNotes = [
+  {
+    title: "Systems and Linux",
+    body: "Processes, networking, memory, and the OS behavior behind service failures."
+  },
+  {
+    title: "Security Research",
+    body:
+      "Exploit mechanics, incident writeups, detection ideas, and defensive patterns that survive real constraints."
+  },
+  {
+    title: "AI Security",
+    body:
+      "How tool-using agents fail, where trust boundaries move, and how to make automation auditable."
+  },
+  {
+    title: "Distributed Systems",
+    body:
+      "Queues, concurrency, resilience, and observability in services that cannot rely on a single happy path."
   }
 ];
 
@@ -62,8 +147,8 @@ export default function AboutPage() {
       <StructuredData data={aboutSchema} />
       <PageHero
         eyebrow="About"
-        title="Who I am, what kind of engineer I am, and how I like to work."
-        copy="I am a backend, platform, and security engineer who likes difficult systems work. I care about reliability, clear architecture, real debugging, and building things that still make sense once they are running in the real world."
+        title="I build backend, platform, and security systems that are easier to understand under pressure."
+        copy="My best work sits close to runtime behavior: APIs, services, telemetry, deployments, security controls, and the debugging path when something breaks. I like practical engineering over polished buzzwords."
         actions={[
           { label: "View experience", href: "/experience/", variant: "primary" },
           { label: "Request intro", href: "/contact/", variant: "secondary" }
@@ -74,8 +159,8 @@ export default function AboutPage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="University of Maryland"
-            title="Campus photos from your own files, not online sources."
-            copy="These images come from the local HEIC files you provided. They connect the About page to your University of Maryland cybersecurity engineering background without using online images or AI-generated campus scenes."
+            title="The place that sharpened how I think about security."
+            copy="My graduate work at UMD gave me a stronger base in secure systems, cloud security, offensive practice, and defensive engineering. The photos keep that background grounded in the place where the work happened."
           />
         </AnimateIn>
 
@@ -102,20 +187,20 @@ export default function AboutPage() {
 
           <AnimateIn className="surface about-photo-panel" delay={0.14}>
             <p className="eyebrow">Background</p>
-            <h2>Cybersecurity engineering, grounded in a real UMD context.</h2>
+            <h2>College Park is where the work became more concrete.</h2>
             <p className="muted">
-              My M.Eng. in Cybersecurity Engineering at the University of Maryland, College Park
-              strengthened the secure systems, cloud security, offensive practice, and defensive
-              engineering work behind this portfolio.
+              The coursework and labs made security feel less like a checklist and more like an
+              engineering discipline: understand the system, test assumptions, look at the evidence,
+              and leave the design easier to operate.
             </p>
             <div className="about-photo-note-grid">
               <article>
-                <p className="micro-label">Source</p>
-                <p>Converted from your local HEIC files and stripped of image metadata before publishing.</p>
+                <p className="micro-label">Graduate focus</p>
+                <p>M.Eng. work in Cybersecurity Engineering at the University of Maryland, College Park.</p>
               </article>
               <article>
-                <p className="micro-label">Style</p>
-                <p>Real campus context without synthetic backgrounds, stock imagery, or external photo credits.</p>
+                <p className="micro-label">How it shows up</p>
+                <p>Backend and platform work with clearer threat models, better observability, and safer defaults.</p>
               </article>
             </div>
           </AnimateIn>
@@ -126,45 +211,45 @@ export default function AboutPage() {
         <div className="about-intro-grid">
           <AnimateIn className="surface panel-card about-story-panel" delay={0.06}>
             <p className="eyebrow">Who I Am</p>
-            <h2>I am not just trying to ship features. I like understanding how the system actually behaves.</h2>
+            <h2>I like the part of engineering where the details start to matter.</h2>
             <p className="about-lead">
-              My strongest work usually sits somewhere between backend engineering, platform
-              reliability, and security. I like being close to the runtime, the telemetry, the
-              packet flow, the release process, and the debugging trail when something goes wrong.
+              I am drawn to backend and platform work because small design decisions show up later
+              in latency, failures, alerts, and security posture. I prefer getting close enough to
+              the system to explain what is happening, not just patch the symptom.
             </p>
             <div className="about-story-grid">
               <article className="about-story-note">
                 <p>
-                  I enjoy building useful systems, but I also care a lot about whether the system is
-                  explainable. If a service is hard to observe, hard to reason about, or easy to
-                  break during rollout, I do not consider the job finished yet.
+                  I enjoy building services and tools that a team can operate after the first demo.
+                  That means clear boundaries, useful logs and traces, simple runbooks, and defaults
+                  that make the safe path the easy path.
                 </p>
               </article>
               <article className="about-story-note about-story-note-accent">
                 <p className="micro-label">Why security stays close</p>
                 <p>
-                  A lot of my interest in security comes from the same mindset. I want systems to be
-                  safer in ways that are concrete, observable, and operational instead of cosmetic.
+                  Security fits that same way of working. Good controls should reduce uncertainty
+                  for engineers, not sit in a separate document no one trusts.
                 </p>
               </article>
             </div>
           </AnimateIn>
 
           <AnimateIn className="surface panel-card about-aim-panel" delay={0.12}>
-            <p className="eyebrow">What I Want To Keep Doing</p>
-            <h2>The environments where I do my best work.</h2>
+            <p className="eyebrow">Next</p>
+            <h2>The teams where I fit best.</h2>
             <div className="about-aim-list">
               <article className="about-aim-item">
                 <span className="about-aim-mark" aria-hidden="true" />
-                <p>Backend or platform teams where reliability, observability, and performance are treated as engineering work, not cleanup.</p>
+                <p>Backend, platform, or infrastructure teams that care about reliability, observability, and measured performance.</p>
               </article>
               <article className="about-aim-item">
                 <span className="about-aim-mark" aria-hidden="true" />
-                <p>Security-minded environments where guardrails, automation, and debugging depth matter more than buzzwords.</p>
+                <p>Security engineering teams that turn risk into guardrails, automation, and clear remediation paths.</p>
               </article>
               <article className="about-aim-item">
                 <span className="about-aim-mark" aria-hidden="true" />
-                <p>Teams that value ownership, clear communication, and engineers who stay with the hard parts after launch.</p>
+                <p>Groups that value ownership after launch: debugging, hardening, documentation, and incident learning.</p>
               </article>
             </div>
           </AnimateIn>
@@ -175,14 +260,14 @@ export default function AboutPage() {
         <AnimateIn delay={0.04}>
           <SectionHeading
             eyebrow="Strengths"
-            title="Where I add leverage."
-            copy="I tend to be most useful when a project needs architecture, implementation, and post-launch follow-through from the same person."
+            title="The work I want people to trust me with."
+            copy="I am useful when a project needs someone who can connect implementation details with production behavior and security tradeoffs."
           />
         </AnimateIn>
 
         <div className="overview-grid">
           <div className="capability-grid">
-            {capabilityCards.map((card, index) => (
+            {aboutStrengths.map((card, index) => (
               <AnimateIn key={card.title} className="surface capability-card" delay={0.08 + index * 0.04}>
                 <p className="micro-label">Capability</p>
                 <h3>{card.title}</h3>
@@ -195,16 +280,16 @@ export default function AboutPage() {
             <div className="home-collaboration-head">
               <div>
                 <p className="eyebrow">Working style</p>
-                <h2>{hero.mission}</h2>
+                <h2>Make the system explainable before calling it done.</h2>
               </div>
               <p className="muted home-collaboration-copy">
-                Technical range matters, but I care just as much about whether the work is
-                observable, supportable, and trustworthy after the first release.
+                I care about the shape of the work after it ships: who can debug it, who can support
+                it, and whether the next engineer can understand the tradeoffs.
               </p>
             </div>
 
             <div className="home-collaboration-grid">
-              {principles.map((principle) => (
+              {workingPrinciples.map((principle) => (
                 <article key={principle.title} className="home-collaboration-card">
                   <p className="micro-label">{principle.title}</p>
                   <p>{principle.body}</p>
@@ -219,9 +304,9 @@ export default function AboutPage() {
       <section className="section-block">
         <AnimateIn delay={0.04}>
           <SectionHeading
-            eyebrow="Execution Depth"
-            title="How I turn broad range into reliable delivery."
-            copy="The goal is not to sound broad. The goal is to stay useful when the work crosses multiple layers and somebody needs to keep the whole thing understandable."
+            eyebrow="Depth"
+            title="How I keep broad work from becoming vague."
+            copy="I try to connect each layer to something visible: a metric, a failure mode, a security boundary, a deployment risk, or a clear handoff."
           />
         </AnimateIn>
 
@@ -241,9 +326,9 @@ export default function AboutPage() {
         <div className="detail-grid">
           <AnimateIn className="surface panel-card" delay={0.08}>
             <p className="eyebrow">Interests</p>
-            <h2>The technical areas I keep coming back to, even when they are not required by the current project.</h2>
+            <h2>The areas I keep studying because they make me better on real projects.</h2>
             <div className="interest-stack">
-              {interests.map((item) => (
+              {interestNotes.map((item) => (
                 <article key={item.title} className="interest-item">
                   <h3>{item.title}</h3>
                   <p className="muted">{item.body}</p>
@@ -254,7 +339,7 @@ export default function AboutPage() {
 
           <AnimateIn className="surface panel-card" delay={0.14}>
             <p className="eyebrow">Technical range</p>
-            <h2>The tooling that keeps showing up across the work I do.</h2>
+            <h2>The tools I keep reaching for.</h2>
             <div className="preview-list compact-preview-list">
               {toolGroups.map((group) => (
                 <article key={group.title} className="preview-item">
