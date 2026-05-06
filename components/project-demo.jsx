@@ -3,6 +3,17 @@
 import { useMemo, useState } from "react";
 
 const demos = {
+  "tinyc-c99-compiler": {
+    title: "Compiler bootstrap trace",
+    intro: "A compact model of how tinyc moves from source input to tested self-hosting output.",
+    modes: ["Compile", "Self-host"],
+    events: [
+      { time: "parse", label: "C source loaded", signal: "Lexer, parser, and semantic checks build a typed AST", severity: "ok" },
+      { time: "lower", label: "IR generated", signal: "Statements become TAC with stack-slot allocation", severity: "ok" },
+      { time: "emit", label: "Assembly produced", signal: "x86-64 AT&T output feeds as and cc", severity: "warn" },
+      { time: "stage2", label: "Bootstrap compared", signal: "stage1 and stage2 match with linker UUIDs disabled", severity: "ok" }
+    ]
+  },
   "enterprise-nids-network-detection-platform": {
     title: "Packet investigation timeline",
     intro: "A sanitized replay of how the NIDS turns packet flow into explainable alerts.",

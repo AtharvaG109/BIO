@@ -1,0 +1,36 @@
+---
+slug: tinyc-c99-compiler
+title: tinyc C99 Compiler
+category: Systems
+updatedAt: 2026-05-05
+excerpt: A from-scratch C compiler with structs, arrays, aggregate initialization, ABI tests, and a deterministic self-hosting milestone.
+tags: [C, Compilers, x86-64, ABI, Self-hosting, Make]
+image: /media/tinyc-c99-compiler.svg
+---
+
+## Problem
+
+The goal was to turn a small compiler into a public, testable systems project instead of a partial parser demo. The useful milestone needed to compile real C snippets, exercise structs and arrays, and prove that the compiler could build itself under a constrained self-host header set.
+
+## Architecture
+
+- The pipeline is intentionally simple: lexer, parser, semantic analysis, TAC IR, stack-slot register allocation, and x86-64 AT&T assembly output.
+- The test workflow builds the compiler, runs unit and integration suites, assembles emitted programs, links them with the platform toolchain, and executes the result.
+- The self-host flow preprocesses the compiler sources with bundled headers, compiles them with tinyc, links stage1, then rebuilds stage2 for deterministic comparison.
+
+:::artifact title="Public repository" kind="GitHub" href="https://github.com/AtharvaG109/tinyc-c99-compiler"
+The repository documents the supported C subset, tests, ABI coverage, and self-hosting workflow.
+:::
+
+```bash
+make check
+make selfhost LDFLAGS=-Wl,-no_uuid
+```
+
+## Compiler details
+
+The project focuses on a practical C99 slice: functions, pointers, arrays, structs, unions, local and global aggregate initialization, designators, simple bit-fields, variadic calls, and a bounded VLA-style workflow. The ABI work covers small aggregate pass/return cases and memory-class struct returns through a hidden return pointer.
+
+## Result
+
+tinyc is now a GitHub-ready compiler milestone with repeatable tests, CI, documentation, and a self-hosting verification path that can be run from the Makefile.

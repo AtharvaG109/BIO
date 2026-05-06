@@ -26,6 +26,7 @@ const featuredProject = getFeaturedProject();
 const newestProject = getNewestProject();
 const latestPost = getSortedContent("blog")[0] ?? null;
 const currentThreads = [
+  "Publishing tinyc as a self-hosting C compiler milestone with repeatable ABI, integration, and bootstrap checks.",
   "Building public security and systems projects that are technically honest and easy to explain.",
   "Looking for backend, platform, and security roles where reliability and debugging depth actually matter.",
   "Studying low-level systems and threat-modeling patterns that feed back into real product work."
