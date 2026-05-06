@@ -1,0 +1,28 @@
+---
+slug: uproxy-cxx-reverse-proxy
+title: uProxy C++ HTTP/2 Reverse Proxy
+category: Systems
+updatedAt: 2026-05-06
+excerpt: A production-ready asynchronous HTTP/2 reverse proxy with connection pooling, BoringSSL TLS termination, and HPACK Huffman coding written in modern C++.
+tags: [C++, HTTP/2, Networking, BoringSSL, Reverse Proxy, CI/CD]
+image: /media/distributed-pipeline.svg
+---
+
+## Problem
+
+The goal was to build a highly concurrent and RFC-compliant HTTP/2 reverse proxy from scratch in C++. The proxy needed to cleanly terminate TLS handshakes with modern security libraries, negotiate ALPN protocols, manage complex HTTP/2 stream state validation, decode header compression accurately, and multiplex frontend requests to pooled HTTP/1.1 backend connections efficiently without blocking.
+
+## Architecture
+
+- The server uses a custom non-blocking event loop based on `kqueue`/`epoll` for handling thousands of concurrent connections.
+- It leverages BoringSSL `BIO` memory interfaces to asynchronously terminate TLS, keeping all TLS state fully integrated into the non-blocking read/write paths.
+- It parses incoming HTTP/2 frames, enforces strict stream-state transitions (Idle, Open, Half-Closed), and maps client streams to a fast connection pooling manager for backend HTTP/1.1 servers.
+- The HPACK implementation natively parses the static Huffman encoding tree outlined in RFC 7541 to fully decompress encoded headers efficiently.
+
+:::artifact title="Public repository" kind="GitHub" href="https://github.com/AtharvaG109/uproxy"
+The repository contains the complete event-driven codebase, test matrix workflows, documentation, and connection pool infrastructure.
+:::
+
+## Result
+
+uProxy is now a complete, production-ready systems networking project. It efficiently routes HTTP/2 requests while maintaining high performance through connection reuse. It enforces secure BoringSSL integration, passes rigorous automated ASan CI pipelines via GitHub Actions, and operates robustly under load constraints.
