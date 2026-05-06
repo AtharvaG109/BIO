@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { ProjectPreviewDiagram } from "@/components/project-preview-diagram";
@@ -14,6 +14,7 @@ const cardTransition = {
 
 export function ProjectShowcase({ projects }) {
   const shouldReduceMotion = useReducedMotion();
+  const spotlightRef = useRef(null);
   const newestProjectSlug = useMemo(() => getSortedProjects(projects)[0]?.slug ?? null, [projects]);
   const categories = useMemo(() => {
     return ["All", ...new Set(projects.map((project) => project.category))];
@@ -45,13 +46,24 @@ export function ProjectShowcase({ projects }) {
   const selectedProject =
     visibleProjects.find((project) => project.slug === selectedSlug) ?? visibleProjects[0] ?? projects[0];
 
+  const previewProject = (projectSlug) => {
+    setSelectedSlug(projectSlug);
+
+    window.requestAnimationFrame(() => {
+      spotlightRef.current?.scrollIntoView({ behavior: shouldReduceMotion ? "auto" : "smooth", block: "start" });
+      spotlightRef.current?.focus({ preventScroll: true });
+    });
+  };
+
   return (
     <div className="project-showcase">
       {selectedProject ? (
         <motion.article
+          ref={spotlightRef}
           layout={!shouldReduceMotion}
           className="surface project-spotlight"
           transition={shouldReduceMotion ? { duration: 0 } : cardTransition}
+          tabIndex={-1}
         >
           <div className="project-spotlight-head">
             <div>
@@ -168,7 +180,7 @@ export function ProjectShowcase({ projects }) {
                 <button
                   type="button"
                   className="project-card-toggle"
-                  onClick={() => setSelectedSlug(project.slug)}
+                  onClick={() => previewProject(project.slug)}
                   aria-pressed={isActive}
                 >
                   <div className="project-card-thumbnail project-preview-frame">
@@ -198,7 +210,7 @@ export function ProjectShowcase({ projects }) {
                   <button
                     type="button"
                     className="text-link text-link-button"
-                    onClick={() => setSelectedSlug(project.slug)}
+                    onClick={() => previewProject(project.slug)}
                   >
                     Preview here
                   </button>

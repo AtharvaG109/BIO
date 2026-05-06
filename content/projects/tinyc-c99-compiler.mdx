@@ -2,15 +2,15 @@
 slug: tinyc-c99-compiler
 title: tinyc C99 Compiler
 category: Systems
-updatedAt: 2026-05-05
-excerpt: A from-scratch C compiler with structs, arrays, aggregate initialization, ABI tests, and a deterministic self-hosting milestone.
+updatedAt: 2026-05-06
+excerpt: A production-ready from-scratch C compiler with structs, arrays, aggregate initialization, ABI tests, sanitizer checks, and deterministic self-hosting validation.
 tags: [C, Compilers, x86-64, ABI, Self-hosting, Make]
 image: /media/tinyc-c99-compiler.svg
 ---
 
 ## Problem
 
-The goal was to turn a small compiler into a public, testable systems project instead of a partial parser demo. The useful milestone needed to compile real C snippets, exercise structs and arrays, and prove that the compiler could build itself under a constrained self-host header set.
+The goal was to turn a small compiler into a public, production-ready systems project instead of a partial parser demo. The useful release needed to compile real C snippets, exercise structs and arrays, and prove that the compiler could build itself under a constrained self-host header set.
 
 ## Architecture
 
@@ -19,11 +19,12 @@ The goal was to turn a small compiler into a public, testable systems project in
 - The self-host flow preprocesses the compiler sources with bundled headers, compiles them with tinyc, links stage1, then rebuilds stage2 for deterministic comparison.
 
 :::artifact title="Public repository" kind="GitHub" href="https://github.com/AtharvaG109/tinyc-c99-compiler"
-The repository documents the supported C subset, tests, ABI coverage, and self-hosting workflow.
+The repository documents the supported C subset, tests, ABI coverage, release gates, security policy, and self-hosting workflow.
 :::
 
 ```bash
 make check
+make check BUILDDIR=build-asan CFLAGS='-std=c11 -Wall -Wextra -Wpedantic -Wno-unused-parameter -g -Iinclude -fsanitize=address,undefined -fno-omit-frame-pointer' LDFLAGS='-fsanitize=address,undefined'
 make selfhost LDFLAGS=-Wl,-no_uuid
 ```
 
@@ -33,4 +34,4 @@ The project focuses on a practical C99 slice: functions, pointers, arrays, struc
 
 ## Result
 
-tinyc is now a GitHub-ready compiler milestone with repeatable tests, CI, documentation, and a self-hosting verification path that can be run from the Makefile.
+tinyc is now a production-ready compiler release with repeatable tests, CI release gates, sanitizer validation, documentation, SECURITY.md, a tagged v0.1.0 release, and a self-hosting verification path that can be run from the Makefile.
