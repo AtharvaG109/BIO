@@ -48,13 +48,21 @@ async function buildEntries() {
   return entries.sort((a, b) => a.href.localeCompare(b.href));
 }
 
-await mkdir(outDir, { recursive: true });
-const searchIndex = {
-  generatedAt: new Date().toISOString(),
-  note:
-    "Runtime search uses the bundled static index in the Next app. This export artifact indexes generated HTML pages for reviewers and future Pagefind migration.",
-  entries: await buildEntries()
-};
+try {
+  await mkdir(outDir, { recursive: true });
+  const searchIndex = {
+    generatedAt: new Date().toISOString(),
+    note:
+      "Runtime search uses the bundled static index in the Next app. This export artifact indexes generated HTML pages for reviewers and future Pagefind migration.",
+    entries: await buildEntries()
+  };
 
-await writeFile(join(outDir, "search-index.json"), `${JSON.stringify(searchIndex, null, 2)}\n`);
-console.log(`Wrote out/search-index.json with ${searchIndex.entries.length} entries`);
+  const json = JSON.stringify(searchIndex, null, 2);
+  JSON.parse(json); // validate output before writing
+
+  await writeFile(join(outDir, "search-index.json"), `${json}\n`);
+  console.log(`Wrote out/search-index.json with ${searchIndex.entries.length} entries`);
+} catch (error) {
+  console.error("Failed to build search index:", error.message);
+  process.exit(1);
+}

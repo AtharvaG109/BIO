@@ -75,18 +75,6 @@ export function ContactInterestForm() {
     const role = fields.role.value;
     const message = fields.message.value;
 
-    if (name.length < 2 || message.length < 20) {
-      setStatus("error");
-      setStatusMessage("Please provide a real name and a bit more context before submitting.");
-      return;
-    }
-
-    if (name.length > 80 || company.length > 120 || timeline.length > 80 || role.length > 120 || message.length > 2000) {
-      setStatus("error");
-      setStatusMessage("One or more fields are too long. Please shorten the request and try again.");
-      return;
-    }
-
     setIsSubmitting(true);
     setStatus("idle");
     setStatusMessage("");
